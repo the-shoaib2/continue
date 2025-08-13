@@ -1,7 +1,7 @@
 import {
-    DataDestination,
-    ModelRole,
-    PromptTemplates,
+  DataDestination,
+  ModelRole,
+  PromptTemplates,
 } from "@synapse/config-yaml";
 import Parser from "web-tree-sitter";
 import { CodebaseIndexer } from "./indexing/CodebaseIndexer";
@@ -766,7 +766,7 @@ export interface IdeSettings {
   remoteConfigServerUrl: string | undefined;
   remoteConfigSyncPeriod: number;
   userToken: string;
-  continueTestEnvironment: "none" | "production" | "staging" | "local";
+  synapseTestEnvironment: "none" | "production" | "staging" | "local";
   pauseCodebaseIndexOnStart: boolean;
 }
 

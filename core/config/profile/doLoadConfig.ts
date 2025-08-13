@@ -1,22 +1,22 @@
 import fs from "fs";
 
 import {
-    AssistantUnrolled,
-    ConfigResult,
-    ConfigValidationError,
-    ModelRole,
-    PackageIdentifier,
-} from "@continuedev/config-yaml";
+  AssistantUnrolled,
+  ConfigResult,
+  ConfigValidationError,
+  ModelRole,
+  PackageIdentifier,
+} from "@synapse/config-yaml";
 
 import {
-    ContinueConfig,
-    IDE,
-    IdeSettings,
-    ILLMLogger,
-    RuleWithSource,
-    SerializedContinueConfig,
-    SlashCommandDescWithSource,
-    Tool,
+  ContinueConfig,
+  IDE,
+  IdeSettings,
+  ILLMLogger,
+  RuleWithSource,
+  SerializedContinueConfig,
+  SlashCommandDescWithSource,
+  Tool,
 } from "../../";
 import { stringifyMcpPrompt } from "../../commands/slash/mcpSlashCommand";
 import { MCPManagerSingleton } from "../../context/mcp/MCPManagerSingleton";
@@ -37,7 +37,7 @@ import { getConfigJsonPath, getConfigYamlPath } from "../../util/paths";
 import { localPathOrUriToPath } from "../../util/pathToUri";
 import { Telemetry } from "../../util/posthog";
 import { TTS } from "../../util/tts";
-import { getWorkspaceContinueRuleDotFiles } from "../getWorkspaceContinueRuleDotFiles";
+import { getWorkspaceSynapseRuleDotFiles } from "../getWorkspaceSynapseRuleDotFiles";
 import { loadContinueConfigFromJson } from "../load";
 import { CodebaseRulesCache } from "../markdown/loadCodebaseRules";
 import { loadMarkdownRules } from "../markdown/loadMarkdownRules";
@@ -49,11 +49,11 @@ async function loadRules(ide: IDE) {
   const rules: RuleWithSource[] = [];
   const errors = [];
 
-      // Add rules from .synapserules files
-  const { rules: yamlRules, errors: continueRulesErrors } =
-    await getWorkspaceContinueRuleDotFiles(ide);
+  // Add rules from .synapserules files
+  const { rules: yamlRules, errors: synapseRulesErrors } =
+    await getWorkspaceSynapseRuleDotFiles(ide);
   rules.unshift(...yamlRules);
-  errors.push(...continueRulesErrors);
+  errors.push(...synapseRulesErrors);
 
   // Add rules from markdown files in .synapse/rules
   const { rules: markdownRules, errors: markdownRulesErrors } =

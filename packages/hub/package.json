@@ -12,7 +12,7 @@
   "author": "Synapse Dev, Inc.",
   "license": "Apache-2.0",
   "dependencies": {
-    "@synapse/config-yaml": "^1.0.70"
+    "@synapse/config-yaml": "file:../config-yaml"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",

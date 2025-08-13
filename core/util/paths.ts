@@ -46,10 +46,7 @@ export function getSynapseUtilsPath(): string {
 }
 
 export function getGlobalSynapseIgnorePath(): string {
-  const synapseIgnorePath = path.join(
-    getSynapseGlobalPath(),
-    ".synapseignore",
-  );
+  const synapseIgnorePath = path.join(getSynapseGlobalPath(), ".synapseignore");
   if (!fs.existsSync(synapseIgnorePath)) {
     fs.writeFileSync(synapseIgnorePath, "");
   }
@@ -200,10 +197,7 @@ export function getSynapseRcPath(): string {
   // Disable indexing of the config folder to prevent infinite loops
   const synapsercPath = path.join(getSynapseGlobalPath(), ".synapserc.json");
   if (!fs.existsSync(synapsercPath)) {
-    fs.writeFileSync(
-      synapsercPath,
-      JSON.stringify({}, undefined, 2),
-    );
+    fs.writeFileSync(synapsercPath, JSON.stringify({}, undefined, 2));
   }
   return synapsercPath;
 }
@@ -496,3 +490,9 @@ export const isFileWithinFolder = (
     return false;
   }
 };
+
+// Export aliases for backward compatibility
+export const getContinueGlobalPath = getSynapseGlobalPath;
+export const getContinueUtilsPath = getSynapseUtilsPath;
+export const getGlobalContinueIgnorePath = getGlobalSynapseIgnorePath;
+export const getContinueRcPath = getSynapseRcPath;

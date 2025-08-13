@@ -1,4 +1,4 @@
-import { ConfigResult, parseConfigYaml } from "@continuedev/config-yaml";
+import { ConfigResult, parseConfigYaml } from "@synapse/config-yaml";
 
 import { ControlPlaneClient } from "../../control-plane/client.js";
 import { ContinueConfig, IDE, IdeSettings, ILLMLogger } from "../../index.js";

@@ -3,7 +3,7 @@ import {
     ConfigYaml,
     createRuleMarkdown,
     RULE_FILE_EXTENSION,
-} from "@continuedev/config-yaml";
+} from "@synapse/config-yaml";
 import * as YAML from "yaml";
 import { IDE } from "../..";
 import { joinPathsToUri } from "../../util/uri";

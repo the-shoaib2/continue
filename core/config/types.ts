@@ -650,11 +650,12 @@ declare global {
   }
   
   export interface IdeSettings {
-    remoteConfigServerUrl: string | undefined;
-    remoteConfigSyncPeriod: number;
-    userToken: string;
-    pauseCodebaseIndexOnStart: boolean;
-  }
+  remoteConfigServerUrl: string | undefined;
+  remoteConfigSyncPeriod: number;
+  userToken: string;
+  pauseCodebaseIndexOnStart: boolean;
+  synapseTestEnvironment?: string;
+}
   
   export interface IDE {
     getIdeInfo(): Promise<IdeInfo>;

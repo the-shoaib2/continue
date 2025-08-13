@@ -737,7 +737,10 @@
   },
   "dependencies": {
     "@synapse/config-types": "file:../../packages/config-types",
+    "@synapse/config-yaml": "file:../../packages/config-yaml",
     "@synapse/fetch": "file:../../packages/fetch",
+    "@synapse/llm-info": "file:../../packages/llm-info",
+    "@synapse/openai-adapters": "file:../../packages/openai-adapters",
     "@electron/rebuild": "^3.2.10",
     "@reduxjs/toolkit": "^1.9.3",
     "@vscode/ripgrep": "^1.15.9",

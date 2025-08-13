@@ -7,7 +7,7 @@ import {
   ConfigResult,
   ConfigValidationError,
   ModelRole,
-} from "@continuedev/config-yaml";
+} from "@synapse/config-yaml";
 import * as JSONC from "comment-json";
 import * as tar from "tar";
 

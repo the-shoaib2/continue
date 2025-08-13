@@ -1,7 +1,7 @@
 import {
     RULE_FILE_EXTENSION,
     sanitizeRuleName,
-} from "@continuedev/config-yaml";
+} from "@synapse/config-yaml";
 import { joinPathsToUri } from "../../util/uri";
 
 /**

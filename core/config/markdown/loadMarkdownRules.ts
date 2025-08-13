@@ -1,7 +1,7 @@
 import {
     ConfigValidationError,
     markdownToRule,
-} from "@continuedev/config-yaml";
+} from "@synapse/config-yaml";
 import { IDE, RuleWithSource } from "../..";
 import { getAllDotContinueDefinitionFiles } from "../loadLocalAssistants";
 

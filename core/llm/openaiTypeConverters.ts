@@ -1,4 +1,4 @@
-import { FimCreateParamsStreaming } from "@continuedev/openai-adapters/dist/apis/base";
+import { FimCreateParamsStreaming } from "@synapse/openai-adapters/dist/apis/base";
 import {
   ChatCompletion,
   ChatCompletionAssistantMessageParam,
