@@ -2,10 +2,10 @@ import * as fs from "fs/promises";
 
 import { ConfigHandler } from "../config/ConfigHandler.js";
 import {
-  ContinueConfig,
-  IDE,
-  IndexingProgressUpdate,
-  IndexTag,
+    ContinueConfig,
+    IDE,
+    IndexingProgressUpdate,
+    IndexTag,
 } from "../index.js";
 import type { FromCoreProtocol, ToCoreProtocol } from "../protocol";
 import type { IMessenger } from "../protocol/messenger";
@@ -14,7 +14,7 @@ import { getIndexSqlitePath, getLanceDbPath } from "../util/paths.js";
 import { Telemetry } from "../util/posthog.js";
 import { findUriInDirs, getUriPathBasename } from "../util/uri.js";
 
-import { ConfigResult } from "@continuedev/config-yaml";
+import { ConfigResult } from "@synapse/config-yaml";
 import CodebaseContextProvider from "../context/providers/CodebaseContextProvider.js";
 import { ContinueServerClient } from "../continueServer/stubs/client";
 import { LLMError } from "../llm/index.js";
@@ -26,10 +26,10 @@ import { FullTextSearchCodebaseIndex } from "./FullTextSearchCodebaseIndex.js";
 import { LanceDbIndex } from "./LanceDbIndex.js";
 import { getComputeDeleteAddRemove, IndexLock } from "./refreshIndex.js";
 import {
-  CodebaseIndex,
-  IndexResultType,
-  PathAndCacheKey,
-  RefreshIndexResults,
+    CodebaseIndex,
+    IndexResultType,
+    PathAndCacheKey,
+    RefreshIndexResults,
 } from "./types.js";
 import { walkDirAsync } from "./walkDir.js";
 

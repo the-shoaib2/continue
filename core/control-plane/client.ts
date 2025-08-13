@@ -1,13 +1,13 @@
-import { ConfigJson } from "@continuedev/config-types";
+import { ConfigJson } from "@synapse/config-types";
 import {
-  AssistantUnrolled,
-  ConfigResult,
-  FQSN,
-  FullSlug,
-  Policy,
-  SecretResult,
-  SecretType,
-} from "@continuedev/config-yaml";
+    AssistantUnrolled,
+    ConfigResult,
+    FQSN,
+    FullSlug,
+    Policy,
+    SecretResult,
+    SecretType,
+} from "@synapse/config-yaml";
 import fetch, { RequestInit, Response } from "node-fetch";
 
 import { OrganizationDescription } from "../config/ProfileLifecycleManager.js";

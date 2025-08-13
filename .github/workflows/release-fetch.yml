@@ -1,4 +1,4 @@
-name: Release @continuedev/fetch
+name: Release @synapse/fetch
 
 on:
   push:

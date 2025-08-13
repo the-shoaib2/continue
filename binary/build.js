@@ -91,9 +91,9 @@ async function buildWithEsbuild() {
     "out/package.json",
     JSON.stringify(
       {
-        name: "binary",
+        name: "synapse-binary",
         version: "1.0.0",
-        author: "Continue Dev, Inc",
+        author: "Synapse Dev, Inc",
         license: "Apache-2.0",
       },
       undefined,

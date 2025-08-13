@@ -1,4 +1,4 @@
-import { ConfigYaml } from "@continuedev/config-yaml";
+import { ConfigYaml } from "@synapse/config-yaml";
 import { ArrowPathIcon, StopIcon } from "@heroicons/react/24/outline";
 import { SiteIndexingConfig } from "core";
 import { useContext, useMemo, useState } from "react";

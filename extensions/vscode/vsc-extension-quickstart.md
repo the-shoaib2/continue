@@ -1,10 +1,10 @@
-# Welcome to the Continue Visual Studio Code Extension
+# Welcome to the Synapse Visual Studio Code Extension
 
 ## Get up and running straight away
 
-- Open the root of the continue repository in visual studio code
+- Open the root of the synapse repository in visual studio code
 - Press `F5` to open a new window with your extension loaded.
-- The continue in the launched vs code instance uses `extensions/.continue-debug` as configuration folder
+- The synapse in the launched vs code instance uses `extensions/.synapse-debug` as configuration folder
 - Find output from your extension in the debug console.
 
 ## Make changes

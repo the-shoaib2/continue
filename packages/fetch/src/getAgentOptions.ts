@@ -1,4 +1,4 @@
-import { RequestOptions } from "@continuedev/config-types";
+import { RequestOptions } from "@synapse/config-types";
 import { CertsCache, getCertificateContent } from "./certs.js";
 
 /**

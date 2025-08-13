@@ -125,7 +125,7 @@ const createMockNextEditOutcome = (
     completionId: "comp_12345abcde",
     uniqueId: "ne_67890fghij",
     timestamp: Date.now(),
-    gitRepo: "continuedev/continue",
+            gitRepo: "synapsedev/synapse",
 
     // NextEdit specific properties
     fileUri: "file:///workspace/project/src/main.ts",

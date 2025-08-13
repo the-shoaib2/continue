@@ -1,9 +1,9 @@
-import { streamSse } from "@continuedev/fetch";
+import { streamSse } from "@synapse/fetch";
 import {
-  ChatMessage,
-  CompletionOptions,
-  LLMOptions,
-  Usage,
+    ChatMessage,
+    CompletionOptions,
+    LLMOptions,
+    Usage,
 } from "../../index.js";
 import { safeParseToolCallArgs } from "../../tools/parseArgs.js";
 import { renderChatMessage, stripImages } from "../../util/messageContent.js";

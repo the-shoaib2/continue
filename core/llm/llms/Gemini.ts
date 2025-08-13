@@ -1,25 +1,25 @@
-import { streamResponse } from "@continuedev/fetch";
+import { streamResponse } from "@synapse/fetch";
 import { v4 as uuidv4 } from "uuid";
 import {
-  AssistantChatMessage,
-  ChatMessage,
-  CompletionOptions,
-  LLMOptions,
-  MessagePart,
-  TextMessagePart,
-  ToolCallDelta,
+    AssistantChatMessage,
+    ChatMessage,
+    CompletionOptions,
+    LLMOptions,
+    MessagePart,
+    TextMessagePart,
+    ToolCallDelta,
 } from "../../index.js";
 import { safeParseToolCallArgs } from "../../tools/parseArgs.js";
 import { renderChatMessage, stripImages } from "../../util/messageContent.js";
 import { BaseLLM } from "../index.js";
 import {
-  GeminiChatContent,
-  GeminiChatContentPart,
-  GeminiChatRequestBody,
-  GeminiChatResponse,
-  GeminiGenerationConfig,
-  GeminiToolFunctionDeclaration,
-  convertContinueToolToGeminiFunction,
+    GeminiChatContent,
+    GeminiChatContentPart,
+    GeminiChatRequestBody,
+    GeminiChatResponse,
+    GeminiGenerationConfig,
+    GeminiToolFunctionDeclaration,
+    convertContinueToolToGeminiFunction,
 } from "./gemini-types";
 
 class Gemini extends BaseLLM {

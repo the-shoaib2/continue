@@ -1,10 +1,10 @@
-import { streamSse } from "@continuedev/fetch";
+import { streamSse } from "@synapse/fetch";
 import {
-  ChatMessage,
-  Chunk,
-  CompletionOptions,
-  LLMOptions,
-  MessageContent,
+    ChatMessage,
+    Chunk,
+    CompletionOptions,
+    LLMOptions,
+    MessageContent,
 } from "../../index.js";
 import { renderChatMessage, stripImages } from "../../util/messageContent.js";
 import { BaseLLM } from "../index.js";

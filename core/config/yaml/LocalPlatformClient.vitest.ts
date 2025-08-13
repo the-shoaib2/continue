@@ -1,12 +1,12 @@
-import { FQSN, SecretResult, SecretType } from "@continuedev/config-yaml";
+import { FQSN, SecretResult, SecretType } from "@synapse/config-yaml";
 import {
-  afterEach,
-  beforeEach,
-  describe,
-  expect,
-  Mock,
-  test,
-  vi,
+    afterEach,
+    beforeEach,
+    describe,
+    expect,
+    Mock,
+    test,
+    vi,
 } from "vitest";
 import { IDE } from "../..";
 import { ControlPlaneClient } from "../../control-plane/client";

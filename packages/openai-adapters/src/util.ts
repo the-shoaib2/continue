@@ -1,5 +1,5 @@
-import { RequestOptions } from "@continuedev/config-types";
-import { fetchwithRequestOptions, patchedFetch } from "@continuedev/fetch";
+import { RequestOptions } from "@synapse/config-types";
+import { fetchwithRequestOptions, patchedFetch } from "@synapse/fetch";
 import { type RequestInfo, type RequestInit } from "openai/_shims/index";
 import {
   ChatCompletionChunk,

@@ -1,10 +1,10 @@
 import {
-  AssistantUnrolled,
-  ConfigResult,
-  FQSN,
-  FullSlug,
-  SecretResult,
-} from "@continuedev/config-yaml";
+    AssistantUnrolled,
+    ConfigResult,
+    FQSN,
+    FullSlug,
+    SecretResult,
+} from "@synapse/config-yaml";
 
 /**
  * Interface for the Continue Hub client.

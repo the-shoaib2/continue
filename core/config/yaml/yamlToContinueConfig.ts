@@ -1,4 +1,4 @@
-import { MCPServer, Rule } from "@continuedev/config-yaml";
+import { MCPServer, Rule } from "@synapse/config-yaml";
 import { ExperimentalMCPOptions, RuleWithSource } from "../..";
 
 export function convertYamlRuleToContinueRule(rule: Rule): RuleWithSource {

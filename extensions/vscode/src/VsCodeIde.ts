@@ -7,9 +7,9 @@ import * as URI from "uri-js";
 import * as vscode from "vscode";
 
 import {
-  executeGotoProvider,
-  executeSignatureHelpProvider,
-  executeSymbolProvider,
+    executeGotoProvider,
+    executeSignatureHelpProvider,
+    executeSymbolProvider,
 } from "./autocomplete/lsp";
 import { Repository } from "./otherExtensions/git";
 import { SecretStorage } from "./stubs/SecretStorage";
@@ -18,19 +18,19 @@ import { getExtensionUri, openEditorAndRevealRange } from "./util/vscode";
 import { VsCodeWebviewProtocol } from "./webviewProtocol";
 
 import type {
-  DocumentSymbol,
-  FileStatsMap,
-  FileType,
-  IDE,
-  IdeInfo,
-  IdeSettings,
-  IndexTag,
-  Location,
-  Problem,
-  RangeInFile,
-  SignatureHelp,
-  TerminalOptions,
-  Thread,
+    DocumentSymbol,
+    FileStatsMap,
+    FileType,
+    IDE,
+    IdeInfo,
+    IdeSettings,
+    IndexTag,
+    Location,
+    Problem,
+    RangeInFile,
+    SignatureHelp,
+    TerminalOptions,
+    Thread,
 } from "core";
 import { getExtensionVersion, isExtensionPrerelease } from "./util/util";
 
@@ -242,11 +242,11 @@ class VsCodeIde implements IDE {
 
   async isTelemetryEnabled(): Promise<boolean> {
     const globalEnabled = vscode.env.isTelemetryEnabled;
-    const continueEnabled: boolean =
+    const synapseEnabled: boolean =
       (await vscode.workspace
         .getConfiguration(EXTENSION_NAME)
         .get("telemetryEnabled")) ?? true;
-    return globalEnabled && continueEnabled;
+    return globalEnabled && synapseEnabled;
   }
 
   isWorkspaceRemote(): Promise<boolean> {
@@ -262,7 +262,7 @@ class VsCodeIde implements IDE {
   }
 
   async getClipboardContent() {
-    return this.context.workspaceState.get("continue.copyBuffer", {
+    return this.context.workspaceState.get("synapse.copyBuffer", {
       text: "",
       copiedAt: new Date("1900-01-01").toISOString(),
     });
@@ -470,7 +470,7 @@ class VsCodeIde implements IDE {
 
       // IMPORTANT: findFiles automatically accounts for .gitignore
       const ignoreFiles = await vscode.workspace.findFiles(
-        "**/.continueignore",
+        "**/.synapseignore",
         null,
       );
 
@@ -541,7 +541,7 @@ class VsCodeIde implements IDE {
           "--iglob",
           pattern,
           "--ignore-file",
-          ".continueignore",
+          ".synapseignore",
           "--ignore-file",
           ".gitignore",
           ...(maxResults ? ["--max-count", String(maxResults)] : []),
@@ -570,7 +570,7 @@ class VsCodeIde implements IDE {
       const dirResults = await this.runRipgrepQuery(dir, [
         "-i", // Case-insensitive search
         "--ignore-file",
-        ".continueignore",
+        ".synapseignore",
         "--ignore-file",
         ".gitignore",
         "-C",
@@ -662,7 +662,7 @@ class VsCodeIde implements IDE {
         60,
       ),
       userToken: settings.get<string>("userToken", ""),
-      continueTestEnvironment: "production",
+      synapseTestEnvironment: "production",
       pauseCodebaseIndexOnStart: settings.get<boolean>(
         "pauseCodebaseIndexOnStart",
         false,

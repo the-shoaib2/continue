@@ -1,4 +1,4 @@
-name: Release @continuedev/openai-adapters
+name: Release @synapse/openai-adapters
 
 on:
   push:

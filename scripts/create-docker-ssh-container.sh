@@ -16,13 +16,13 @@ EXPOSE 22
 CMD ["/usr/sbin/sshd", "-D"]
 EOF
 
-docker build -t continue-ubuntu-ssh . # build the image
+docker build -t synapse-ubuntu-ssh . # build the image
 
 rm Dockerfile # remove the created Dockerfile
 
-container_name="continue-ssh-container"
+container_name="synapse-ssh-container"
 
-docker run -d -p 2222:22 --name $container_name continue-ubuntu-ssh # run the container
+docker run -d -p 2222:22 --name $container_name synapse-ubuntu-ssh # run the container
 
 echo "docker container ${container_name} running on port 2222"
 

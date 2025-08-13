@@ -1,16 +1,16 @@
-import { ConfigResult } from "@continuedev/config-yaml";
+import { ConfigResult } from "@synapse/config-yaml";
 import { open, type Database } from "sqlite";
 import sqlite3 from "sqlite3";
 
 import {
-  Chunk,
-  ContinueConfig,
-  DocsIndexingDetails,
-  IDE,
-  IdeInfo,
-  ILLM,
-  IndexingStatus,
-  SiteIndexingConfig,
+    Chunk,
+    ContinueConfig,
+    DocsIndexingDetails,
+    IDE,
+    IdeInfo,
+    ILLM,
+    IndexingStatus,
+    SiteIndexingConfig,
 } from "../..";
 import { ConfigHandler } from "../../config/ConfigHandler";
 import { isSupportedLanceDbCpuTargetForLinux } from "../../config/util";
@@ -21,16 +21,16 @@ import { IMessenger } from "../../protocol/messenger";
 import { fetchFavicon } from "../../util/fetchFavicon";
 import { GlobalContext } from "../../util/GlobalContext";
 import {
-  editConfigFile,
-  getDocsSqlitePath,
-  getLanceDbPath,
+    editConfigFile,
+    getDocsSqlitePath,
+    getLanceDbPath,
 } from "../../util/paths";
 import { Telemetry } from "../../util/posthog";
 
 import {
-  ArticleWithChunks,
-  htmlPageToArticleWithChunks,
-  markdownPageToArticleWithChunks,
+    ArticleWithChunks,
+    htmlPageToArticleWithChunks,
+    markdownPageToArticleWithChunks,
 } from "./article";
 import DocsCrawler, { DocsCrawlerType, PageData } from "./crawlers/DocsCrawler";
 import { runLanceMigrations, runSqliteMigrations } from "./migrations";
@@ -869,7 +869,7 @@ export default class DocsService {
       void this.ide.showToast(
         "error",
         "Set up an embeddings model to use the @docs context provider. See: " +
-          "https://docs.continue.dev/customize/model-roles/embeddings",
+          "https://docs.synapse.dev/customize/model-roles/embeddings",
       );
       return [];
     }

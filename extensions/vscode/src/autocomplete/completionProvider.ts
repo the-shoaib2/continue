@@ -1,8 +1,8 @@
 import { CompletionProvider } from "core/autocomplete/CompletionProvider";
 import { processSingleLineCompletion } from "core/autocomplete/util/processSingleLineCompletion";
 import {
-  type AutocompleteInput,
-  type AutocompleteOutcome,
+    type AutocompleteInput,
+    type AutocompleteOutcome,
 } from "core/autocomplete/util/types";
 import { ConfigHandler } from "core/config/ConfigHandler";
 import * as URI from "uri-js";
@@ -25,10 +25,10 @@ import { getDefinitionsFromLsp } from "./lsp";
 import { RecentlyEditedTracker } from "./recentlyEdited";
 import { RecentlyVisitedRangesService } from "./RecentlyVisitedRangesService";
 import {
-  StatusBarStatus,
-  getStatusBarStatus,
-  setupStatusBar,
-  stopStatusBarLoading,
+    StatusBarStatus,
+    getStatusBarStatus,
+    setupStatusBar,
+    stopStatusBarLoading,
 } from "./statusBar";
 
 interface VsCodeCompletionInput {
@@ -52,7 +52,7 @@ export class ContinueCompletionProvider
       if (val === "Documentation") {
         vscode.env.openExternal(
           vscode.Uri.parse(
-            "https://docs.continue.dev/features/tab-autocomplete",
+            "https://docs.synapse.dev/features/tab-autocomplete",
           ),
         );
       }

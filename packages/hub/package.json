@@ -1,5 +1,5 @@
 {
-  "name": "@continuedev/hub",
+  "name": "@synapse/hub",
   "version": "0.0.4",
   "description": "",
   "main": "dist/index.js",
@@ -9,10 +9,10 @@
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest --passWithNoTests",
     "build": "tsc"
   },
-  "author": "Continue Dev, Inc.",
+  "author": "Synapse Dev, Inc.",
   "license": "Apache-2.0",
   "dependencies": {
-    "@continuedev/config-yaml": "^1.0.70"
+    "@synapse/config-yaml": "^1.0.70"
   },
   "devDependencies": {
     "@types/jest": "^29.5.14",

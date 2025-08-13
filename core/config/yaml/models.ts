@@ -1,11 +1,11 @@
-import { ModelConfig } from "@continuedev/config-yaml";
+import { ModelConfig } from "@synapse/config-yaml";
 
 import {
-  ContinueConfig,
-  IDE,
-  IdeSettings,
-  ILLMLogger,
-  LLMOptions,
+    ContinueConfig,
+    IDE,
+    IdeSettings,
+    ILLMLogger,
+    LLMOptions,
 } from "../..";
 import { BaseLLM } from "../../llm";
 import { LLMClasses } from "../../llm/llms";

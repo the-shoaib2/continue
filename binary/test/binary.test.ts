@@ -5,14 +5,14 @@ import { IMessenger } from "core/protocol/messenger";
 import FileSystemIde from "core/util/filesystem";
 import fs from "fs";
 import {
-  ChildProcessWithoutNullStreams,
-  execSync,
-  spawn,
+    ChildProcessWithoutNullStreams,
+    execSync,
+    spawn,
 } from "node:child_process";
 import path from "path";
 import {
-  CoreBinaryMessenger,
-  CoreBinaryTcpMessenger,
+    CoreBinaryMessenger,
+    CoreBinaryTcpMessenger,
 } from "../src/IpcMessenger";
 
 // jest.setTimeout(100_000);
@@ -50,11 +50,11 @@ function autodetectPlatformAndArch() {
   return [platform, arch];
 }
 
-const CONTINUE_GLOBAL_DIR = path.join(__dirname, "..", ".continue");
-if (fs.existsSync(CONTINUE_GLOBAL_DIR)) {
-  fs.rmSync(CONTINUE_GLOBAL_DIR, { recursive: true, force: true });
+const SYNAPSE_GLOBAL_DIR = path.join(__dirname, "..", ".synapse");
+if (fs.existsSync(SYNAPSE_GLOBAL_DIR)) {
+  fs.rmSync(SYNAPSE_GLOBAL_DIR, { recursive: true, force: true });
 }
-fs.mkdirSync(CONTINUE_GLOBAL_DIR);
+fs.mkdirSync(SYNAPSE_GLOBAL_DIR);
 
 describe("Test Suite", () => {
   let messenger: IMessenger<ToIdeProtocol, FromIdeProtocol>;
@@ -64,9 +64,9 @@ describe("Test Suite", () => {
     const [platform, arch] = autodetectPlatformAndArch();
     const binaryDir = path.join(__dirname, "..", "bin", `${platform}-${arch}`);
     const exe = platform === "win32" ? ".exe" : "";
-    const binaryPath = path.join(binaryDir, `continue-binary${exe}`);
+    const binaryPath = path.join(binaryDir, `synapse-binary${exe}`);
     const expectedItems = [
-      `continue-binary${exe}`,
+      `synapse-binary${exe}`,
       `esbuild${exe}`,
       "index.node",
       "package.json",
@@ -115,7 +115,7 @@ describe("Test Suite", () => {
     } else {
       try {
         subprocess = spawn(binaryPath, {
-          env: { ...process.env, CONTINUE_GLOBAL_DIR },
+          env: { ...process.env, SYNAPSE_GLOBAL_DIR },
         });
         console.log("Successfully spawned subprocess");
       } catch (error) {
@@ -156,8 +156,8 @@ describe("Test Suite", () => {
     expect(resp).toBe("pong");
   });
 
-  it("should create .continue directory at the specified location with expected files", async () => {
-    expect(fs.existsSync(CONTINUE_GLOBAL_DIR)).toBe(true);
+  it("should create .synapse directory at the specified location with expected files", async () => {
+    expect(fs.existsSync(SYNAPSE_GLOBAL_DIR)).toBe(true);
 
     // Many of the files are only created when trying to load the config
     const config = await messenger.request(
@@ -175,7 +175,7 @@ describe("Test Suite", () => {
     ];
 
     const missingFiles = expectedFiles.filter((file) => {
-      const filePath = path.join(CONTINUE_GLOBAL_DIR, file);
+      const filePath = path.join(SYNAPSE_GLOBAL_DIR, file);
       return !fs.existsSync(filePath);
     });
 

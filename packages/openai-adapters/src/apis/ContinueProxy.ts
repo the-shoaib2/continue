@@ -1,8 +1,8 @@
 import { OpenAI } from "openai/index";
 import {
-  ChatCompletionCreateParams,
-  CompletionCreateParamsNonStreaming,
-  CompletionCreateParamsStreaming,
+    ChatCompletionCreateParams,
+    CompletionCreateParamsNonStreaming,
+    CompletionCreateParamsStreaming,
 } from "openai/resources/index";
 import { z } from "zod";
 import { ContinueProxyConfigSchema } from "../types.js";
@@ -43,7 +43,7 @@ export class ContinueProxyApi extends OpenAIApi {
       apiKey: config.apiKey,
       apiBase: config.env?.proxyUrl
         ? new URL("model-proxy/v1/", config.env?.proxyUrl).toString()
-        : "https://api.continue.dev/model-proxy/v1/",
+        : "https://api.synapse.dev/model-proxy/v1/",
       requestOptions: config.requestOptions,
     };
 

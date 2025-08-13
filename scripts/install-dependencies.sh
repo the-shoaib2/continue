@@ -19,7 +19,7 @@ if [ -f .nvmrc ]; then
         echo "Please consider switching to the correct version using: nvm use"
         
         if [ -t 0 ]; then
-            read -p "Press Enter to continue with installation anyway..."
+            read -p "Press Enter to proceed with installation anyway..."
         else
             echo "Continuing with installation anyway..."
         fi
@@ -38,13 +38,13 @@ pushd core
 ## This flag is set because we pull down Chromium at runtime
 export PUPPETEER_SKIP_DOWNLOAD='true'
 npm install
-npm link
+npm link @synapse/core
 popd
 
 echo "Installing GUI extension dependencies..."
 pushd gui
 npm install
-npm link @continuedev/core
+npm link @synapse/core
 npm run build
 popd
 
@@ -53,7 +53,7 @@ echo "Installing VSCode extension dependencies..."
 pushd extensions/vscode
 # This does way too many things inline but is the common denominator between many of the scripts
 npm install
-npm link @continuedev/core
+npm link @synapse/core
 # npm run prepackage # not required since npm run package has prescript of prepackage
 npm run package
 popd

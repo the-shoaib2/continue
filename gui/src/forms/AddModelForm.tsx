@@ -9,8 +9,8 @@ import { IdeMessengerContext } from "../context/IdeMessenger";
 import { completionParamsInputs } from "../pages/AddNewModel/configs/completionParamsInputs";
 import { DisplayInfo } from "../pages/AddNewModel/configs/models";
 import {
-  ProviderInfo,
-  providers,
+    ProviderInfo,
+    providers,
 } from "../pages/AddNewModel/configs/providers";
 import { useAppDispatch } from "../redux/hooks";
 import { updateSelectedModelByRole } from "../redux/thunks/updateSelectedModelByRole";
@@ -21,9 +21,9 @@ interface AddModelFormProps {
 }
 
 const MODEL_PROVIDERS_URL =
-  "https://docs.continue.dev/customize/model-providers";
+  "https://docs.synapse.dev/customize/model-providers";
 const CODESTRAL_URL = "https://console.mistral.ai/codestral";
-const CONTINUE_SETUP_URL = "https://docs.continue.dev/setup/overview";
+const CONTINUE_SETUP_URL = "https://docs.synapse.dev/setup/overview";
 
 export function AddModelForm({
   onDone,

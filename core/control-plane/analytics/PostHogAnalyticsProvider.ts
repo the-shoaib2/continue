@@ -1,8 +1,8 @@
-import { Analytics } from "@continuedev/config-types";
+import { Analytics } from "@synapse/config-types";
 
 import {
-  ControlPlaneProxyInfo,
-  IAnalyticsProvider,
+    ControlPlaneProxyInfo,
+    IAnalyticsProvider,
 } from "./IAnalyticsProvider.js";
 
 export default class PostHogAnalyticsProvider implements IAnalyticsProvider {

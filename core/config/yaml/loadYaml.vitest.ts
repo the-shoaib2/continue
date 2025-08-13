@@ -1,8 +1,8 @@
-import { describe, it, expect } from "vitest";
 import {
-  validateConfigYaml,
-  AssistantUnrolledNonNullable,
-} from "@continuedev/config-yaml";
+    AssistantUnrolledNonNullable,
+    validateConfigYaml,
+} from "@synapse/config-yaml";
+import { describe, expect, it } from "vitest";
 
 describe("MCP Server cwd configuration", () => {
   describe("YAML schema validation", () => {

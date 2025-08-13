@@ -8,15 +8,15 @@ import path from "path";
 import { LLMError } from "../llm/index.js";
 import { testConfigHandler, testIde } from "../test/fixtures.js";
 import {
-  addToTestDir,
-  setUpTestDir,
-  tearDownTestDir,
-  TEST_DIR,
-  TEST_DIR_PATH,
+    addToTestDir,
+    setUpTestDir,
+    tearDownTestDir,
+    TEST_DIR,
+    TEST_DIR_PATH,
 } from "../test/testDir.js";
 import { getIndexSqlitePath } from "../util/paths.js";
 
-import { ConfigResult } from "@continuedev/config-yaml";
+import { ConfigResult } from "@synapse/config-yaml";
 import CodebaseContextProvider from "../context/providers/CodebaseContextProvider.js";
 import { ContinueConfig } from "../index.js";
 import { localPathToUri } from "../util/pathToUri.js";

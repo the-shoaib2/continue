@@ -2,8 +2,8 @@ import ignore from "ignore";
 import * as URI from "uri-js";
 import { IDE } from "..";
 import {
-  DEFAULT_IGNORE_DIRS,
-  DEFAULT_IGNORE_FILETYPES,
+    DEFAULT_IGNORE_DIRS,
+    DEFAULT_IGNORE_FILETYPES,
 } from "../indexing/ignore";
 import { walkDir } from "../indexing/walkDir";
 import { getGlobalFolderWithName } from "../util/paths";
@@ -11,7 +11,7 @@ import { localPathToUri } from "../util/pathToUri";
 import { joinPathsToUri } from "../util/uri";
 
 export const ASSISTANTS = "assistants";
-export const ASSISTANTS_FOLDER = `.continue/${ASSISTANTS}`;
+export const ASSISTANTS_FOLDER = `.synapse/${ASSISTANTS}`;
 
 export function isLocalDefinitionFile(uri: string): boolean {
   if (!uri.endsWith(".yaml") && !uri.endsWith(".yml") && !uri.endsWith(".md")) {
@@ -72,7 +72,7 @@ export interface LoadAssistantFilesOptions {
   fileExtType?: "yaml" | "markdown";
 }
 
-export function getDotContinueSubDirs(
+export function getDotSynapseSubDirs(
   ide: IDE,
   options: LoadAssistantFilesOptions,
   workspaceDirs: string[],
@@ -80,14 +80,14 @@ export function getDotContinueSubDirs(
 ): string[] {
   let fullDirs: string[] = [];
 
-  // Workspace .continue/<subDirName>
+  // Workspace .synapse/<subDirName>
   if (options.includeWorkspace) {
     fullDirs = workspaceDirs.map((dir) =>
-      joinPathsToUri(dir, ".continue", subDirName),
+      joinPathsToUri(dir, ".synapse", subDirName),
     );
   }
 
-  // ~/.continue/<subDirName>
+  // ~/.synapse/<subDirName>
   if (options.includeGlobal) {
     fullDirs.push(localPathToUri(getGlobalFolderWithName(subDirName)));
   }
@@ -96,8 +96,8 @@ export function getDotContinueSubDirs(
 }
 
 /**
- * This method searches in both ~/.continue and workspace .continue
- * for all YAML/Markdown files in the specified subdirectory, for example .continue/assistants or .continue/prompts
+ * This method searches in both ~/.synapse and workspace .synapse
+ * for all YAML/Markdown files in the specified subdirectory, for example .synapse/assistants or .synapse/prompts
  */
 export async function getAllDotContinueDefinitionFiles(
   ide: IDE,
@@ -107,7 +107,7 @@ export async function getAllDotContinueDefinitionFiles(
   const workspaceDirs = await ide.getWorkspaceDirs();
 
   // Get all directories to check for assistant files
-  const fullDirs = getDotContinueSubDirs(
+  const fullDirs = getDotSynapseSubDirs(
     ide,
     options,
     workspaceDirs,

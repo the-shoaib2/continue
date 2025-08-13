@@ -1,24 +1,24 @@
-import { parseConfigYaml } from "@continuedev/config-yaml";
 import {
-  ArrowsPointingOutIcon,
-  EyeIcon,
-  PencilIcon,
+    ArrowsPointingOutIcon,
+    EyeIcon,
+    PencilIcon,
 } from "@heroicons/react/24/outline";
+import { parseConfigYaml } from "@synapse/config-yaml";
 import { RuleWithSource } from "core";
 import {
-  DEFAULT_AGENT_SYSTEM_MESSAGE,
-  DEFAULT_CHAT_SYSTEM_MESSAGE,
-  DEFAULT_SYSTEM_MESSAGES_URL,
+    DEFAULT_AGENT_SYSTEM_MESSAGE,
+    DEFAULT_CHAT_SYSTEM_MESSAGE,
+    DEFAULT_SYSTEM_MESSAGES_URL,
 } from "core/llm/defaultSystemMessages";
 import { useContext, useMemo } from "react";
 import { useAuth } from "../../../../context/Auth";
 import { IdeMessengerContext } from "../../../../context/IdeMessenger";
 import { useAppDispatch, useAppSelector } from "../../../../redux/hooks";
 import {
-  DEFAULT_RULE_SETTING,
-  setDialogMessage,
-  setShowDialog,
-  toggleRuleSetting,
+    DEFAULT_RULE_SETTING,
+    setDialogMessage,
+    setShowDialog,
+    toggleRuleSetting,
 } from "../../../../redux/slices/uiSlice";
 import HeaderButtonWithToolTip from "../../../gui/HeaderButtonWithToolTip";
 import Switch from "../../../gui/Switch";
@@ -75,7 +75,7 @@ const RuleCard: React.FC<RuleCardProps> = ({ rule }) => {
     if (rule.name) {
       return rule.name;
     } else {
-      if (rule.source === ".continuerules") {
+              if (rule.source === ".synapserules") {
         return "Project rules";
       } else if (rule.source === "default-chat") {
         return "Default chat system message";

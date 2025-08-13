@@ -2,7 +2,7 @@
   "name": "gui",
   "private": true,
   "type": "module",
-  "author": "Continue Dev, Inc",
+  "author": "Synapse Dev, Inc",
   "license": "Apache-2.0",
   "scripts": {
     "dev": "vite",
@@ -16,7 +16,7 @@
     "lint": "eslint --ext ts"
   },
   "dependencies": {
-    "@continuedev/config-yaml": "file:../packages/config-yaml",
+    "@synapse/config-yaml": "file:../packages/config-yaml",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.0.18",
     "@panzoom/panzoom": "^4.6.0",

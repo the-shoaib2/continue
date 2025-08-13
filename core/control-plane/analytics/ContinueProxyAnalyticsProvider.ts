@@ -1,14 +1,14 @@
-import { Analytics } from "@continuedev/config-types";
+import { Analytics } from "@synapse/config-types";
 import fetch from "node-fetch";
 
 import { ControlPlaneClient } from "../client.js";
 
 import {
-  ControlPlaneProxyInfo,
-  IAnalyticsProvider,
+    ControlPlaneProxyInfo,
+    IAnalyticsProvider,
 } from "./IAnalyticsProvider.js";
 
-export default class ContinueProxyAnalyticsProvider
+export default class SynapseProxyAnalyticsProvider
   implements IAnalyticsProvider
 {
   uniqueId?: string;

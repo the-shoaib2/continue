@@ -1,4 +1,4 @@
-import { streamResponse } from "@continuedev/fetch";
+import { streamResponse } from "@synapse/fetch";
 import { SlashCommand } from "../../../index.js";
 import { removeQuotesAndEscapes } from "../../../util/index.js";
 

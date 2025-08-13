@@ -1,4 +1,4 @@
-name: Release @continuedev/llm-info
+name: Release @synapse/llm-info
 
 on:
   push:

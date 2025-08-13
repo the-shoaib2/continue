@@ -139,7 +139,7 @@ This is a test rule.`;
       ]);
     });
 
-    it("should not prepend when inside .continue", () => {
+    it("should not prepend when inside .synapse", () => {
       const content = `---
 globs: ".git"
 name: glob pattern testing
@@ -151,7 +151,7 @@ name: glob pattern testing
 
       const result = markdownToRule(content, {
         uriType: "file",
-        filePath: "/Documents/myproject/.continue/rules/rule1.md",
+        filePath: "/Documents/myproject/.synapse/rules/rule1.md",
       });
       expect(result.globs).toBe(".git");
     });

@@ -1,9 +1,9 @@
 import {
-  FQSN,
-  PlatformClient,
-  SecretResult,
-  SecretType,
-} from "@continuedev/config-yaml";
+    FQSN,
+    PlatformClient,
+    SecretResult,
+    SecretType,
+} from "@synapse/config-yaml";
 import * as dotenv from "dotenv";
 import { IDE } from "../..";
 import { ControlPlaneClient } from "../../control-plane/client";

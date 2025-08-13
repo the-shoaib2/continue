@@ -6,7 +6,7 @@
 # Everything needs node and npm
 Write-Host "`nChecking for dependencies that may require manual installation...`n" -ForegroundColor White
 
-# $cargo = (get-command cargo -ErrorAction SilentlyContinue)
+# $cargo = (get-command cargo -ErrorAction SilentlyProceed)
 # if ($null -eq $cargo) {
 #     Write-Host "Not Found " -ForegroundColor Red -NoNewLine
 #     Write-Host "cargo"
@@ -15,7 +15,7 @@ Write-Host "`nChecking for dependencies that may require manual installation...`
 #     & cargo --version
 # }
 
-$node  = (get-command node -ErrorAction SilentlyContinue)
+$node  = (get-command node -ErrorAction SilentlyProceed)
 if ($null -eq $node) {
     Write-Host "Not Found " -ForegroundColor Red -NoNewLine
     Write-Host "node"
@@ -40,7 +40,7 @@ if (Test-Path ".nvmrc") {
         
         # Check if running in interactive mode
         if ([Environment]::UserInteractive -and [Environment]::GetCommandLineArgs().Count -eq 0) {
-            Write-Host "Press Enter to continue with installation anyway..." -NoNewline -ForegroundColor Yellow
+            Write-Host "Press Enter to proceed with installation anyway..." -NoNewline -ForegroundColor Yellow
             $null = $Host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
             Write-Host "`n" # Add newline after key press
         } else {
@@ -82,13 +82,13 @@ node ./scripts/build-packages.js
 Write-Host "`nInstalling Core extension dependencies..." -ForegroundColor White
 Push-Location core
 npm install
-npm link
+npm link @synapse/core
 Pop-Location
 
 Write-Output "`nInstalling GUI extension dependencies..." -ForegroundColor White
 Push-Location gui
 npm install
-npm link @continuedev/core
+npm link @synapse/core
 npm run build
 Pop-Location
 
@@ -98,7 +98,7 @@ Push-Location extensions/vscode
 
 # This does way too many things inline but is the common denominator between many of the scripts
 npm install
-npm link @continuedev/core
+npm link @synapse/core
 npm run prepackage
 npm run package
 

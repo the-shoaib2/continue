@@ -1,14 +1,14 @@
-import { DevDataLogEvent } from "@continuedev/config-yaml";
+import { DevDataLogEvent } from "@synapse/config-yaml";
 import fs from "fs";
 import path from "path";
 import {
-  afterAll,
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  vi,
+    afterAll,
+    beforeAll,
+    beforeEach,
+    describe,
+    expect,
+    it,
+    vi,
 } from "vitest";
 import { IdeInfo, IdeSettings } from "..";
 import { Core } from "../core";
@@ -16,7 +16,7 @@ import { getDevDataFilePath } from "../util/paths";
 import { DataLogger } from "./log";
 
 // Only mock fetch, not fs
-vi.mock("@continuedev/fetch");
+vi.mock("@synapse/fetch");
 
 const TEST_EVENT: DevDataLogEvent = {
   name: "tokensGenerated",

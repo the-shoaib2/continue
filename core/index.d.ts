@@ -1,8 +1,8 @@
 import {
-  DataDestination,
-  ModelRole,
-  PromptTemplates,
-} from "@continuedev/config-yaml";
+    DataDestination,
+    ModelRole,
+    PromptTemplates,
+} from "@synapse/config-yaml";
 import Parser from "web-tree-sitter";
 import { CodebaseIndexer } from "./indexing/CodebaseIndexer";
 import { LLMConfigurationStatuses } from "./llm/constants";
@@ -1638,7 +1638,7 @@ export type ContinueRcJson = Partial<SerializedContinueConfig> & {
 
 // config.ts - give users simplified interfaces
 export interface Config {
-  /** If set to true, Continue will collect anonymous usage data to improve the product. If set to false, we will collect nothing. Read here to learn more: https://docs.continue.dev/telemetry */
+  /** If set to true, Synapse will collect anonymous usage data to improve the product. If set to false, we will collect nothing. Read here to learn more: https://docs.synapse.dev/telemetry */
   allowAnonymousTelemetry?: boolean;
   /** Each entry in this array will originally be a JSONModelDescription, the same object from your config.json, but you may add CustomLLMs.
    * A CustomLLM requires you only to define an AsyncGenerator that calls the LLM and yields string updates. You can choose to define either `streamCompletion` or `streamChat` (or both).
@@ -1783,7 +1783,7 @@ export type RuleSource =
   | "rules-block"
   | "colocated-markdown"
   | "json-systemMessage"
-  | ".continuerules";
+  | ".synapserules";
 
 export interface RuleWithSource {
   name?: string;

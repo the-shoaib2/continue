@@ -1,4 +1,4 @@
-import { streamSse } from "@continuedev/fetch";
+import { streamSse } from "@synapse/fetch";
 import { AuthClient, GoogleAuth, JWT, auth } from "google-auth-library";
 import {
   ChatCompletion,

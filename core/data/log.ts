@@ -2,12 +2,12 @@ import fs from "fs";
 import path from "path";
 
 import {
-  allDevEventNames,
-  DataLogLevel,
-  DevDataLogEvent,
-  devDataVersionedSchemas,
-} from "@continuedev/config-yaml";
-import { fetchwithRequestOptions } from "@continuedev/fetch";
+    allDevEventNames,
+    DataLogLevel,
+    DevDataLogEvent,
+    devDataVersionedSchemas,
+} from "@synapse/config-yaml";
+import { fetchwithRequestOptions } from "@synapse/fetch";
 import * as URI from "uri-js";
 import { fileURLToPath } from "url";
 import { AnyZodObject } from "zod";

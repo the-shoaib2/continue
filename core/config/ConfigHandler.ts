@@ -1,38 +1,38 @@
-import { ConfigResult, ConfigValidationError } from "@continuedev/config-yaml";
+import { ConfigResult, ConfigValidationError } from "@synapse/config-yaml";
 
 import { ControlPlaneClient } from "../control-plane/client.js";
 import {
-  BrowserSerializedContinueConfig,
-  ContinueConfig,
-  IContextProvider,
-  IDE,
-  IdeSettings,
-  ILLMLogger,
+    BrowserSerializedContinueConfig,
+    ContinueConfig,
+    IContextProvider,
+    IDE,
+    IdeSettings,
+    ILLMLogger,
 } from "../index.js";
 import { GlobalContext } from "../util/GlobalContext.js";
 
 import EventEmitter from "node:events";
 import {
-  AuthType,
-  ControlPlaneSessionInfo,
+    AuthType,
+    ControlPlaneSessionInfo,
 } from "../control-plane/AuthTypes.js";
 import { getControlPlaneEnv } from "../control-plane/env.js";
 import { PolicySingleton } from "../control-plane/PolicySingleton.js";
 import { logger } from "../util/logger.js";
 import { Telemetry } from "../util/posthog.js";
 import {
-  ASSISTANTS,
-  getAllDotContinueDefinitionFiles,
-  LoadAssistantFilesOptions,
+    ASSISTANTS,
+    getAllDotContinueDefinitionFiles,
+    LoadAssistantFilesOptions,
 } from "./loadLocalAssistants.js";
 import LocalProfileLoader from "./profile/LocalProfileLoader.js";
 import PlatformProfileLoader from "./profile/PlatformProfileLoader.js";
 import {
-  OrganizationDescription,
-  OrgWithProfiles,
-  ProfileDescription,
-  ProfileLifecycleManager,
-  SerializedOrgWithProfiles,
+    OrganizationDescription,
+    OrgWithProfiles,
+    ProfileDescription,
+    ProfileLifecycleManager,
+    SerializedOrgWithProfiles,
 } from "./ProfileLifecycleManager.js";
 
 export type { ProfileDescription };

@@ -1,14 +1,14 @@
 import os from "node:os";
 
-import ContinueProxyAnalyticsProvider from "./analytics/ContinueProxyAnalyticsProvider.js";
+import { AnalyticsConfig } from "../index.js";
 import {
-  ControlPlaneProxyInfo,
-  IAnalyticsProvider,
+    ControlPlaneProxyInfo,
+    IAnalyticsProvider,
 } from "./analytics/IAnalyticsProvider.js";
 import LogStashAnalyticsProvider from "./analytics/LogStashAnalyticsProvider.js";
 import PostHogAnalyticsProvider from "./analytics/PostHogAnalyticsProvider.js";
+import SynapseProxyAnalyticsProvider from "./analytics/SynapseProxyAnalyticsProvider.js";
 import { ControlPlaneClient } from "./client.js";
-import { AnalyticsConfig } from "../index.js";
 
 function createAnalyticsProvider(
   config: AnalyticsConfig,
@@ -19,8 +19,8 @@ function createAnalyticsProvider(
       return new PostHogAnalyticsProvider();
     case "logstash":
       return new LogStashAnalyticsProvider();
-    case "continue-proxy":
-      return new ContinueProxyAnalyticsProvider();
+    case "synapse-proxy":
+      return new SynapseProxyAnalyticsProvider();
     default:
       return undefined;
   }
@@ -58,10 +58,10 @@ export class TeamAnalytics {
       controlPlaneProxyInfo,
     );
 
-    if (config.provider === "continue-proxy") {
-      (
-        TeamAnalytics.provider as ContinueProxyAnalyticsProvider
-      ).controlPlaneClient = controlPlaneClient;
+      if (config.provider === "synapse-proxy") {
+    (
+      TeamAnalytics.provider as SynapseProxyAnalyticsProvider
+    ).controlPlaneClient = controlPlaneClient;
     }
   }
 

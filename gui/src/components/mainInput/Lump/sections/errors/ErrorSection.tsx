@@ -1,6 +1,6 @@
 import {
-  ExclamationCircleIcon,
-  ExclamationTriangleIcon,
+    ExclamationCircleIcon,
+    ExclamationTriangleIcon,
 } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import { useAuth } from "../../../../../context/Auth";
@@ -33,7 +33,7 @@ export function ErrorSection() {
           onClick={() => {
             ideMessenger.post(
               "openUrl",
-              "https://docs.continue.dev/troubleshooting",
+              "https://docs.synapse.dev/troubleshooting",
             );
           }}
           className="text-description cursor-pointer text-xs underline"

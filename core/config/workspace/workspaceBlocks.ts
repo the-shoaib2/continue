@@ -1,8 +1,8 @@
 import {
-  BlockType,
-  ConfigYaml,
-  createRuleMarkdown,
-  RULE_FILE_EXTENSION,
+    BlockType,
+    ConfigYaml,
+    createRuleMarkdown,
+    RULE_FILE_EXTENSION,
 } from "@continuedev/config-yaml";
 import * as YAML from "yaml";
 import { IDE } from "../..";
@@ -53,7 +53,7 @@ function getContentsForNewBlock(blockType: BlockType): ConfigYaml {
       configYaml.docs = [
         {
           name: "New docs",
-          startUrl: "https://docs.continue.dev",
+          startUrl: "https://docs.synapse.dev",
         },
       ];
       break;

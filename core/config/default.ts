@@ -1,4 +1,4 @@
-import { ConfigYaml } from "@continuedev/config-yaml";
+import { ConfigYaml } from "@synapse/config-yaml";
 
 export const defaultContextProvidersVsCode: NonNullable<
   ConfigYaml["context"]

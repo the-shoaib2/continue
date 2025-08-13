@@ -1,15 +1,15 @@
 import {
-  ConfigResult,
-  ConfigValidationError,
-  FullSlug,
-  Policy,
-} from "@continuedev/config-yaml";
+    ConfigResult,
+    ConfigValidationError,
+    FullSlug,
+    Policy,
+} from "@synapse/config-yaml";
 
 import {
-  BrowserSerializedContinueConfig,
-  ContinueConfig,
-  IContextProvider,
-  IDE,
+    BrowserSerializedContinueConfig,
+    ContinueConfig,
+    IContextProvider,
+    IDE,
 } from "../index.js";
 
 import { finalToBrowserConfig } from "./load.js";

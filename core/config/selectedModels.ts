@@ -1,10 +1,10 @@
-import { ModelRole } from "@continuedev/config-yaml";
+import { ModelRole } from "@synapse/config-yaml";
 
 import { ContinueConfig, ILLM } from "..";
 import { LLMConfigurationStatuses } from "../llm/constants";
 import {
-  GlobalContext,
-  GlobalContextModelSelections,
+    GlobalContext,
+    GlobalContextModelSelections,
 } from "../util/GlobalContext";
 
 export function rectifySelectedModelsFromGlobalContext(

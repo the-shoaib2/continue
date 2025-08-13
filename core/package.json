@@ -1,7 +1,7 @@
 {
-  "name": "@continuedev/core",
+  "name": "@synapse/core",
   "version": "1.1.0",
-  "description": "The Continue Core contains functionality that can be shared across web, VS Code, or Node.js",
+  "description": "The Synapse Core contains functionality that can be shared across web, VS Code, or Node.js",
   "scripts": {
     "test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
     "vitest": "vitest run",
@@ -12,7 +12,7 @@
     "lint:fix": "eslint . --ext ts --fix"
   },
   "type": "module",
-  "author": "Continue Dev, Inc",
+  "author": "Synapse Dev, Inc",
   "license": "Apache-2.0",
   "devDependencies": {
     "@babel/preset-env": "^7.24.7",
@@ -52,11 +52,11 @@
     "@aws-sdk/client-bedrock-runtime": "^3.779.0",
     "@aws-sdk/client-sagemaker-runtime": "^3.777.0",
     "@aws-sdk/credential-providers": "^3.778.0",
-    "@continuedev/config-types": "^1.0.13",
-    "@continuedev/config-yaml": "file:../packages/config-yaml",
-    "@continuedev/fetch": "file:../packages/fetch",
-    "@continuedev/llm-info": "file:../packages/llm-info",
-    "@continuedev/openai-adapters": "file:../packages/openai-adapters",
+    "@synapse/config-types": "^1.0.13",
+    "@synapse/config-yaml": "file:../packages/config-yaml",
+    "@synapse/fetch": "file:../packages/fetch",
+    "@synapse/llm-info": "file:../packages/llm-info",
+    "@synapse/openai-adapters": "file:../packages/openai-adapters",
     "@modelcontextprotocol/sdk": "^1.12.0",
     "@mozilla/readability": "^0.5.0",
     "@octokit/rest": "^20.1.1",

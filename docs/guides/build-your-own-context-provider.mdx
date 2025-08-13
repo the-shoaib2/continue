@@ -137,7 +137,7 @@ package.json
 Or install the Continue Core module from npm:
 
 ```
-npm i @continuedev/core
+npm i @synapse/core
 ```
 
 You can add the Continue core module as a dev dependency in your `package.json`:
@@ -145,7 +145,7 @@ You can add the Continue core module as a dev dependency in your `package.json`:
 package.json
 
 ```json
-{ "devDependencies": { "@continuedev/core": "^0.0.1" } }
+{ "devDependencies": { "@synapse/core": "^0.0.1" } }
 ```
 
 Then, you can use the `registerCustomContextProvider` function to register your context provider. Your custom context provider must implement the `IContextProvider` interface. Here is an example:
@@ -153,7 +153,7 @@ Then, you can use the `registerCustomContextProvider` function to register your 
 myCustomContextProvider.ts
 
 ```
-import * as vscode from "vscode";import {  IContextProvider,  ContextProviderDescription,  ContextProviderExtras,  ContextItem,  LoadSubmenuItemsArgs,  ContextSubmenuItem,} from "@continuedev/core";class MyCustomProvider implements IContextProvider {  get description(): ContextProviderDescription {    return {      title: "Custom",      displayTitle: "Custom",      description: "my custom context provider",      type: "normal",    };  }  async getContextItems(    query: string,    extras: ContextProviderExtras,  ): Promise<ContextItem[]> {    return [      {        name: "Custom",        description: "Custom description",        content: "Custom content",      },    ];  }  async loadSubmenuItems(    args: LoadSubmenuItemsArgs,  ): Promise<ContextSubmenuItem[]> {    return [];  }}// create an instance of your custom providerconst customProvider = new MyCustomProvider();// get Continue extension using vscode APIconst continueExt = vscode.extensions.getExtension("Continue.continue");// get the API from the extensionconst continueApi = continueExt?.exports;// register your custom providercontinueApi?.registerCustomContextProvider(customProvider);
+import * as vscode from "vscode";import {  IContextProvider,  ContextProviderDescription,  ContextProviderExtras,  ContextItem,  LoadSubmenuItemsArgs,  ContextSubmenuItem,} from "@synapse/core";class MyCustomProvider implements IContextProvider {  get description(): ContextProviderDescription {    return {      title: "Custom",      displayTitle: "Custom",      description: "my custom context provider",      type: "normal",    };  }  async getContextItems(    query: string,    extras: ContextProviderExtras,  ): Promise<ContextItem[]> {    return [      {        name: "Custom",        description: "Custom description",        content: "Custom content",      },    ];  }  async loadSubmenuItems(    args: LoadSubmenuItemsArgs,  ): Promise<ContextSubmenuItem[]> {    return [];  }}// create an instance of your custom providerconst customProvider = new MyCustomProvider();// get Continue extension using vscode APIconst continueExt = vscode.extensions.getExtension("Continue.continue");// get the API from the extensionconst continueApi = continueExt?.exports;// register your custom providercontinueApi?.registerCustomContextProvider(customProvider);
 ```
 
 This will register `MyCustomProvider` with Continue!

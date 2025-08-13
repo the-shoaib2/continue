@@ -1,4 +1,4 @@
-import { parseConfigYaml } from "@continuedev/config-yaml";
+import { parseConfigYaml } from "@synapse/config-yaml";
 import {
   BookmarkIcon as BookmarkOutline,
   PencilIcon,

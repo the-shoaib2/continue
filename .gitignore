@@ -136,13 +136,13 @@ codeql
 **/**/.qodana
 **/**/build
 
-continue_server.build
-continue_server.dist
+synapse_server.build
+synapse_server.dist
 
 Icon
 Icon?
 
-.continuerc.json
+.synapserc.json
 .aider*
 
 *.notes.md
@@ -150,7 +150,7 @@ notes.md
 *.notes.md
 
 manual-testing-sandbox/.idea/**
-manual-testing-sandbox/.continue/**
+manual-testing-sandbox/.synapse/**
 extensions/intellij/.idea/**
 
 **/.idea/workspace.xml
@@ -161,13 +161,13 @@ extensions/intellij/.idea/**
 
 
 extensions/intellij/bin
-extensions/.continue-debug/
+extensions/.synapse-debug/
 
 *.vsix
 
 # intellij module library files
 *.iml
 
-.continuerules
-**/.continue/assistants/
+.synapserules
+**/.synapse/assistants/
 keys

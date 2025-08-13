@@ -1,26 +1,26 @@
 import {
-  AssistantUnrolled,
-  BLOCK_TYPES,
-  ConfigResult,
-  ConfigValidationError,
-  isAssistantUnrolledNonNullable,
-  mergeUnrolledAssistants,
-  ModelRole,
-  PackageIdentifier,
-  RegistryClient,
-  TEMPLATE_VAR_REGEX,
-  unrollAssistant,
-  validateConfigYaml,
-} from "@continuedev/config-yaml";
+    AssistantUnrolled,
+    BLOCK_TYPES,
+    ConfigResult,
+    ConfigValidationError,
+    isAssistantUnrolledNonNullable,
+    mergeUnrolledAssistants,
+    ModelRole,
+    PackageIdentifier,
+    RegistryClient,
+    TEMPLATE_VAR_REGEX,
+    unrollAssistant,
+    validateConfigYaml,
+} from "@synapse/config-yaml";
 import { dirname } from "node:path";
 
 import {
-  ContinueConfig,
-  IContextProvider,
-  IDE,
-  IdeInfo,
-  IdeSettings,
-  ILLMLogger,
+    ContinueConfig,
+    IContextProvider,
+    IDE,
+    IdeInfo,
+    IdeSettings,
+    ILLMLogger,
 } from "../..";
 import { MCPManagerSingleton } from "../../context/mcp/MCPManagerSingleton";
 import DocsContextProvider from "../../context/providers/DocsContextProvider";
@@ -42,8 +42,8 @@ import { unrollLocalYamlBlocks } from "./loadLocalYamlBlocks";
 import { LocalPlatformClient } from "./LocalPlatformClient";
 import { llmsFromModelConfig } from "./models";
 import {
-  convertYamlMcpToContinueMcp,
-  convertYamlRuleToContinueRule,
+    convertYamlMcpToContinueMcp,
+    convertYamlRuleToContinueRule,
 } from "./yamlToContinueConfig";
 
 async function loadConfigYaml(options: {
@@ -239,7 +239,7 @@ async function configYamlToContinueConfig(options: {
 
     localErrors.push({
       fatal: false,
-      message: `MCP server "${mcpServer.name}" has unsubstituted variables in args: ${mcpArgVariables.join(", ")}. Please refer to https://docs.continue.dev/hub/secrets/secret-types for managing hub secrets.`,
+      message: `MCP server "${mcpServer.name}" has unsubstituted variables in args: ${mcpArgVariables.join(", ")}. Please refer to https://docs.synapse.dev/hub/secrets/secret-types for managing hub secrets.`,
     });
   });
 

@@ -1,4 +1,4 @@
-import { ConfigYaml } from "@continuedev/config-yaml";
+import { ConfigYaml } from "@synapse/config-yaml";
 import { PencilIcon } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import { useAuth } from "../../../context/Auth";

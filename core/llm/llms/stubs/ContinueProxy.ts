@@ -1,9 +1,9 @@
 import {
-  ContinueProperties,
-  decodeSecretLocation,
-  parseProxyModelName,
-  SecretType,
-} from "@continuedev/config-yaml";
+    ContinueProperties,
+    decodeSecretLocation,
+    parseProxyModelName,
+    SecretType,
+} from "@synapse/config-yaml";
 
 import { ControlPlaneProxyInfo } from "../../../control-plane/analytics/IAnalyticsProvider.js";
 import { Telemetry } from "../../../util/posthog.js";

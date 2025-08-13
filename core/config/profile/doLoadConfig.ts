@@ -1,22 +1,22 @@
 import fs from "fs";
 
 import {
-  AssistantUnrolled,
-  ConfigResult,
-  ConfigValidationError,
-  ModelRole,
-  PackageIdentifier,
+    AssistantUnrolled,
+    ConfigResult,
+    ConfigValidationError,
+    ModelRole,
+    PackageIdentifier,
 } from "@continuedev/config-yaml";
 
 import {
-  ContinueConfig,
-  IDE,
-  IdeSettings,
-  ILLMLogger,
-  RuleWithSource,
-  SerializedContinueConfig,
-  SlashCommandDescWithSource,
-  Tool,
+    ContinueConfig,
+    IDE,
+    IdeSettings,
+    ILLMLogger,
+    RuleWithSource,
+    SerializedContinueConfig,
+    SlashCommandDescWithSource,
+    Tool,
 } from "../../";
 import { stringifyMcpPrompt } from "../../commands/slash/mcpSlashCommand";
 import { MCPManagerSingleton } from "../../context/mcp/MCPManagerSingleton";
@@ -49,7 +49,7 @@ async function loadRules(ide: IDE) {
   const rules: RuleWithSource[] = [];
   const errors = [];
 
-  // Add rules from .continuerules files
+      // Add rules from .synapserules files
   const { rules: yamlRules, errors: continueRulesErrors } =
     await getWorkspaceContinueRuleDotFiles(ide);
   rules.unshift(...yamlRules);

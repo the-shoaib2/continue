@@ -275,7 +275,7 @@
       "anchors": [
         {
           "anchor": "About Us",
-          "href": "https://continue.dev/about-us",
+          "href": "https://synapse.dev/about-us",
           "icon": "book-open"
         },
         {
@@ -285,7 +285,7 @@
         },
         {
           "anchor": "Blog",
-          "href": "https://continue.dev/blog",
+          "href": "https://synapse.dev/blog",
           "icon": "newspaper"
         }
       ]
@@ -294,7 +294,7 @@
   "logo": {
     "light": "/logo/light.svg",
     "dark": "/logo/dark.svg",
-    "href": "https://continue.dev"
+    "href": "https://synapse.dev"
   },
   "background": {
     "color": {
@@ -305,7 +305,7 @@
     "links": [
       {
         "label": "Explore",
-        "href": "https://hub.continue.dev/"
+        "href": "https://hub.synapse.dev/"
       }
     ],
     "primary": {

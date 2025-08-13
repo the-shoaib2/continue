@@ -1,4 +1,4 @@
-import { BlockType } from "@continuedev/config-yaml";
+import { BlockType } from "@synapse/config-yaml";
 import {
   ArrowTopRightOnSquareIcon,
   PlusIcon,

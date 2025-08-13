@@ -10,14 +10,14 @@ You can easily access your assistant configuration from the Continue Chat sideba
 
 ## Hub Assistants
 
-Hub Assistants can be managed in [the Hub](https://hub.continue.dev). See [Editing an Assistant](../../hub/assistants/edit-an-assistant.md)
+Hub Assistants can be managed in [the Hub](https://hub.synapse.dev). See [Editing an Assistant](../../hub/assistants/edit-an-assistant.md)
 
 ## YAML Config
 
 Local user-level configuration is stored and can be edited in your home directory in `config.yaml`:
 
-- `~/.continue/config.yaml` (MacOS / Linux)
-- `%USERPROFILE%\.continue\config.yaml` (Windows)
+- `~/.synapse/config.yaml` (MacOS / Linux)
+- `%USERPROFILE%\.synapse\config.yaml` (Windows)
 
 To open this `config.yaml`, you need to open the assistants dropdown in the top-right portion of the chat input. On that dropdown beside the "Local Assistant" option, select the cog icon. It will open the local `config.yaml`.
 
@@ -36,8 +36,8 @@ See the full reference for `config.yaml` [here](/reference).
 - [`config.json`](/reference) - The original configuration format which is stored in a file at the same location as `config.yaml`
 - [`.continuerc.json`](#continuercjson) - Workspace-level configuration
 - [`config.ts`](#configts) - Advanced configuration (probably unnecessary) - a TypeScript file in your home directory that can be used to programmatically modify (_merged_) the `config.json` schema:
-  - `~/.continue/config.ts` (MacOS / Linux)
-  - `%USERPROFILE%\.continue\config.ts` (Windows)
+  - `~/.synapse/config.ts` (MacOS / Linux)
+- `%USERPROFILE%\.synapse\config.ts` (Windows)
 
 ### `.continuerc.json`
 

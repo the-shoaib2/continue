@@ -1,8 +1,8 @@
 import path from "path";
 import * as YAML from "yaml";
 import {
-  PackageIdentifier,
-  packageIdentifierToDisplayName,
+    PackageIdentifier,
+    packageIdentifierToDisplayName,
 } from "../browser.js";
 import { RuleObject } from "../schemas/index.js";
 
@@ -78,7 +78,7 @@ function getGlobPattern(
     return globs;
   }
   let dir = path.dirname(id.filePath);
-  if (dir.includes(".continue")) {
+      if (dir.includes(".synapse")) {
     return globs;
   }
   if (!dir.endsWith("/")) {

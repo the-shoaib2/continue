@@ -3,7 +3,7 @@ import {
   ConfigResult,
   DevDataLogEvent,
   ModelRole,
-} from "@continuedev/config-yaml";
+} from "@synapse/config-yaml";
 
 import {
   AutocompleteInput,

@@ -84,8 +84,8 @@ intellijPlatformTesting {
         register("runIdeForUiTests") {
             task {
                 environment(
-                    "CONTINUE_GLOBAL_DIR",
-                    "${rootProject.projectDir}/src/test/kotlin/com/github/continuedev/continueintellijextension/e2e/test-continue"
+                    "SYNAPSE_GLOBAL_DIR",
+                    "${rootProject.projectDir}/src/test/kotlin/com/github/synapsedev/synapseintellijextension/e2e/test-synapse"
                 )
                 jvmArgumentProviders += CommandLineArgumentProvider {
                     listOf(

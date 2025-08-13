@@ -1,14 +1,14 @@
-import { fetchwithRequestOptions } from "@continuedev/fetch";
+import { fetchwithRequestOptions } from "@synapse/fetch";
 import * as URI from "uri-js";
 import { v4 as uuidv4 } from "uuid";
 
 import { CompletionProvider } from "./autocomplete/CompletionProvider";
 import {
-  openedFilesLruCache,
-  prevFilepaths,
+    openedFilesLruCache,
+    prevFilepaths,
 } from "./autocomplete/util/openedFilesLruCache";
 import { ConfigHandler } from "./config/ConfigHandler";
-import { SYSTEM_PROMPT_DOT_FILE } from "./config/getWorkspaceContinueRuleDotFiles";
+import { SYSTEM_PROMPT_DOT_FILE } from "./config/getWorkspaceSynapseRuleDotFiles";
 import { addModel, deleteModel } from "./config/util";
 import CurrentFileContextProvider from "./context/providers/CurrentFileContextProvider";
 import { getAuthUrlForTokenPage } from "./control-plane/auth/index";
@@ -30,34 +30,34 @@ import historyManager from "./util/history";
 import { editConfigFile, migrateV1DevDataFiles } from "./util/paths";
 import { Telemetry } from "./util/posthog";
 import {
-  isProcessBackgrounded,
-  markProcessAsBackgrounded,
+    isProcessBackgrounded,
+    markProcessAsBackgrounded,
 } from "./util/processTerminalBackgroundStates";
 import { getSymbolsForManyFiles } from "./util/treeSitter";
 import { TTS } from "./util/tts";
 
 import {
-  CompleteOnboardingPayload,
-  ContextItemId,
-  ContextItemWithId,
-  IdeSettings,
-  ModelDescription,
-  Position,
-  RangeInFile,
-  ToolCall,
-  type ContextItem,
-  type IDE,
+    CompleteOnboardingPayload,
+    ContextItemId,
+    ContextItemWithId,
+    IdeSettings,
+    ModelDescription,
+    Position,
+    RangeInFile,
+    ToolCall,
+    type ContextItem,
+    type IDE,
 } from ".";
 
-import { BLOCK_TYPES, ConfigYaml } from "@continuedev/config-yaml";
+import { BLOCK_TYPES, ConfigYaml } from "@synapse/config-yaml";
 import { getDiffFn, GitDiffCache } from "./autocomplete/snippets/gitDiffCache";
 import { stringifyMcpPrompt } from "./commands/slash/mcpSlashCommand";
 import { isLocalDefinitionFile } from "./config/loadLocalAssistants";
 import { CodebaseRulesCache } from "./config/markdown/loadCodebaseRules";
 import {
-  setupLocalConfig,
-  setupProviderConfig,
-  setupQuickstartConfig,
+    setupLocalConfig,
+    setupProviderConfig,
+    setupQuickstartConfig,
 } from "./config/onboarding";
 import { createNewWorkspaceBlockFile } from "./config/workspace/workspaceBlocks";
 import { MCPManagerSingleton } from "./context/mcp/MCPManagerSingleton";
@@ -72,12 +72,12 @@ import { RULES_MARKDOWN_FILENAME } from "./llm/rules/constants";
 import { llmStreamChat } from "./llm/streamChat";
 import { BeforeAfterDiff } from "./nextEdit/context/diffFormatting";
 import { processSmallEdit } from "./nextEdit/context/processSmallEdit";
+import { PrefetchQueue } from "./nextEdit/NextEditPrefetchQueue";
 import { NextEditProvider } from "./nextEdit/NextEditProvider";
 import type { FromCoreProtocol, ToCoreProtocol } from "./protocol";
 import { OnboardingModes } from "./protocol/core";
 import type { IMessenger, Message } from "./protocol/messenger";
 import { getUriPathBasename } from "./util/uri";
-import { PrefetchQueue } from "./nextEdit/NextEditPrefetchQueue";
 
 const hasRulesFiles = (uris: string[]): boolean => {
   for (const uri of uris) {
@@ -1318,7 +1318,7 @@ export class Core {
         //     .then((userSelection) => {
         //       if (userSelection === toastOption) {
         //         void this.ide.openUrl(
-        //           "https://docs.continue.dev/customize/model-roles/embeddings",
+        //           "https://docs.synapse.dev/customize/model-roles/embeddings",
         //         );
         //       }
         //     });

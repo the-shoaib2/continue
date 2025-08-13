@@ -1,30 +1,30 @@
-# Individual Contributor License Agreement (v1.0, Continue)
+# Individual Contributor License Agreement (v1.0, Synapse)
 
 _Based on the Apache Software Foundation Individual CLA v 2.2._
 
-By commenting **“I have read the CLA Document and I hereby sign the CLA”**
-on a Pull Request, **you (“Contributor”) agree to the following terms** for any
-past and future “Contributions” submitted to **Continue (the “Project”)**.
+By commenting **"I have read the CLA Document and I hereby sign the CLA"**
+on a Pull Request, **you ("Contributor") agree to the following terms** for any
+past and future "Contributions" submitted to **Synapse (the "Project")**.
 
 ---
 
 ## 1. Definitions
 
-- **“Contribution”** – any original work of authorship submitted to the Project
+- **"Contribution"** – any original work of authorship submitted to the Project
   (code, documentation, designs, etc.).
-- **“You” / “Your”** – the individual (or legal entity) posting the acceptance
+- **"You" / "Your"** – the individual (or legal entity) posting the acceptance
   comment.
 
 ## 2. Copyright License
 
-You grant **Continue Dev, Inc.** and all recipients of software distributed by the
+You grant **Synapse Dev, Inc.** and all recipients of software distributed by the
 Project a perpetual, worldwide, non‑exclusive, royalty‑free, irrevocable
 license to reproduce, prepare derivative works of, publicly display, publicly
 perform, sublicense, and distribute Your Contributions and derivative works.
 
 ## 3. Patent License
 
-You grant **Continue Dev, Inc.** and all recipients of the Project a perpetual,
+You grant **Synapse Dev, Inc.** and all recipients of the Project a perpetual,
 worldwide, non‑exclusive, royalty‑free, irrevocable (except as below) patent
 license to make, have made, use, sell, offer to sell, import, and otherwise
 transfer Your Contributions alone or in combination with the Project.
@@ -38,7 +38,7 @@ entity under this CLA terminate.
 1. You are legally entitled to grant the licenses above.
 2. Each Contribution is either Your original creation or You have authority to
    submit it under this CLA.
-3. Your Contributions are provided **“AS IS”** without warranties of any kind.
+3. Your Contributions are provided **"AS IS"** without warranties of any kind.
 4. You will notify the Project if any statement above becomes inaccurate.
 
 ## 5. Miscellany

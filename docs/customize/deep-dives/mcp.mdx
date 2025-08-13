@@ -20,7 +20,7 @@ Protocol standard to unify prompts, context, and tool use.
 
 MCP Servers can be added to hub Assistants using `mcpServers` blocks. You can
 explore available MCP server blocks
-[here](https://hub.continue.dev/explore/mcp).
+[here](https://hub.synapse.dev/explore/mcp).
 
 <Info>MCP can only be used in the **agent** mode.</Info>
 
@@ -28,11 +28,11 @@ explore available MCP server blocks
 
 Below is a quick example of setting up a new MCP server for use in your assistant:
 
-1. Create a folder called `.continue/mcpServers` at the top level of your workspace
+1. Create a folder called `.synapse/mcpServers` at the top level of your workspace
 2. Add a file called `playwright-mcp.yaml` to this folder.
 3. Write the following contents to `playwright-mcp.yaml` and save.
 
-```yaml title=".continue/mcpServers/playwright-mcp.yaml"
+```yaml title=".synapse/mcpServers/playwright-mcp.yaml"
 name: Playwright mcpServer
 version: 0.0.1
 schema: v1
@@ -64,7 +64,7 @@ For complete setup instructions, troubleshooting, and usage examples, see the [C
 To set up your own MCP server, read the [MCP
 quickstart](https://modelcontextprotocol.io/quickstart) and then [create an
 `mcpServers`
-block](https://hub.continue.dev/new?type=block&blockType=mcpServers) or add a local MCP
+block](https://hub.synapse.dev/new?type=block&blockType=mcpServers) or add a local MCP
 server block to your [config file](./configuration.md):
 
 <Tabs>

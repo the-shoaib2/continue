@@ -1,5 +1,5 @@
 {
-  "name": "@continuedev/llm-info",
+  "name": "@synapse/llm-info",
   "version": "1.0.9",
   "description": "",
   "main": "dist/index.js",

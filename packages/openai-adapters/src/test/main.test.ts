@@ -1,4 +1,4 @@
-import { ModelConfig } from "@continuedev/config-yaml";
+import { ModelConfig } from "@synapse/config-yaml";
 import * as dotenv from "dotenv";
 import { vi } from "vitest";
 import { DEEPSEEK_API_BASE } from "../apis/DeepSeek.js";

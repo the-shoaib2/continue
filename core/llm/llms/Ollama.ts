@@ -2,13 +2,13 @@ import { Mutex } from "async-mutex";
 import { JSONSchema7, JSONSchema7Object } from "json-schema";
 import { v4 as uuidv4 } from "uuid";
 
-import { streamResponse } from "@continuedev/fetch";
+import { streamResponse } from "@synapse/fetch";
 import {
-  ChatMessage,
-  ChatMessageRole,
-  CompletionOptions,
-  LLMOptions,
-  ModelInstaller,
+    ChatMessage,
+    ChatMessageRole,
+    CompletionOptions,
+    LLMOptions,
+    ModelInstaller,
 } from "../../index.js";
 import { renderChatMessage } from "../../util/messageContent.js";
 import { getRemoteModelInfo } from "../../util/ollamaHelper.js";

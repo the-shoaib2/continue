@@ -1,7 +1,7 @@
 ---
 title: "Rules"
 description: "Rules are used to provide instructions to the model for Agent, Chat, and Edit requests."
-keywords: [rules, .continuerules, system, prompt, message]
+keywords: [rules, .synapserules, system, prompt, message]
 ---
 
 Rules provide instructions to the model for [Agent](../../features/agent/quick-start), [Chat](../../features/chat/quick-start), and [Edit](../../features/edit/quick-start) requests.
@@ -54,7 +54,7 @@ For example, you can say "Create a rule for this", and a rule will be created fo
 
 Rules can also be added to an Assistant on the Continue Hub.
 
-Explore available rules [here](https://hub.continue.dev), or [create your own](https://hub.continue.dev/new?type=block&blockType=rules) in the Hub.
+Explore available rules [here](https://hub.synapse.dev), or [create your own](https://hub.synapse.dev/new?type=block&blockType=rules) in the Hub.
 
 ### Syntax
 
@@ -157,11 +157,11 @@ This can be viewed in the rules section of the toolbar (see above), or in the so
 
 Advanced users can override this system message for a specific model if needed by using `chatOptions.baseSystemMessage`. See the [`config.yaml` reference](/reference#models).
 
-### `.continuerules`
+### `.synapserules`
 
 <Warning>
-  `.continuerules` will be deprecated in a future release. Please use the
-  `.continue/rules` folder instead.
+  `.synapserules` will be deprecated in a future release. Please use the
+`.synapse/rules` folder instead.
 </Warning>
 
-You can create project-specific rules by adding a `.continuerules` file to the root of your project. This file is raw text and its full contents will be used as rules.
+You can create project-specific rules by adding a `.synapserules` file to the root of your project. This file is raw text and its full contents will be used as any rules.

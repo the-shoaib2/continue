@@ -48,7 +48,7 @@ export const FatalErrorIndicator = () => {
           onClick={() => {
             ideMessenger.post(
               "openUrl",
-              "https://docs.continue.dev/troubleshooting",
+              "https://docs.synapse.dev/troubleshooting",
             );
           }}
           className="cursor-pointer underline"

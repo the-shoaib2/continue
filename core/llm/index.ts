@@ -1,34 +1,34 @@
-import { ModelRole } from "@continuedev/config-yaml";
-import { fetchwithRequestOptions } from "@continuedev/fetch";
-import { findLlmInfo } from "@continuedev/llm-info";
+import { ModelRole } from "@synapse/config-yaml";
+import { fetchwithRequestOptions } from "@synapse/fetch";
+import { findLlmInfo } from "@synapse/llm-info";
 import {
-  BaseLlmApi,
-  ChatCompletionCreateParams,
-  constructLlmApi,
-} from "@continuedev/openai-adapters";
+    BaseLlmApi,
+    ChatCompletionCreateParams,
+    constructLlmApi,
+} from "@synapse/openai-adapters";
 import Handlebars from "handlebars";
 
 import { DevDataSqliteDb } from "../data/devdataSqlite.js";
 import { DataLogger } from "../data/log.js";
 import {
-  CacheBehavior,
-  ChatMessage,
-  Chunk,
-  CompletionOptions,
-  ILLM,
-  ILLMInteractionLog,
-  ILLMLogger,
-  LLMFullCompletionOptions,
-  LLMOptions,
-  MessageOption,
-  ModelCapability,
-  ModelInstaller,
-  PromptLog,
-  PromptTemplate,
-  RequestOptions,
-  TabAutocompleteOptions,
-  TemplateType,
-  Usage,
+    CacheBehavior,
+    ChatMessage,
+    Chunk,
+    CompletionOptions,
+    ILLM,
+    ILLMInteractionLog,
+    ILLMLogger,
+    LLMFullCompletionOptions,
+    LLMOptions,
+    MessageOption,
+    ModelCapability,
+    ModelInstaller,
+    PromptLog,
+    PromptTemplate,
+    RequestOptions,
+    TabAutocompleteOptions,
+    TemplateType,
+    Usage,
 } from "../index.js";
 import mergeJson from "../util/merge.js";
 import { renderChatMessage } from "../util/messageContent.js";
@@ -37,31 +37,31 @@ import { Telemetry } from "../util/posthog.js";
 import { withExponentialBackoff } from "../util/withExponentialBackoff.js";
 
 import {
-  autodetectPromptTemplates,
-  autodetectTemplateFunction,
-  autodetectTemplateType,
-  modelSupportsImages,
+    autodetectPromptTemplates,
+    autodetectTemplateFunction,
+    autodetectTemplateType,
+    modelSupportsImages,
 } from "./autodetect.js";
 import {
-  DEFAULT_ARGS,
-  DEFAULT_CONTEXT_LENGTH,
-  DEFAULT_MAX_BATCH_SIZE,
-  DEFAULT_MAX_CHUNK_SIZE,
-  DEFAULT_MAX_TOKENS,
-  LLMConfigurationStatuses,
+    DEFAULT_ARGS,
+    DEFAULT_CONTEXT_LENGTH,
+    DEFAULT_MAX_BATCH_SIZE,
+    DEFAULT_MAX_CHUNK_SIZE,
+    DEFAULT_MAX_TOKENS,
+    LLMConfigurationStatuses,
 } from "./constants.js";
 import {
-  compileChatMessages,
-  countTokens,
-  pruneRawPromptFromTop,
+    compileChatMessages,
+    countTokens,
+    pruneRawPromptFromTop,
 } from "./countTokens.js";
 import {
-  fromChatCompletionChunk,
-  fromChatResponse,
-  LlmApiRequestType,
-  toChatBody,
-  toCompleteBody,
-  toFimBody,
+    fromChatCompletionChunk,
+    fromChatResponse,
+    LlmApiRequestType,
+    toChatBody,
+    toCompleteBody,
+    toFimBody,
 } from "./openaiTypeConverters.js";
 
 export class LLMError extends Error {
@@ -205,7 +205,7 @@ export abstract class BaseLLM implements ILLM {
     };
 
     this.model = options.model;
-    // Use @continuedev/llm-info package to autodetect certain parameters
+    // Use @synapse/llm-info package to autodetect certain parameters
     const modelSearchString =
       this.providerName === "continue-proxy"
         ? this.model?.split("/").pop() || this.model
