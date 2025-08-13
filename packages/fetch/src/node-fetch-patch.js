@@ -1,6 +1,6 @@
 /*
 This is a patched version of index.js from node-fetch 3.3.2 (see packages/fetch/node_modules/node-fetch/src/index.js)
-This is to fix "Premature close" errors caused by chunked encoding assumptions - see https://github.com/continuedev/continue/issues/5502
+This is to fix "Premature close" errors caused by chunked encoding assumptions - see https://github.com/continuedev/synapse/issues/5502
 The patch adjusts boundary chunk detection logic (see "PATCH" comment next to patch)
 And is based on https://github.com/node-fetch/node-fetch/issues/1576
 */
@@ -22,12 +22,12 @@ import zlib from "node:zlib";
 import dataUriToBuffer from "data-uri-to-buffer";
 
 import {
-  Blob,
-  blobFrom,
-  blobFromSync,
-  File,
-  fileFrom,
-  fileFromSync,
+    Blob,
+    blobFrom,
+    blobFromSync,
+    File,
+    fileFrom,
+    fileFromSync,
 } from "fetch-blob/from.js";
 import { FormData } from "formdata-polyfill/esm.min.js";
 import { clone, writeToStream } from "node-fetch/src/body.js";
@@ -38,25 +38,25 @@ import Request, { getNodeRequestOptions } from "node-fetch/src/request.js";
 import Response from "node-fetch/src/response.js";
 import { isRedirect } from "node-fetch/src/utils/is-redirect.js";
 import {
-  isDomainOrSubdomain,
-  isSameProtocol,
+    isDomainOrSubdomain,
+    isSameProtocol,
 } from "node-fetch/src/utils/is.js";
 import { parseReferrerPolicyFromHeader } from "node-fetch/src/utils/referrer.js";
 
 export {
-  AbortError,
-  Blob,
-  blobFrom,
-  blobFromSync,
-  FetchError,
-  File,
-  fileFrom,
-  fileFromSync,
-  FormData,
-  Headers,
-  isRedirect,
-  Request,
-  Response,
+    AbortError,
+    Blob,
+    blobFrom,
+    blobFromSync,
+    FetchError,
+    File,
+    fileFrom,
+    fileFromSync,
+    FormData,
+    Headers,
+    isRedirect,
+    Request,
+    Response
 };
 
 const supportedSchemas = new Set(["data:", "http:", "https:"]);

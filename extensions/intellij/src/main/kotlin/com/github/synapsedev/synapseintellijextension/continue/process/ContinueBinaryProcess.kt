@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.`continue`.process
+package com.github.continuedev.continueintellijextension.`synapse`.process
 
 import com.github.continuedev.continueintellijextension.proxy.ProxySettings
 import com.github.continuedev.continueintellijextension.error.ContinueSentryService

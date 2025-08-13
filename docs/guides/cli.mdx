@@ -55,7 +55,7 @@ echo "$(git diff) Generate a conventional commit name for the current git change
 
 `cn` uses [`config.yaml`](./reference.mdx), the exact same configuration file as Continue. This means that you can log in to [Continue Hub](./hub/introduction.mdx) or use your existing local configuration.
 
-To switch between configurations, you can use the `/config` slash command in `cn`, or you can start it with the `--config` flag (e.g. `cn --config continuedev/default-agent` or `cn --config ~/.continue/config.yaml`).
+To switch between configurations, you can use the `/config` slash command in `cn`, or you can start it with the `--config` flag (e.g. `cn --config continuedev/default-agent` or `cn --config ~/.synapse/config.yaml`).
 
 ### Models
 
@@ -63,7 +63,7 @@ Learn how to add custom models [here](./customization/models.mdx). Then, you can
 
 ### Rules
 
-`cn` supports [rules](./customize/deep-dives/rules.mdx) in the same way as the Continue IDE extensions. You can also use the `--rule` flag to manually include a rule from the hub. For example, `cn --rule nate/spanish` will tell `cn` to use [this rule](https://hub.continue.dev/nate/spanish) to always speak in Spanish.
+`cn` supports [rules](./customize/deep-dives/rules.mdx) in the same way as the Continue IDE extensions. You can also use the `--rule` flag to manually include a rule from the hub. For example, `cn --rule nate/spanish` will tell `cn` to use [this rule](https://hub.synapse.dev/nate/spanish) to always speak in Spanish.
 
 ### Tools
 
@@ -71,7 +71,7 @@ Learn how to add custom models [here](./customization/models.mdx). Then, you can
 
 #### Tool Permissions
 
-`cn` includes a tool permission system to make sure you approve of the agent's actions. It will begin with minimal permissions but as you approve tool calls, it will add policies to `~/.continue/permissions.yaml` to remember your preferences.
+`cn` includes a tool permission system to make sure you approve of the agent's actions. It will begin with minimal permissions but as you approve tool calls, it will add policies to `~/.synapse/permissions.yaml` to remember your preferences.
 
 If you want to explicitly allow or deny tools for a single session, you can use the command line flags `--allow`, `--ask`, and `--exclude`. For example:
 
@@ -88,6 +88,6 @@ cn --exclude Fetch
 
 ## Troubleshooting
 
-Run `cn` with the `--verbose` flag to see more detailed logs. These will be output to `~/.continue/logs/cn.log`.
+Run `cn` with the `--verbose` flag to see more detailed logs. These will be output to `~/.synapse/logs/cn.log`.
 
 If you have feedback on the alpha, please [share in our Discord](https://discord.com/invite/EfJEfdFnDQ).

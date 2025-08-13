@@ -429,7 +429,7 @@ export class VsCodeExtension {
       if (e.provider.id === env.AUTH_TYPE) {
         void vscode.commands.executeCommand(
           "setContext",
-          "continue.isSignedInToControlPlane",
+          "synapse.isSignedInToControlPlane",
           true,
         );
 
@@ -440,7 +440,7 @@ export class VsCodeExtension {
       } else {
         void vscode.commands.executeCommand(
           "setContext",
-          "continue.isSignedInToControlPlane",
+          "synapse.isSignedInToControlPlane",
           false,
         );
 

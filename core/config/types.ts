@@ -810,7 +810,7 @@ declare global {
     | "currentFile"
     | "greptile"
     | "outline"
-    | "continue-proxy"
+    | "synapse-proxy"
     | "highlights"
     | "file"
     | "issue"

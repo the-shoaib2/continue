@@ -1,8 +1,8 @@
 import { CompletionProvider } from "core/autocomplete/CompletionProvider";
 import { processSingleLineCompletion } from "core/autocomplete/util/processSingleLineCompletion";
 import {
-    type AutocompleteInput,
-    type AutocompleteOutcome,
+  type AutocompleteInput,
+  type AutocompleteOutcome,
 } from "core/autocomplete/util/types";
 import { ConfigHandler } from "core/config/ConfigHandler";
 import * as URI from "uri-js";
@@ -25,10 +25,10 @@ import { getDefinitionsFromLsp } from "./lsp";
 import { RecentlyEditedTracker } from "./recentlyEdited";
 import { RecentlyVisitedRangesService } from "./RecentlyVisitedRangesService";
 import {
-    StatusBarStatus,
-    getStatusBarStatus,
-    setupStatusBar,
-    stopStatusBarLoading,
+  StatusBarStatus,
+  getStatusBarStatus,
+  setupStatusBar,
+  stopStatusBarLoading,
 } from "./statusBar";
 
 interface VsCodeCompletionInput {
@@ -500,7 +500,7 @@ export class ContinueCompletionProvider
         range,
         {
           title: "Log Autocomplete Outcome",
-          command: "continue.logAutocompleteOutcome",
+          command: "synapse.logAutocompleteOutcome",
           arguments: [completionId, this.completionProvider],
         },
       );
@@ -562,7 +562,7 @@ export class ContinueCompletionProvider
 
         // Track this ghost text for acceptance detection.
         // Ghost text acceptance can *technically* be acted upon in
-        // the command handler for "continue.logNextEditOutcomeAccept",
+        // the command handler for "synapse.logNextEditOutcomeAccept",
         // but there is a substantial delay between accepting and logging,
         // which introduces a lot of race conditions with different event handlers.
         // Plus, separating these concerns seems to make sense logically as well.
@@ -580,7 +580,7 @@ export class ContinueCompletionProvider
           ),
           {
             title: "Log Next Edit Outcome",
-            command: "continue.logNextEditOutcomeAccept",
+            command: "synapse.logNextEditOutcomeAccept",
             arguments: [completionId, this.nextEditLoggingService],
           },
         );

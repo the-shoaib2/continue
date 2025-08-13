@@ -1,10 +1,10 @@
 import path from "path";
 import { beforeEach, describe, expect, it } from "vitest";
 import {
-  ContextItemId,
-  ContextItemWithId,
-  RuleWithSource,
-  UserChatMessage,
+    ContextItemId,
+    ContextItemWithId,
+    RuleWithSource,
+    UserChatMessage,
 } from "../..";
 
 import { getApplicableRules } from "../../llm/rules/getSystemMessageWithRules";
@@ -17,7 +17,7 @@ describe("Rule Colocation Application", () => {
       name: "Root Rule",
       rule: "Follow project standards",
       source: "colocated-markdown",
-      ruleFile: ".continue/rules.md",
+      ruleFile: ".synapse/rules.md",
     },
 
     // Nested directory rule without globs - should only apply to files in that directory

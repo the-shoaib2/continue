@@ -1,4 +1,4 @@
-package com.github.continuedev.continueintellijextension.`continue`
+package com.github.continuedev.continueintellijextension.`synapse`
 
 import com.github.continuedev.continueintellijextension.error.ContinuePostHogService
 import com.intellij.openapi.components.service

@@ -1,16 +1,16 @@
 import {
-  EditorView,
-  InputBox,
-  TextEditor,
-  VSBrowser,
-  Workbench,
+    EditorView,
+    InputBox,
+    TextEditor,
+    VSBrowser,
+    Workbench,
 } from "vscode-extension-tester";
 
 import { DEFAULT_TIMEOUT } from "../constants";
 import { TestUtils } from "../TestUtils";
 
 export class GlobalActions {
-  static defaultFolder = "e2e/test-continue";
+  static defaultFolder = "e2e/test-synapse";
   public static defaultNewFilename = "test.py";
 
   public static async openTestWorkspace() {

@@ -4,11 +4,11 @@ import { v4 as uuidv4 } from "uuid";
 
 import { streamResponse } from "@synapse/fetch";
 import {
-    ChatMessage,
-    ChatMessageRole,
-    CompletionOptions,
-    LLMOptions,
-    ModelInstaller,
+  ChatMessage,
+  ChatMessageRole,
+  CompletionOptions,
+  LLMOptions,
+  ModelInstaller,
 } from "../../index.js";
 import { renderChatMessage } from "../../util/messageContent.js";
 import { getRemoteModelInfo } from "../../util/ollamaHelper.js";
@@ -217,7 +217,7 @@ class Ollama extends BaseLLM implements ModelInstaller {
       });
   }
 
-  // Map of "continue model name" to Ollama actual model name
+  // Map of "synapse model name" to Ollama actual model name
   private modelMap: Record<string, string> = {
     "mistral-7b": "mistral:7b",
     "mixtral-8x7b": "mixtral:8x7b",

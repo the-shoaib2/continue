@@ -106,7 +106,7 @@ For example:
   </Tab>
 </Tabs>
 
-Then, in the continue panel, select this model as the default model for autocomplete.
+Then, in the synapse panel, select this model as the default model for autocomplete.
 
 ## Configuration Options
 
@@ -153,7 +153,7 @@ The `config.json` configuration format offers configuration options through `tab
 
 ### I want better completions, should I use GPT-4?
 
-Perhaps surprisingly, the answer is no. The models that we suggest for autocomplete are trained with a highly specific prompt format, which allows them to respond to requests for completing code (see examples of these prompts [here](https://github.com/continuedev/continue/blob/main/core/autocomplete/templating/AutocompleteTemplate.ts)). Some of the best commercial models like GPT-4 or Claude are not trained with this prompt format, which means that they won't generate useful completions. Luckily, a huge model is not required for great autocomplete. Most of the state-of-the-art autocomplete models are no more than 10b parameters, and increasing beyond this does not significantly improve performance.
+Perhaps surprisingly, the answer is no. The models that we suggest for autocomplete are trained with a highly specific prompt format, which allows them to respond to requests for completing code (see examples of these prompts [here](https://github.com/continuedev/synapse/blob/main/core/autocomplete/templating/AutocompleteTemplate.ts)). Some of the best commercial models like GPT-4 or Claude are not trained with this prompt format, which means that they won't generate useful completions. Luckily, a huge model is not required for great autocomplete. Most of the state-of-the-art autocomplete models are no more than 10b parameters, and increasing beyond this does not significantly improve performance.
 
 ### I'm not seeing any completions
 
@@ -163,7 +163,7 @@ Follow these steps to ensure that everything is set up correctly:
 2. Make sure you have downloaded Ollama.
 3. Run `ollama run qwen2.5-coder:1.5b` to verify that the model is downloaded.
 4. Make sure that any other completion providers are disabled (e.g. Copilot), as they may interfere.
-5. Check the output of the logs to find any potential errors: <kbd>cmd/ctrl</kbd> + <kbd>shift</kbd> + <kbd>P</kbd> -> "Toggle Developer Tools" -> "Console" tab in VS Code, ~/.continue/logs/core.log in JetBrains.
+5. Check the output of the logs to find any potential errors: <kbd>cmd/ctrl</kbd> + <kbd>shift</kbd> + <kbd>P</kbd> -> "Toggle Developer Tools" -> "Console" tab in VS Code, ~/.synapse/logs/core.log in JetBrains.
 6. Check VS Code settings to make sure that `"editor.inlineSuggest.enabled"` is set to `true` (use <kbd>cmd/ctrl</kbd> + <kbd>,</kbd> then search for this and check the box)
 7. If you are still having issues, please let us know in our [Discord](https://discord.gg/vapESyrFmJ) and we'll help as soon as possible.
 
@@ -189,7 +189,7 @@ This is a built-in feature of VS Code, but it's just a bit hidden. Follow these 
 2. Search for `editor.action.inlineSuggest.acceptNextLine`.
 3. Set the key binding to <kbd>Tab</kbd>.
 4. Set the trigger condition (when) to `inlineSuggestionVisible && !editorReadonly`.
-   This will make multi-line completion (including continue and from VS Code built-in or other plugin snippets) still work, and you will see multi-line completion. However, Tab will only fill in one line at a time. Any unnecessary code can be canceled with <kbd>Esc</kbd>.
+   This will make multi-line completion (including synapse and from VS Code built-in or other plugin snippets) still work, and you will see multi-line completion. However, Tab will only fill in one line at a time. Any unnecessary code can be canceled with <kbd>Esc</kbd>.
    If you need to apply all the code, just press <kbd>Tab</kbd> multiple times.
 
 ### How to turn off autocomplete
@@ -200,7 +200,7 @@ Click the "Continue" button in the status panel at the bottom right of the scree
 
 Alternatively, open VS Code settings, search for "Continue" and uncheck the box for "Enable Tab Autocomplete".
 
-You can also use the default shortcut to disable autocomplete directly using a chord: press and hold <kbd>ctrl/cmd</kbd> + <kbd>K</kbd> (continue holding <kbd>ctrl/cmd</kbd>) and press <kbd>ctrl/cmd</kbd> + <kbd>A</kbd>. This will turn off autocomplete without navigating through settings.
+You can also use the default shortcut to disable autocomplete directly using a chord: press and hold <kbd>ctrl/cmd</kbd> + <kbd>K</kbd> (synapse holding <kbd>ctrl/cmd</kbd>) and press <kbd>ctrl/cmd</kbd> + <kbd>A</kbd>. This will turn off autocomplete without navigating through settings.
 
 #### JetBrains
 

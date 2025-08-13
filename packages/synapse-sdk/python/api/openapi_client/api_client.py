@@ -558,7 +558,7 @@ class ApiClient:
             elif isinstance(v, list):
                 for file_param in v:
                     params.extend(self.files_parameters({k: file_param}))
-                continue
+                synapse
             else:
                 raise ValueError("Unsupported file value")
             mimetype = (

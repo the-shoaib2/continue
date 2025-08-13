@@ -10,8 +10,8 @@ import { BracketMatchingService } from "./filtering/BracketMatchingService.js";
 import { CompletionStreamer } from "./generation/CompletionStreamer.js";
 import { postprocessCompletion } from "./postprocessing/index.js";
 import { shouldPrefilter } from "./prefiltering/index.js";
-import { renderPromptWithTokenLimit } from "./templating/index.js";
 import { getAllSnippetsWithoutRace } from "./snippets/index.js";
+import { renderPromptWithTokenLimit } from "./templating/index.js";
 import { GetLspDefinitionsFunction } from "./types.js";
 import { AutocompleteDebouncer } from "./util/AutocompleteDebouncer.js";
 import { AutocompleteLoggingService } from "./util/AutocompleteLoggingService.js";
@@ -56,7 +56,7 @@ export class CompletionProvider {
       return undefined;
     }
 
-    // Temporary fix for JetBrains autocomplete bug as described in https://github.com/continuedev/continue/pull/3022
+    // Temporary fix for JetBrains autocomplete bug as described in https://github.com/continuedev/synapse/pull/3022
     if (llm.model === undefined && llm.completionOptions?.model !== undefined) {
       llm.model = llm.completionOptions.model;
     }

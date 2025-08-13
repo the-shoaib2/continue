@@ -92,7 +92,7 @@ export abstract class BaseLLM implements ILLM {
   }
 
   /**
-   * This exists because for the continue-proxy, sometimes we want to get the value of the underlying provider that is used on the server
+   * This exists because for the synapse-proxy, sometimes we want to get the value of the underlying provider that is used on the server
    * For example, the underlying provider should always be sent with dev data
    */
   get underlyingProviderName(): string {
@@ -207,7 +207,7 @@ export abstract class BaseLLM implements ILLM {
     this.model = options.model;
     // Use @synapse/llm-info package to autodetect certain parameters
     const modelSearchString =
-      this.providerName === "continue-proxy"
+      this.providerName === "synapse-proxy"
         ? this.model?.split("/").pop() || this.model
         : this.model;
     const llmInfo = findLlmInfo(modelSearchString);
@@ -917,7 +917,7 @@ export abstract class BaseLLM implements ILLM {
   ): CompletionOptions {
     // As of 01/14/25 streaming is currently not available with o1
     // See these threads:
-    // - https://github.com/continuedev/continue/issues/3698
+    // - https://github.com/continuedev/synapse/issues/3698
     // - https://community.openai.com/t/streaming-support-for-o1-o1-2024-12-17-resulting-in-400-unsupported-value/1085043
     if (completionOptions.model === "o1") {
       completionOptions.stream = false;

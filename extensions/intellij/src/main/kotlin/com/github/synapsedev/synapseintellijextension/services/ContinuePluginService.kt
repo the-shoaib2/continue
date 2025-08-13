@@ -1,9 +1,9 @@
 package com.github.continuedev.continueintellijextension.services
 
-import com.github.continuedev.continueintellijextension.`continue`.CoreMessenger
-import com.github.continuedev.continueintellijextension.`continue`.CoreMessengerManager
-import com.github.continuedev.continueintellijextension.`continue`.DiffManager
-import com.github.continuedev.continueintellijextension.`continue`.IdeProtocolClient
+import com.github.continuedev.continueintellijextension.`synapse`.CoreMessenger
+import com.github.continuedev.continueintellijextension.`synapse`.CoreMessengerManager
+import com.github.continuedev.continueintellijextension.`synapse`.DiffManager
+import com.github.continuedev.continueintellijextension.`synapse`.IdeProtocolClient
 import com.github.continuedev.continueintellijextension.toolWindow.ContinuePluginToolWindowFactory
 import com.github.continuedev.continueintellijextension.utils.uuid
 import com.intellij.openapi.Disposable

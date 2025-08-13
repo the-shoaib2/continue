@@ -5,7 +5,7 @@ import com.github.continuedev.continueintellijextension.auth.AuthListener
 import com.github.continuedev.continueintellijextension.auth.ContinueAuthService
 import com.github.continuedev.continueintellijextension.auth.ControlPlaneSessionInfo
 import com.github.continuedev.continueintellijextension.constants.getContinueGlobalPath
-import com.github.continuedev.continueintellijextension.`continue`.*
+import com.github.continuedev.continueintellijextension.`synapse`.*
 import com.github.continuedev.continueintellijextension.listeners.ContinuePluginSelectionListener
 import com.github.continuedev.continueintellijextension.services.ContinueExtensionSettings
 import com.github.continuedev.continueintellijextension.services.ContinuePluginService
@@ -102,13 +102,13 @@ class ContinuePluginStartupActivity : StartupActivity, DumbAware {
         val actionIds = keymap.getActionIds(keyStroke)
 
         // If Continue has been re-assigned to another key, don't remove the shortcut
-        if (!actionIds.any { it.startsWith("continue") }) {
+        if (!actionIds.any { it.startsWith("synapse") }) {
             return
         }
 
         for (actionId in actionIds) {
-            if (actionId.startsWith("continue")) {
-                continue
+            if (actionId.startsWith("synapse")) {
+                synapse
             }
             val shortcuts = keymap.getShortcuts(actionId)
             for (shortcut in shortcuts) {

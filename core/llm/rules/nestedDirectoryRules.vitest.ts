@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
-  ContextItemId,
-  ContextItemWithId,
-  RuleWithSource,
-  UserChatMessage,
+    ContextItemId,
+    ContextItemWithId,
+    RuleWithSource,
+    UserChatMessage,
 } from "../..";
 import { getApplicableRules } from "./getSystemMessageWithRules";
 
@@ -22,7 +22,7 @@ describe("Nested directory rules application", () => {
     name: "Global Rule",
     rule: "SOLID Design Principles - Coding Assistant Guidelines",
     source: "rules-block",
-    ruleFile: ".continue/rules.md",
+    ruleFile: ".synapse/rules.md",
   };
 
   it("should apply nested directory rules to files in that directory", () => {

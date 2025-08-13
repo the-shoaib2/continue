@@ -1,13 +1,13 @@
 import { expect } from "chai";
 import {
-  By,
-  EditorView,
-  Key,
-  VSBrowser,
-  WebDriver,
-  WebElement,
-  WebView,
-  until,
+    By,
+    EditorView,
+    Key,
+    VSBrowser,
+    WebDriver,
+    WebElement,
+    WebView,
+    until,
 } from "vscode-extension-tester";
 
 import { GlobalActions } from "../actions/Global.actions";
@@ -292,7 +292,7 @@ describe("GUI Test", () => {
       await messageInput.sendKeys(Key.ENTER);
 
       const statusMessage = await TestUtils.waitForSuccess(
-        () => GUISelectors.getToolCallStatusMessage(view), // Defined in extensions/vscode/e2e/test-continue/config.json's TOOL MOCK LLM that we are calling the exact search tool
+        () => GUISelectors.getToolCallStatusMessage(view), // Defined in extensions/vscode/e2e/test-synapse/config.json's TOOL MOCK LLM that we are calling the exact search tool
         DEFAULT_TIMEOUT.SM,
       );
 
@@ -314,7 +314,7 @@ describe("GUI Test", () => {
       await acceptToolCallButton.click();
 
       const statusMessage = await TestUtils.waitForSuccess(
-        () => GUISelectors.getToolCallStatusMessage(view), // Defined in extensions/vscode/e2e/test-continue/config.json's TOOL MOCK LLM that we are calling the exact search tool
+        () => GUISelectors.getToolCallStatusMessage(view), // Defined in extensions/vscode/e2e/test-synapse/config.json's TOOL MOCK LLM that we are calling the exact search tool
         DEFAULT_TIMEOUT.SM,
       );
 
@@ -335,7 +335,7 @@ describe("GUI Test", () => {
       await cancelToolCallButton.click();
 
       const statusMessage = await TestUtils.waitForSuccess(
-        () => GUISelectors.getToolCallStatusMessage(view), // Defined in extensions/vscode/e2e/test-continue/config.json's TOOL MOCK LLM that we are calling the exact search tool
+        () => GUISelectors.getToolCallStatusMessage(view), // Defined in extensions/vscode/e2e/test-synapse/config.json's TOOL MOCK LLM that we are calling the exact search tool
         DEFAULT_TIMEOUT.SM,
       );
 

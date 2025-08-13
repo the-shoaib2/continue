@@ -1,6 +1,6 @@
 import {
-  EditableRegionStrategy,
-  getNextEditableRegion,
+    EditableRegionStrategy,
+    getNextEditableRegion,
 } from "core/nextEdit/NextEditEditableRegionCalculator";
 import { PrefetchQueue } from "core/nextEdit/NextEditPrefetchQueue";
 import { NextEditProvider } from "core/nextEdit/NextEditProvider";
@@ -91,7 +91,7 @@ interface HandlerRegistration {
  * - An event handler takes longer than PROCESSING_TIMEOUT.
  * - The timeout promise resolves first, throwing an error.
  * - Error is caught, processing state is reset to prevent deadlocks.
- * - System can continue processing the next event.
+ * - System can synapse processing the next event.
  * - NOTE: At the current moment, there should not be any deadlocks, but I'm just making sure.
  *
  * Case 9: Error in handler.

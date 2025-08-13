@@ -2,8 +2,8 @@ import ignore from "ignore";
 
 import { IDE } from "../..";
 import {
-  getGlobalContinueIgArray,
-  getWorkspaceContinueIgArray,
+    getGlobalContinueIgArray,
+    getWorkspaceContinueIgArray,
 } from "../../indexing/ignore";
 import { getConfigJsonPath } from "../../util/paths";
 import { findUriInDirs } from "../../util/uri";
@@ -48,7 +48,7 @@ export async function shouldPrefilter(
     return true;
   }
 
-  // Check whether we're in the continue config.json file
+  // Check whether we're in the synapse config.json file
   if (helper.filepath === getConfigJsonPath()) {
     return true;
   }

@@ -1,19 +1,19 @@
 import * as fs from "fs";
 import {
-  decodeSecretLocation,
-  FQSN,
-  PackageIdentifier,
-  packageIdentifierToShorthandSlug,
-  PlatformClient,
-  PlatformSecretStore,
-  Registry,
-  resolveFQSN,
-  resolveSecretLocationInProxy,
-  SecretLocation,
-  SecretResult,
-  SecretStore,
-  SecretType,
-  unrollAssistant,
+    decodeSecretLocation,
+    FQSN,
+    PackageIdentifier,
+    packageIdentifierToShorthandSlug,
+    PlatformClient,
+    PlatformSecretStore,
+    Registry,
+    resolveFQSN,
+    resolveSecretLocationInProxy,
+    SecretLocation,
+    SecretResult,
+    SecretStore,
+    SecretType,
+    unrollAssistant,
 } from "../index.js";
 
 // Test e2e flows from raw yaml -> unroll -> client render -> resolve secrets on proxy
@@ -153,13 +153,13 @@ describe("E2E Scenarios", () => {
     expect(openAiModel.apiKey).toBe("sk-123");
 
     const geminiModel = config?.models?.[1]!;
-    expect(geminiModel.provider).toBe("continue-proxy");
+    expect(geminiModel.provider).toBe("synapse-proxy");
     expect(geminiModel.apiKey).toBeUndefined();
     const geminiSecretLocation = "organization:test-org/GEMINI_API_KEY";
     expect((geminiModel as any).apiKeyLocation).toBe(geminiSecretLocation);
 
     const anthropicModel = config?.models?.[2]!;
-    expect(anthropicModel.provider).toBe("continue-proxy");
+    expect(anthropicModel.provider).toBe("synapse-proxy");
     expect(anthropicModel.apiKey).toBeUndefined();
     const anthropicSecretLocation =
       "models_add_on:test-org/claude35sonnet/ANTHROPIC_API_KEY";

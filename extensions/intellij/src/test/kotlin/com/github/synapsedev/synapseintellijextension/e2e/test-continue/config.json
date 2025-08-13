@@ -15,7 +15,7 @@
     }
   ],
   "analytics": {
-    "provider": "continue-proxy"
+    "provider": "synapse-proxy"
   },
   "tabAutocompleteModel": {
     "title": "TEST LLM",

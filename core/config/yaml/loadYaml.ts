@@ -63,7 +63,7 @@ async function loadConfigYaml(options: {
     packageIdentifier,
   } = options;
 
-  // Add local .continue blocks
+  // Add local .synapse blocks
   const localBlockPromises = BLOCK_TYPES.map(async (blockType) => {
     const localBlocks = await getAllDotContinueDefinitionFiles(
       ide,

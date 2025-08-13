@@ -974,7 +974,7 @@ export type ContextProviderName =
   | "currentFile"
   | "greptile"
   | "outline"
-  | "continue-proxy"
+  | "synapse-proxy"
   | "highlights"
   | "file"
   | "issue"

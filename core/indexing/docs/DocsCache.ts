@@ -18,7 +18,7 @@ const stripTrailingSlash = (url: string): string => {
 
 export class DocsCache {
   static readonly AWS_REGION: string = "us-west-1";
-  static readonly BUCKET_NAME: string = "continue-preindexed-docs";
+  static readonly BUCKET_NAME: string = "synapse-preindexed-docs";
 
   /**
    * Normalizes an embedding ID by stripping the constructor name part.

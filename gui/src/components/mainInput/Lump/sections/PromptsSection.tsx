@@ -1,9 +1,9 @@
-import { parseConfigYaml } from "@synapse/config-yaml";
 import {
   BookmarkIcon as BookmarkOutline,
   PencilIcon,
 } from "@heroicons/react/24/outline";
 import { BookmarkIcon as BookmarkSolid } from "@heroicons/react/24/solid";
+import { parseConfigYaml } from "@synapse/config-yaml";
 import { SlashCommandDescWithSource } from "core";
 import { useContext, useMemo } from "react";
 import { useAuth } from "../../../../context/Auth";

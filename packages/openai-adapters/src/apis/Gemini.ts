@@ -279,7 +279,7 @@ export class GeminiApi implements BaseLlmApi {
           data = JSON.parse(part);
         } catch (e) {
           foundIncomplete = true;
-          continue; // yo!
+          // continue; // TODO: Fix this reference
         }
         if (data.error) {
           throw new Error(data.error.message);

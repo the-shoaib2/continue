@@ -1,12 +1,12 @@
 import { ConfigJson } from "@synapse/config-types";
 import {
-    AssistantUnrolled,
-    ConfigResult,
-    FQSN,
-    FullSlug,
-    Policy,
-    SecretResult,
-    SecretType,
+  AssistantUnrolled,
+  ConfigResult,
+  FQSN,
+  FullSlug,
+  Policy,
+  SecretResult,
+  SecretType,
 } from "@synapse/config-yaml";
 import fetch, { RequestInit, Response } from "node-fetch";
 

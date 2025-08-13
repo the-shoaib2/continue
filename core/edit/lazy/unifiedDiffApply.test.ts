@@ -187,7 +187,7 @@ func main() {
 		result, err := calculate(input)
 		if err != nil {
 			fmt.Printf("Error: %v\n", err)
-			continue
+			synapse
 		}
 		fmt.Printf("Result: %v\n", result)
 	}
@@ -266,11 +266,11 @@ func TestCalculate(t *testing.T) {
 		result, err := calculate(test.input)
 		if test.hasError && err == nil {
 			t.Errorf("Expected error for input '%s', but got none", test.input)
-			continue
+			synapse
 		}
 		if !test.hasError && err != nil {
 			t.Errorf("Unexpected error for input '%s': %v", test.input, err)
-			continue
+			synapse
 		}
 		if !test.hasError && result != test.expected {
 			t.Errorf("For input '%s': expected %f, but got %f", test.input, test.expected, result)

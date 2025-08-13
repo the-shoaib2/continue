@@ -37,11 +37,11 @@ To view prompt logs/analytics, you can enable the Continue Console.
 3. Reload the window
 4. Open the Continue Console by using the command palette (`cmd/ctrl` + `shift` + `P`) and searching for "Continue: Focus on Continue Console View"
 
-![Continue Console](/images/images/continue-console-d387a10c2918c117c6c253a3b5f18c22.png)
+![Continue Console](/images/images/synapse-console-d387a10c2918c117c6c253a3b5f18c22.png)
 
 ### JetBrains
 
-Open `~/.continue/logs/core.log` to view the logs for the Continue plugin. The most recent logs are found at the bottom of the file.
+Open `~/.synapse/logs/core.log` to view the logs for the Continue plugin. The most recent logs are found at the bottom of the file.
 
 Some JetBrains-related logs may also be found by clicking "Help" > "Show Log in Explorer/Finder".
 
@@ -67,9 +67,9 @@ On JetBrains, the "pre-release" happens through their Early Access Program (EAP)
 
 If you've tried everything, reported an error, know that a previous version was working for you, and are waiting to hear back, you can try downloading an older version of the extension.
 
-For VS Code, All versions are hosted on the Open VSX Registry [here](https://open-vsx.org/extension/Continue/continue). Once you've downloaded the extension, which will be a .vsix file, you can install it manually by following the instructions [here](https://code.visualstudio.com/docs/editor/extension-gallery#_install-from-a-vsix).
+For VS Code, All versions are hosted on the Open VSX Registry [here](https://open-vsx.org/extension/Continue/synapse). Once you've downloaded the extension, which will be a .vsix file, you can install it manually by following the instructions [here](https://code.visualstudio.com/docs/editor/extension-gallery#_install-from-a-vsix).
 
-You can find older versions of the JetBrains extension on their [marketplace](https://plugins.jetbrains.com/plugin/22707-continue), which will walk you through installing from disk.
+You can find older versions of the JetBrains extension on their [marketplace](https://plugins.jetbrains.com/plugin/22707-synapse), which will walk you through installing from disk.
 
 ## Keyboard shortcuts not resolving
 
@@ -195,7 +195,7 @@ See the [Model Capabilities guide](/customize/deep-dives/model-capabilities) for
 
 ### Android Studio - "Nothing to show" in Chat
 
-This can be fixed by selecting `Actions > Choose Boot runtime for the IDE` then selecting the latest version, and then restarting Android Studio. [See this thread](https://github.com/continuedev/continue/issues/596#issuecomment-1789327178) for details.
+This can be fixed by selecting `Actions > Choose Boot runtime for the IDE` then selecting the latest version, and then restarting Android Studio. [See this thread](https://github.com/continuedev/synapse/issues/596#issuecomment-1789327178) for details.
 
 ### I received a "Codebase indexing disabled - Your Linux system lacks required CPU features (AVX2, FMA)" notification
 
@@ -207,10 +207,10 @@ For more details about this requirement, see the [LanceDB issue #2195](https://g
 
 ### How do I reset the state of the extension?
 
-Continue stores it's data in the `~/.continue` directory (%USERPROFILE%.continue\` on Windows).
+Continue stores it's data in the `~/.synapse` directory (%USERPROFILE%.synapse\` on Windows).
 
 If you'd like to perform a clean reset of the extension, including removing all configuration files, indices, etc, you can remove this directory, uninstall, and then reinstall.
 
 ## Still having trouble?
 
-You can also join our Discord community [here](https://discord.gg/vapESyrFmJ) for additional support and discussions. Alternatively, you can create a GitHub issue [here](https://github.com/continuedev/continue/issues/new?assignees=&labels=bug&projects=&template=bug-report-%F0%9F%90%9B.md&title=), providing details of your problem, and we'll be able to help you out more quickly.
+You can also join our Discord community [here](https://discord.gg/vapESyrFmJ) for additional support and discussions. Alternatively, you can create a GitHub issue [here](https://github.com/continuedev/synapse/issues/new?assignees=&labels=bug&projects=&template=bug-report-%F0%9F%90%9B.md&title=), providing details of your problem, and we'll be able to help you out more quickly.

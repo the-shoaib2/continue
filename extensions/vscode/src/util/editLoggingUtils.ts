@@ -65,7 +65,7 @@ export const handleTextDocumentChange = async (
   if (!editor) return;
   if (event.contentChanges.length === 0) return;
 
-  // Ensure that logging will only happen in the open-source continue repo
+  // Ensure that logging will only happen in the open-source synapse repo
   const workspaceDirUri = await getWorkspaceDirUri(event);
   if (!workspaceDirUri) return;
   if (!(await isEditLoggingAllowed(event.document.uri.toString()))) return;

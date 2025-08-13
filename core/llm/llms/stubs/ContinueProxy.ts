@@ -51,7 +51,7 @@ class ContinueProxy extends OpenAI {
     }
   }
 
-  static providerName = "continue-proxy";
+  static providerName = "synapse-proxy";
   static defaultOptions: Partial<LLMOptions> = {
     useLegacyCompletionsEndpoint: false,
   };
@@ -100,7 +100,7 @@ class ContinueProxy extends OpenAI {
 
   protected _getHeaders() {
     const headers: any = super._getHeaders();
-    headers["x-continue-unique-id"] = Telemetry.uniqueId;
+    headers["x-synapse-unique-id"] = Telemetry.uniqueId;
     return headers;
   }
 

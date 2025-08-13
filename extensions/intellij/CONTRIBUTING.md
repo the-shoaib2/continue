@@ -15,7 +15,7 @@ This file is for contribution guidelines specific to the JetBrains extension. Se
   - [Misc](#misc)
 - [Development Workflow](#development-workflow)
   - [Running the extension in debug mode](#running-the-extension-in-debug-mode)
-  - [Accessing files in the `.continue` directory](#accessing-files-in-the-continue-directory)
+  - [Accessing files in the `.synapse` directory](#accessing-files-in-the-synapse-directory)
   - [Viewing logs](#viewing-logs)
   - [Reloading changes](#reloading-changes)
   - [Setting breakpoints](#setting-breakpoints)
@@ -57,7 +57,7 @@ notes below).
 - [Thread Access Info](https://plugins.jetbrains.com/plugin/16815-thread-access-info) - adds an extra debug panel
   showing possible thread access violation (according to Intellij Platform SDK guidelines)
 - [File Expander](https://plugins.jetbrains.com/plugin/11940-file-expander) - allows you to easily preview archives as
-  directories (like `build/distributions/continue-*.zip`)
+  directories (like `build/distributions/synapse-*.zip`)
 
 ### Node.js Requirements
 
@@ -87,14 +87,14 @@ Select the `Run Continue` task in the top right corner of the IDE and then selec
 > a
 > different environment that supports debugging, such as VS Code (Launch "Core Binary").
 
-![run-extension-screenshot](../../media/run-continue-intellij.png)
+![run-extension-screenshot](../../media/run-synapse-intellij.png)
 
 This should open a new instance on IntelliJ with the extension installed.
 
-### Accessing files in the `.continue` directory
+### Accessing files in the `.synapse` directory
 
 When running the `Start Core Dev Server` task, we set the location of your Continue directory to
-`./extensions/.continue-debug`. This is to
+`./extensions/.synapse-debug`. This is to
 allow for changes to your `config.json` and other files during development, without affecting your actual configuration.
 
 ### Viewing logs
@@ -158,7 +158,7 @@ A handful of the most relevant tasks are outlined below:
 ```shell
 build - Assembles and tests this project.
 clean - Deletes the build directory.
-dependencies - Displays all dependencies declared in root project 'continue-intellij-extension'
+dependencies - Displays all dependencies declared in root project 'synapse-intellij-extension'
 runIde - Runs the IDE instance with the developed plugin installed.
 verifyPluginConfiguration - Checks if Java and Kotlin compilers configuration meet IntelliJ SDK requirements
 ```
@@ -230,4 +230,4 @@ To rebuild the extension with the latest source code, run the following:
 ```
 
 This will update the contents of the extension that is loaded into the test IDE from
-`build/idea-sandbox/plugins-uiTest/continue-intellij-extension`
+`build/idea-sandbox/plugins-uiTest/synapse-intellij-extension`

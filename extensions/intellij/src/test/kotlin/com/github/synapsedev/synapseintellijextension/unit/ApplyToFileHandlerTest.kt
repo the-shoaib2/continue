@@ -3,8 +3,8 @@ package com.github.continuedev.continueintellijextension.unit
 import com.github.continuedev.continueintellijextension.ApplyStateStatus
 import com.github.continuedev.continueintellijextension.IDE
 import com.github.continuedev.continueintellijextension.ApplyState
-import com.github.continuedev.continueintellijextension.`continue`.ApplyToFileHandler
-import com.github.continuedev.continueintellijextension.`continue`.CoreMessenger
+import com.github.continuedev.continueintellijextension.`synapse`.ApplyToFileHandler
+import com.github.continuedev.continueintellijextension.`synapse`.CoreMessenger
 import com.github.continuedev.continueintellijextension.editor.DiffStreamService
 import com.github.continuedev.continueintellijextension.editor.EditorUtils
 import com.github.continuedev.continueintellijextension.protocol.ApplyToFileParams

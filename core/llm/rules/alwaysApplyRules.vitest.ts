@@ -1,9 +1,9 @@
 import { describe, expect, it } from "vitest";
 import {
-  ContextItemId,
-  ContextItemWithId,
-  RuleWithSource,
-  UserChatMessage,
+    ContextItemId,
+    ContextItemWithId,
+    RuleWithSource,
+    UserChatMessage,
 } from "../..";
 import { getApplicableRules } from "./getSystemMessageWithRules";
 import { RulePolicies } from "./types";
@@ -15,7 +15,7 @@ describe("Rule application with alwaysApply", () => {
     rule: "This rule should always be applied",
     alwaysApply: true,
     source: "rules-block",
-    ruleFile: ".continue/always-apply.md",
+    ruleFile: ".synapse/always-apply.md",
   };
 
   // Create a colocated rule in a nested directory

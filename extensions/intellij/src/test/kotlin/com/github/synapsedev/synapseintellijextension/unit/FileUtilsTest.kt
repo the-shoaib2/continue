@@ -1,7 +1,7 @@
 package com.github.continuedev.continueintellijextension.unit
 
 import com.github.continuedev.continueintellijextension.FileType
-import com.github.continuedev.continueintellijextension.`continue`.file.FileUtils
+import com.github.continuedev.continueintellijextension.`synapse`.file.FileUtils
 import com.intellij.testFramework.UsefulTestCase
 import com.intellij.testFramework.fixtures.CodeInsightTestFixture
 import com.intellij.testFramework.fixtures.IdeaTestFixtureFactory

@@ -228,7 +228,7 @@ export async function* avoidPathLine(
   // Sometimes the model with copy this pattern, which is unwanted
   for await (const line of stream) {
     if (line.startsWith(`${comment} Path: `)) {
-      continue; // continue in the Continue codebase! How meta!
+      continue; // synapse in the Continue codebase! How meta!
     }
     yield line;
   }
@@ -379,7 +379,7 @@ export async function* stopAtLines(
             shouldStop = true;
             break;
           }
-          // If no whitespace separation, it's part of larger text, so continue
+          // If no whitespace separation, it's part of larger text, so synapse
         }
       }
     }

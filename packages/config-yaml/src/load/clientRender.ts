@@ -47,16 +47,18 @@ export async function renderSecrets(
         continue;
       }
 
-      if ("value" in secretResult) {
+      if (secretResult && "value" in secretResult) {
         // clientSecretStore.set(secretResult.fqsn.secretName, secretResult.value);
         // const secretValue = await clientSecretStore.get(fqsn.secretName);
         secretsTemplateData[encodeFQSN(secretResult.fqsn)] = secretResult.value;
       }
 
-      secretsTemplateData["secrets." + encodeFQSN(secretResult.fqsn)] =
-        "value" in secretResult
-          ? secretResult.value
-          : `\${{ secrets.${encodeSecretLocation(secretResult.secretLocation)} }}`;
+      if (secretResult) {
+        secretsTemplateData["secrets." + encodeFQSN(secretResult.fqsn)] =
+          "value" in secretResult
+            ? secretResult.value
+            : `\${{ secrets.${encodeSecretLocation(secretResult.secretLocation)} }}`;
+      }
     }
   }
 
@@ -157,7 +159,7 @@ export function useProxyForUnrenderedSecrets(
         config.models[i] = {
           ...config.models[i],
           name: config.models[i]?.name ?? "",
-          provider: "continue-proxy",
+          provider: "synapse-proxy",
           model: getContinueProxyModelName(
             packageIdentifier,
             config.models[i]?.provider ?? "",

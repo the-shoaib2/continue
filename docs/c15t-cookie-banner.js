@@ -93,7 +93,7 @@
   }
 
   function showCookieBanner() {
-    // Create banner (no overlay - users can continue browsing)
+    // Create banner (no overlay - users can synapse browsing)
     const banner = document.createElement("div");
     banner.className = "cookie-banner";
     banner.innerHTML = `

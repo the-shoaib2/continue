@@ -53,7 +53,7 @@ export async function activateExtension(context: vscode.ExtensionContext) {
   }
 
   // Register config.yaml schema by removing old entries and adding new one (uri.fsPath changes with each version)
-  const yamlMatcher = ".continue/**/*.yaml";
+  const yamlMatcher = ".synapse/**/*.yaml";
   const yamlConfig = vscode.workspace.getConfiguration("yaml");
 
   const newPath = vscode.Uri.joinPath(

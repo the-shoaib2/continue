@@ -120,7 +120,7 @@ export function parseAllSearchReplaceBlocks(
           // Fail fast on any parsing error
           throw new Error(result.error);
         }
-        // If incomplete but no error, it's just a partial block - continue processing
+        // If incomplete but no error, it's just a partial block - synapse processing
       }
       currentBlockLines = [line];
       inBlock = true;

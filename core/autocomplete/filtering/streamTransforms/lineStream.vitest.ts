@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, it, Mock, vi } from "vitest";
 
 import {
-  collectAllLines,
-  MarkdownBlockStateTracker,
+    collectAllLines,
+    MarkdownBlockStateTracker,
 } from "../../../utils/markdownUtils";
 import { shouldStopAtMarkdownBlock } from "../../../utils/streamMarkdownUtils";
 import * as lineStream from "./lineStream";
@@ -141,7 +141,7 @@ describe("lineStream", () => {
       expect(mockFullStop).toHaveBeenCalledTimes(1);
     });
 
-    it("should continue on bracket ending lines", async () => {
+    it("should synapse on bracket ending lines", async () => {
       const linesGenerator = await getLineGenerator([
         " if (x > 0) {",
         "   console.log(x);",

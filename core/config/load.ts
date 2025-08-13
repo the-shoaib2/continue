@@ -419,8 +419,8 @@ async function intermediateToFinalConfig({
       }
       const instance: IContextProvider = new cls(provider.params);
 
-      // Handle continue-proxy
-      if (instance.description.title === "continue-proxy") {
+      // Handle synapse-proxy
+      if (instance.description.title === "synapse-proxy") {
         (instance as ContinueProxyContextProvider).workOsAccessToken =
           workOsAccessToken;
       }
@@ -573,7 +573,7 @@ async function intermediateToFinalConfig({
   mcpManager.setConnections(
     (config.experimental?.modelContextProtocolServers ?? []).map(
       (server, index) => ({
-        id: `continue-mcp-server-${index + 1}`,
+        id: `synapse-mcp-server-${index + 1}`,
         name: `MCP Server`,
         ...server,
       }),
@@ -808,7 +808,7 @@ async function tryBuildConfigTs() {
     }
   } catch (e) {
     console.log(
-      `Build error. Please check your ~/.continue/config.ts file: ${e}`,
+      `Build error. Please check your ~/.synapse/config.ts file: ${e}`,
     );
   }
 }

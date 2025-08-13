@@ -1,12 +1,12 @@
 import {
-  ConfigValidationError,
-  markdownToRule,
+    ConfigValidationError,
+    markdownToRule,
 } from "@continuedev/config-yaml";
 import { IDE, RuleWithSource } from "../..";
 import { getAllDotContinueDefinitionFiles } from "../loadLocalAssistants";
 
 /**
- * Loads rules from markdown files in the .continue/rules directory
+ * Loads rules from markdown files in the .synapse/rules directory
  */
 export async function loadMarkdownRules(ide: IDE): Promise<{
   rules: RuleWithSource[];
@@ -16,7 +16,7 @@ export async function loadMarkdownRules(ide: IDE): Promise<{
   const rules: RuleWithSource[] = [];
 
   try {
-    // Get all .md files from .continue/rules
+    // Get all .md files from .synapse/rules
     const markdownFiles = await getAllDotContinueDefinitionFiles(
       ide,
       { includeGlobal: true, includeWorkspace: true, fileExtType: "markdown" },

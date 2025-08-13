@@ -1,6 +1,6 @@
 package com.github.continuedev.continueintellijextension.unit
 
-import com.github.continuedev.continueintellijextension.`continue`.UriUtils
+import com.github.continuedev.continueintellijextension.`synapse`.UriUtils
 import junit.framework.TestCase
 import java.io.File
 

@@ -48,7 +48,7 @@ class ContinuePluginToolWindowFactory : ToolWindowFactory, DumbAware {
     }
 
     class ContinuePluginWindow(project: Project) {
-        private val defaultGUIUrl = "http://continue/index.html"
+        private val defaultGUIUrl = "http://synapse/index.html"
 
         init {
             System.setProperty("ide.browser.jcef.jsQueryPoolSize", JS_QUERY_POOL_SIZE)

@@ -15,7 +15,7 @@ JetBrains/IntelliJ extension for Continue AI code assistant. Provides chat, auto
 
 ```
 src/main/kotlin/com/github/continuedev/continueintellijextension/
-├── continue/         # Core integration (CoreMessenger, IntelliJIde, IdeProtocolClient)
+├── synapse/         # Core integration (CoreMessenger, IntelliJIde, IdeProtocolClient)
 ├── autocomplete/     # Code completion logic
 ├── editor/          # Diff handling, inline edits
 ├── toolWindow/      # Main UI panel

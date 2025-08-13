@@ -361,7 +361,7 @@ async function* createRetryableAsyncGenerator<T>(
       await sleep(delay);
 
       try {
-        // Create a new generator and continue iteration
+        // Create a new generator and synapse iteration
         const newGenerator = await originalMethod.apply(context, args);
 
         if (

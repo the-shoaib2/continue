@@ -62,6 +62,8 @@ fn get_last_sync_time(tag: &Tag) -> u64 {
 
 //     contents.parse::<u64>().unwrap()
 // }
+    0 // Temporary return value until implementation is complete
+}
 
 fn write_sync_time(tag: &Tag) {
     let path = path_for_tag(tag).join(".last_sync");

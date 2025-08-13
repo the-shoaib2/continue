@@ -247,7 +247,7 @@
               "guides/ollama-guide",
               "guides/llama3.1",
               "guides/set-up-codestral",
-              "guides/running-continue-without-internet",
+              "guides/running-synapse-without-internet",
               "guides/custom-code-rag",
               "guides/build-your-own-context-provider",
               "guides/how-to-self-host-a-model"
@@ -265,7 +265,7 @@
               "reference",
               "reference/json-reference",
               "reference/yaml-migration",
-              "reference/continue-mcp"
+              "reference/synapse-mcp"
             ]
           }
         ]
@@ -310,13 +310,13 @@
     ],
     "primary": {
       "type": "github",
-      "href": "https://github.com/continuedev/continue"
+      "href": "https://github.com/continuedev/synapse"
     }
   },
   "footer": {
     "socials": {
       "x": "https://twitter.com/continuedev",
-      "github": "https://github.com/continuedev/continue",
+      "github": "https://github.com/continuedev/synapse",
       "linkedin": "https://linkedin.com/company/continuedev",
       "discord": "https://discord.gg/vapESyrFmJ"
     }
@@ -450,7 +450,7 @@
       "destination": "/getting-started/overview"
     },
     {
-      "source": "/how-to-use-continue",
+      "source": "/how-to-use-synapse",
       "destination": "/getting-started/overview"
     },
     {

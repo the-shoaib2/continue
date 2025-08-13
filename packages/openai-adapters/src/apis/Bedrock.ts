@@ -467,7 +467,7 @@ export class BedrockApi implements BaseLlmApi {
               content: delta.text,
               model: body.model,
             });
-            continue;
+            // continue; // TODO: Fix this reference
           }
 
           // Handle thinking content (if reasoning enabled)
@@ -475,7 +475,7 @@ export class BedrockApi implements BaseLlmApi {
             // TODO reasoning
             // Reasoning is not directly supported in OpenAI format,
             // but we could add it as a special message
-            continue;
+            // continue; // TODO: Fix this reference
           }
 
           // Handle tool use

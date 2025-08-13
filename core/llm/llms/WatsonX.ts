@@ -1,12 +1,12 @@
 import { streamResponse, streamSse } from "@synapse/fetch";
 import {
-    AssistantChatMessage,
-    ChatMessage,
-    Chunk,
-    CompletionOptions,
-    LLMOptions,
-    ToolCallDelta,
-    ToolResultChatMessage,
+  AssistantChatMessage,
+  ChatMessage,
+  Chunk,
+  CompletionOptions,
+  LLMOptions,
+  ToolCallDelta,
+  ToolResultChatMessage,
 } from "../../index.js";
 import { BaseLLM } from "../index.js";
 import { fromChatCompletionChunk } from "../openaiTypeConverters.js";

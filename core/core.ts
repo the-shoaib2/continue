@@ -4,8 +4,8 @@ import { v4 as uuidv4 } from "uuid";
 
 import { CompletionProvider } from "./autocomplete/CompletionProvider";
 import {
-    openedFilesLruCache,
-    prevFilepaths,
+  openedFilesLruCache,
+  prevFilepaths,
 } from "./autocomplete/util/openedFilesLruCache";
 import { ConfigHandler } from "./config/ConfigHandler";
 import { SYSTEM_PROMPT_DOT_FILE } from "./config/getWorkspaceSynapseRuleDotFiles";
@@ -30,23 +30,23 @@ import historyManager from "./util/history";
 import { editConfigFile, migrateV1DevDataFiles } from "./util/paths";
 import { Telemetry } from "./util/posthog";
 import {
-    isProcessBackgrounded,
-    markProcessAsBackgrounded,
+  isProcessBackgrounded,
+  markProcessAsBackgrounded,
 } from "./util/processTerminalBackgroundStates";
 import { getSymbolsForManyFiles } from "./util/treeSitter";
 import { TTS } from "./util/tts";
 
 import {
-    CompleteOnboardingPayload,
-    ContextItemId,
-    ContextItemWithId,
-    IdeSettings,
-    ModelDescription,
-    Position,
-    RangeInFile,
-    ToolCall,
-    type ContextItem,
-    type IDE,
+  CompleteOnboardingPayload,
+  ContextItemId,
+  ContextItemWithId,
+  IdeSettings,
+  ModelDescription,
+  Position,
+  RangeInFile,
+  ToolCall,
+  type ContextItem,
+  type IDE,
 } from ".";
 
 import { BLOCK_TYPES, ConfigYaml } from "@synapse/config-yaml";
@@ -55,9 +55,9 @@ import { stringifyMcpPrompt } from "./commands/slash/mcpSlashCommand";
 import { isLocalDefinitionFile } from "./config/loadLocalAssistants";
 import { CodebaseRulesCache } from "./config/markdown/loadCodebaseRules";
 import {
-    setupLocalConfig,
-    setupProviderConfig,
-    setupQuickstartConfig,
+  setupLocalConfig,
+  setupProviderConfig,
+  setupQuickstartConfig,
 } from "./config/onboarding";
 import { createNewWorkspaceBlockFile } from "./config/workspace/workspaceBlocks";
 import { MCPManagerSingleton } from "./context/mcp/MCPManagerSingleton";
@@ -132,7 +132,7 @@ export class Core {
     private readonly messenger: IMessenger<ToCoreProtocol, FromCoreProtocol>,
     private readonly ide: IDE,
   ) {
-    // Ensure .continue directory is created
+    // Ensure .synapse directory is created
     migrateV1DevDataFiles();
 
     const ideInfoPromise = messenger.request("getIdeInfo", undefined);
@@ -1128,11 +1128,9 @@ export class Core {
           uri.endsWith(".continuerc.json") ||
           uri.endsWith(".prompt") ||
           uri.endsWith(SYSTEM_PROMPT_DOT_FILE) ||
-          (uri.includes(".continue") &&
+          (uri.includes(".synapse") &&
             (uri.endsWith(".yaml") || uri.endsWith("yml"))) ||
-          BLOCK_TYPES.some((blockType) =>
-            uri.includes(`.continue/${blockType}`),
-          )
+          BLOCK_TYPES.some((blockType) => uri.includes(`.synapse/${blockType}`))
         ) {
           await this.configHandler.reloadConfig(
             "Config-related file updated: continuerc, prompt, local block, etc",

@@ -62,8 +62,8 @@ class AutocompleteDocumentListener(private val editorManager: FileEditorManager,
         val nextEditService = editor.project?.service<NextEditService>() ?: return
 
         // Check if we're in a test environment based on some property or condition
-        val isAutocompleteTestEnvironment = System.getProperty("continue.autocomplete.test.environment") == "true"
-        val isNextEditTestEnvironment = System.getProperty("continue.nextEdit.test.environment") == "true"
+        val isAutocompleteTestEnvironment = System.getProperty("synapse.autocomplete.test.environment") == "true"
+        val isNextEditTestEnvironment = System.getProperty("synapse.nextEdit.test.environment") == "true"
 
         if (isAutocompleteTestEnvironment) {
             invokeLater {

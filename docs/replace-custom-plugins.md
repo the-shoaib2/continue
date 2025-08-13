@@ -40,7 +40,7 @@ This document outlines how to replace custom Docusaurus plugins and functionalit
 
 **Current:**
 
-- Algolia search (App ID: `0OMUMCQZVV`, Index: `continue`)
+- Algolia search (App ID: `0OMUMCQZVV`, Index: `synapse`)
 
 **Mintlify replacement:**
 

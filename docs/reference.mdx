@@ -9,8 +9,8 @@ Synapse hub assistants are defined using the `config.yaml` specification. Assist
 - [Synapse Hub](https://hub.synapse.dev/explore/assistants) - YAML is stored on the hub and automatically synced to the extension
 
 - Locally
-  - in your global `.continue` folder (`~/.continue` on Mac, `%USERPROFILE%\.continue`) within `.continue/assistants`. The name of the file will be used as the display name of the assistant, e.g. `My Assistant.yaml`
-  - in your workspace in a `/.continue/assistants` folder, with the same naming convention
+  - in your global `.synapse` folder (`~/.synapse` on Mac, `%USERPROFILE%\.synapse`) within `.synapse/assistants`. The name of the file will be used as the display name of the assistant, e.g. `My Assistant.yaml`
+  - in your workspace in a `/.synapse/assistants` folder, with the same naming convention
 
 <Info>
   Config YAML replaces `config.json`, which is deprecated. View the **[Migration
@@ -47,30 +47,30 @@ models:
 
 ### Local Blocks
 
-It is also possible to define blocks locally in a `.continue` folder. This folder can be located at either the root of your workspace (these will automatically be applied to all assistants when you are in that workspace) or in your home directory at `~/.continue` (these will automatically be applied globally).
+It is also possible to define blocks locally in a `.synapse` folder. This folder can be located at either the root of your workspace (these will automatically be applied to all assistants when you are in that workspace) or in your home directory at `~/.synapse` (these will automatically be applied globally).
 
 Place your YAML files in the following folders:
 
 Assistants:
 
-- `.continue/assistants` - for assistants
+- `.synapse/assistants` - for assistants
 
 Blocks:
 
-- `.continue/rules` - for rules
-- `.continue/models` - for models
-- `.continue/prompts` - for prompts
-- `.continue/context` - for context providers
-- `.continue/docs` - for docs
-- `.continue/data` - for data
-- `.continue/mcpServers` - for MCP Servers
+- `.synapse/rules` - for rules
+- `.synapse/models` - for models
+- `.synapse/prompts` - for prompts
+- `.synapse/context` - for context providers
+- `.synapse/docs` - for docs
+- `.synapse/data` - for data
+- `.synapse/mcpServers` - for MCP Servers
 
 You can find many examples of each of these block types on the [Synapse Explore Page](https://hub.synapse.dev/explore/models)
 
 <Info>
 Local blocks utilizing mustache notation for secrets (`${{ secrets.SECRET_NAME }}`) can read secret values:
 
-- globally, from a `.env` located in the global `.continue` folder (`~/.continue/.env`)
+- globally, from a `.env` located in the global `.synapse` folder (`~/.synapse/.env`)
 - per-workspace, from a `.env` file located at the root of the current workspace.
 
 </Info>
@@ -430,7 +430,7 @@ Destinations to which [development data](/customize/overview#development-data) w
 ```yaml title="config.yaml"
 data:
   - name: Local Data Bank
-    destination: file:///Users/dallin/Documents/code/continuedev/continue-extras/external-data
+    destination: file:///Users/dallin/Documents/code/continuedev/synapse-extras/external-data
     schema: 0.2.0
     level: all
   - name: My Private Company

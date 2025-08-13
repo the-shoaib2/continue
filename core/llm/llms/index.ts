@@ -1,11 +1,11 @@
 import Handlebars from "handlebars";
 import {
-  BaseCompletionOptions,
-  IdeSettings,
-  ILLM,
-  ILLMLogger,
-  JSONModelDescription,
-  LLMOptions,
+    BaseCompletionOptions,
+    IdeSettings,
+    ILLM,
+    ILLMLogger,
+    JSONModelDescription,
+    LLMOptions,
 } from "../..";
 import { renderTemplatedString } from "../../util/handlebars/renderTemplatedString";
 import { BaseLLM } from "../index";
@@ -168,7 +168,7 @@ export async function llmFromDescription(
     uniqueId,
   };
 
-  if (desc.provider === "continue-proxy") {
+  if (desc.provider === "synapse-proxy") {
     options.apiKey = ideSettings.userToken;
     if (ideSettings.remoteConfigServerUrl) {
       options.apiBase = new URL(

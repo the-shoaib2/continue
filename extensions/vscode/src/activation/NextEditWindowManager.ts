@@ -11,8 +11,8 @@ import { NextEditLoggingService } from "core/nextEdit/NextEditLoggingService";
 import { NextEditProvider } from "core/nextEdit/NextEditProvider";
 import { getThemeString } from "../util/getTheme";
 import {
-  HandlerPriority,
-  SelectionChangeManager,
+    HandlerPriority,
+    SelectionChangeManager,
 } from "./SelectionChangeManager";
 
 export interface TextApplier {
@@ -93,9 +93,9 @@ const SVG_CONFIG = {
 
 // Command ID - can be used in package.json
 export const HIDE_NEXT_EDIT_SUGGESTION_COMMAND =
-  "continue.nextEditWindow.hideNextEditSuggestion";
+  "synapse.nextEditWindow.hideNextEditSuggestion";
 export const ACCEPT_NEXT_EDIT_SUGGESTION_COMMAND =
-  "continue.nextEditWindow.acceptNextEditSuggestion";
+  "synapse.nextEditWindow.acceptNextEditSuggestion";
 
 export class NextEditWindowManager {
   private static instance: NextEditWindowManager | undefined;
@@ -242,8 +242,8 @@ export class NextEditWindowManager {
    */
   private registerCommandSafely(
     commandId:
-      | "continue.nextEditWindow.hideNextEditSuggestion"
-      | "continue.nextEditWindow.acceptNextEditSuggestion",
+      | "synapse.nextEditWindow.hideNextEditSuggestion"
+      | "synapse.nextEditWindow.acceptNextEditSuggestion",
     callback: () => Promise<void>,
   ) {
     if (!this.context) {
@@ -408,7 +408,7 @@ export class NextEditWindowManager {
 
     // Log with accept = false.
     await vscode.commands.executeCommand(
-      "continue.logNextEditOutcomeReject",
+      "synapse.logNextEditOutcomeReject",
       this.mostRecentCompletionId,
       this.loggingService,
     );
@@ -488,7 +488,7 @@ export class NextEditWindowManager {
 
     // Log with accept = true.
     await vscode.commands.executeCommand(
-      "continue.logNextEditOutcomeAccept",
+      "synapse.logNextEditOutcomeAccept",
       this.mostRecentCompletionId,
       this.loggingService,
     );

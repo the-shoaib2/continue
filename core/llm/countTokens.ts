@@ -1,18 +1,18 @@
 import { Tiktoken, encodingForModel as _encodingForModel } from "js-tiktoken";
 
 import {
-  ChatMessage,
-  CompiledMessagesResult,
-  MessageContent,
-  MessagePart,
-  Tool,
+    ChatMessage,
+    CompiledMessagesResult,
+    MessageContent,
+    MessagePart,
+    Tool,
 } from "../index.js";
 import { autodetectTemplateType } from "./autodetect.js";
 import {
-  addSpaceToAnyEmptyMessages,
-  chatMessageIsEmpty,
-  isUserOrToolMsg,
-  messageHasToolCallId,
+    addSpaceToAnyEmptyMessages,
+    chatMessageIsEmpty,
+    isUserOrToolMsg,
+    messageHasToolCallId,
 } from "./messages.js";
 
 import { renderChatMessage } from "../util/messageContent.js";
@@ -62,7 +62,7 @@ function asyncEncoderForModel(modelName: string): AsyncEncoder {
   const modelType = autodetectTemplateType(modelName);
   if (!modelType || modelType === "none") {
     // Right now there is a problem packaging js-tiktoken in workers. Until then falling back
-    // Cannot find package 'js-tiktoken' imported from /Users/nate/gh/continuedev/continue/extensions/vscode/out/tiktokenWorkerPool.mjs
+    // Cannot find package 'js-tiktoken' imported from /Users/nate/gh/continuedev/synapse/extensions/vscode/out/tiktokenWorkerPool.mjs
     // return gptAsyncEncoder;
     return llamaAsyncEncoder;
   }
@@ -545,14 +545,15 @@ async function cleanupAsyncEncoders(): Promise<void> {
 }
 
 export {
-  cleanupAsyncEncoders,
-  compileChatMessages,
-  countTokens,
-  countTokensAsync,
-  extractToolSequence,
-  pruneLinesFromBottom,
-  pruneLinesFromTop,
-  pruneRawPromptFromTop,
-  pruneStringFromBottom,
-  pruneStringFromTop,
+    cleanupAsyncEncoders,
+    compileChatMessages,
+    countTokens,
+    countTokensAsync,
+    extractToolSequence,
+    pruneLinesFromBottom,
+    pruneLinesFromTop,
+    pruneRawPromptFromTop,
+    pruneStringFromBottom,
+    pruneStringFromTop
 };
+

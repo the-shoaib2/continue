@@ -28,7 +28,7 @@ Analyze the project structure and key files to understand:
 - Build/deployment system
 
 ## Step 3: Generate CONTINUE.md
-Create a comprehensive CONTINUE.md file in the .continue/rules/ directory with the following sections:
+Create a comprehensive CONTINUE.md file in the .synapse/rules/ directory with the following sections:
 
 1. **Project Overview**
    - Brief description of the project's purpose
@@ -72,14 +72,14 @@ Create a comprehensive CONTINUE.md file in the .continue/rules/ directory with t
 Make sure your analysis is thorough but concise. Focus on information that would be most helpful to developers working on the project. If certain information isn't available from the codebase, make reasonable assumptions but mark these sections as needing verification.
 
 ## Step 4: Finalize
-After creating the .continue/rules/CONTINUE.md file, provide a summary of what you've created and remind the user to:
+After creating the .synapse/rules/CONTINUE.md file, provide a summary of what you've created and remind the user to:
 1. Review and edit the file as needed
 2. Commit it to their repository to share with their team
 3. Explain that Continue will automatically load this file into context when working with the project
 
 Also inform the user that they can create additional rules.md files in subdirectories for more specific documentation related to those components.`;
 
-export const DEFAULT_PROMPTS_FOLDER_V2 = ".continue/prompts";
+export const DEFAULT_PROMPTS_FOLDER_V2 = ".synapse/prompts";
 
 export async function getPromptFilesFromDir(
   ide: IDE,
@@ -131,7 +131,7 @@ export async function getAllPromptFiles(
     await Promise.all(fullDirs.map((dir) => getPromptFilesFromDir(ide, dir)))
   ).flat();
 
-  // Also read from ~/.continue/.prompts
+  // Also read from ~/.synapse/.prompts
   promptFiles.push(...readAllGlobalPromptFiles());
 
   // Add hardcoded init prompt

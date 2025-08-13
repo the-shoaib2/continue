@@ -1,13 +1,13 @@
 import { describe, expect, it } from "vitest";
 import {
-  ContextItemId,
-  ContextItemWithId,
-  RuleWithSource,
-  UserChatMessage,
+    ContextItemId,
+    ContextItemWithId,
+    RuleWithSource,
+    UserChatMessage,
 } from "../..";
 import {
-  getApplicableRules,
-  shouldApplyRule,
+    getApplicableRules,
+    shouldApplyRule,
 } from "./getSystemMessageWithRules";
 import { RulePolicies } from "./types";
 
@@ -69,7 +69,7 @@ describe("Rule colocation glob matching", () => {
       name: "Root Rule",
       rule: "Follow project standards",
       source: "rules-block",
-      ruleFile: "/path/to/repo/.continue/rules.md",
+      ruleFile: "/path/to/repo/.synapse/rules.md",
       // No restriction, should apply to all files
     };
 
@@ -212,7 +212,7 @@ describe("Rule policies", () => {
       name: "Root Rule",
       rule: "Follow project standards",
       source: "rules-block",
-      ruleFile: "/my/project/.continue/rules.md",
+      ruleFile: "/my/project/.synapse/rules.md",
     };
 
     // Off policy should override even global rules

@@ -61,7 +61,7 @@ export function constructLlmApi(config: LLMConfig): BaseLlmApi | undefined {
       return new VertexAIApi(config);
     case "llamastack":
       return new LlamastackApi(config);
-    case "continue-proxy":
+    case "synapse-proxy":
       return new ContinueProxyApi(config);
     case "xAI":
       return openAICompatible("https://api.x.ai/v1/", config);
@@ -123,17 +123,18 @@ export function constructLlmApi(config: LLMConfig): BaseLlmApi | undefined {
 }
 
 export {
-  type ChatCompletion,
-  type ChatCompletionChunk,
-  type ChatCompletionCreateParams,
-  type ChatCompletionCreateParamsNonStreaming,
-  type ChatCompletionCreateParamsStreaming,
-  type Completion,
-  type CompletionCreateParams,
-  type CompletionCreateParamsNonStreaming,
-  type CompletionCreateParamsStreaming,
+    type ChatCompletion,
+    type ChatCompletionChunk,
+    type ChatCompletionCreateParams,
+    type ChatCompletionCreateParamsNonStreaming,
+    type ChatCompletionCreateParamsStreaming,
+    type Completion,
+    type CompletionCreateParams,
+    type CompletionCreateParamsNonStreaming,
+    type CompletionCreateParamsStreaming
 } from "openai/resources/index";
 
 // export
 export type { BaseLlmApi } from "./apis/base.js";
 export type { LLMConfig } from "./types.js";
+

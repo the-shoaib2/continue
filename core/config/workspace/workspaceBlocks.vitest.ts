@@ -46,33 +46,33 @@ describe("findAvailableFilename", () => {
     const mockFileExists = async (uri: string) => false;
 
     const result = await findAvailableFilename(
-      "/workspace/.continue/models",
+      "/workspace/.synapse/models",
       "models",
       mockFileExists,
     );
 
-    expect(result).toBe("/workspace/.continue/models/new-model.yaml");
+    expect(result).toBe("/workspace/.synapse/models/new-model.yaml");
   });
 
   test("returns filename with counter when base exists", async () => {
     const mockFileExists = async (uri: string) => {
-      return uri === "/workspace/.continue/models/new-model.yaml";
+      return uri === "/workspace/.synapse/models/new-model.yaml";
     };
 
     const result = await findAvailableFilename(
-      "/workspace/.continue/models",
+      "/workspace/.synapse/models",
       "models",
       mockFileExists,
     );
 
-    expect(result).toBe("/workspace/.continue/models/new-model-1.yaml");
+    expect(result).toBe("/workspace/.synapse/models/new-model-1.yaml");
   });
 
   test("increments counter until available filename is found", async () => {
     const existingFiles = new Set([
-      "/workspace/.continue/context/new-context.yaml",
-      "/workspace/.continue/context/new-context-1.yaml",
-      "/workspace/.continue/context/new-context-2.yaml",
+      "/workspace/.synapse/context/new-context.yaml",
+      "/workspace/.synapse/context/new-context-1.yaml",
+      "/workspace/.synapse/context/new-context-2.yaml",
     ]);
 
     const mockFileExists = async (uri: string) => {
@@ -80,12 +80,12 @@ describe("findAvailableFilename", () => {
     };
 
     const result = await findAvailableFilename(
-      "/workspace/.continue/context",
+      "/workspace/.synapse/context",
       "context",
       mockFileExists,
     );
 
-    expect(result).toBe("/workspace/.continue/context/new-context-3.yaml");
+    expect(result).toBe("/workspace/.synapse/context/new-context-3.yaml");
   });
 
   test("handles different block types correctly with proper extensions", async () => {
@@ -125,8 +125,8 @@ describe("findAvailableFilename", () => {
 
   test("handles rules markdown files with counter", async () => {
     const existingFiles = new Set([
-      `/workspace/.continue/rules/new-rule.${RULE_FILE_EXTENSION}`,
-      `/workspace/.continue/rules/new-rule-1.${RULE_FILE_EXTENSION}`,
+      `/workspace/.synapse/rules/new-rule.${RULE_FILE_EXTENSION}`,
+      `/workspace/.synapse/rules/new-rule-1.${RULE_FILE_EXTENSION}`,
     ]);
 
     const mockFileExists = async (uri: string) => {
@@ -134,13 +134,13 @@ describe("findAvailableFilename", () => {
     };
 
     const result = await findAvailableFilename(
-      "/workspace/.continue/rules",
+      "/workspace/.synapse/rules",
       "rules",
       mockFileExists,
     );
 
     expect(result).toBe(
-      `/workspace/.continue/rules/new-rule-2.${RULE_FILE_EXTENSION}`,
+      `/workspace/.synapse/rules/new-rule-2.${RULE_FILE_EXTENSION}`,
     );
   });
 
@@ -148,8 +148,8 @@ describe("findAvailableFilename", () => {
     const existingFiles = new Set(
       Array.from({ length: 100 }, (_, i) =>
         i === 0
-          ? "/workspace/.continue/prompts/new-prompt.yaml"
-          : `/workspace/.continue/prompts/new-prompt-${i}.yaml`,
+          ? "/workspace/.synapse/prompts/new-prompt.yaml"
+          : `/workspace/.synapse/prompts/new-prompt-${i}.yaml`,
       ),
     );
 
@@ -158,11 +158,11 @@ describe("findAvailableFilename", () => {
     };
 
     const result = await findAvailableFilename(
-      "/workspace/.continue/prompts",
+      "/workspace/.synapse/prompts",
       "prompts",
       mockFileExists,
     );
 
-    expect(result).toBe("/workspace/.continue/prompts/new-prompt-100.yaml");
+    expect(result).toBe("/workspace/.synapse/prompts/new-prompt-100.yaml");
   });
 });

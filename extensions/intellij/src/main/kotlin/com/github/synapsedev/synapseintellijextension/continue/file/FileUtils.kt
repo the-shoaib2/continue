@@ -1,7 +1,7 @@
-package com.github.continuedev.continueintellijextension.`continue`.file
+package com.github.continuedev.continueintellijextension.`synapse`.file
 
 import com.github.continuedev.continueintellijextension.FileType
-import com.github.continuedev.continueintellijextension.`continue`.UriUtils
+import com.github.continuedev.continueintellijextension.`synapse`.UriUtils
 import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.fileEditor.FileDocumentManager
 import com.intellij.openapi.vfs.LocalFileSystem

@@ -55,7 +55,7 @@ async function loadRules(ide: IDE) {
   rules.unshift(...yamlRules);
   errors.push(...continueRulesErrors);
 
-  // Add rules from markdown files in .continue/rules
+  // Add rules from markdown files in .synapse/rules
   const { rules: markdownRules, errors: markdownRulesErrors } =
     await loadMarkdownRules(ide);
   rules.unshift(...markdownRules);
@@ -398,7 +398,7 @@ async function injectControlPlaneProxyInfo(
 ): Promise<ContinueConfig> {
   Object.keys(config.modelsByRole).forEach((key) => {
     config.modelsByRole[key as ModelRole].forEach((model) => {
-      if (model.providerName === "continue-proxy") {
+      if (model.providerName === "synapse-proxy") {
         (model as ContinueProxy).controlPlaneProxyInfo = info;
       }
     });
@@ -406,13 +406,13 @@ async function injectControlPlaneProxyInfo(
 
   Object.keys(config.selectedModelByRole).forEach((key) => {
     const model = config.selectedModelByRole[key as ModelRole];
-    if (model?.providerName === "continue-proxy") {
+    if (model?.providerName === "synapse-proxy") {
       (model as ContinueProxy).controlPlaneProxyInfo = info;
     }
   });
 
   config.modelsByRole.chat.forEach((model) => {
-    if (model.providerName === "continue-proxy") {
+    if (model.providerName === "synapse-proxy") {
       (model as ContinueProxy).controlPlaneProxyInfo = info;
     }
   });

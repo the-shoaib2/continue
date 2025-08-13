@@ -33,7 +33,7 @@ export class ContinueProxyApi extends OpenAIApi {
   // Contains extra properties that we pass along to the proxy. Originally from `env` property on LLMOptions
   private configEnv?: Record<string, any>;
 
-  // Store the continue proxy config separately
+  // Store the synapse proxy config separately
   private continueProxyConfig: z.infer<typeof ContinueProxyConfigSchema>;
 
   constructor(config: z.infer<typeof ContinueProxyConfigSchema>) {

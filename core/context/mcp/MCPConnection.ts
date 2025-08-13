@@ -2,22 +2,22 @@ import { Client } from "@modelcontextprotocol/sdk/client/index.js";
 import { Transport } from "@modelcontextprotocol/sdk/shared/transport.js";
 
 import {
-  SSEClientTransport,
-  SseError,
+    SSEClientTransport,
+    SseError,
 } from "@modelcontextprotocol/sdk/client/sse.js";
 import { StdioClientTransport } from "@modelcontextprotocol/sdk/client/stdio.js";
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
 import { WebSocketClientTransport } from "@modelcontextprotocol/sdk/client/websocket.js";
 
 import {
-  IDE,
-  MCPConnectionStatus,
-  MCPOptions,
-  MCPPrompt,
-  MCPResource,
-  MCPResourceTemplate,
-  MCPServerStatus,
-  MCPTool,
+    IDE,
+    MCPConnectionStatus,
+    MCPOptions,
+    MCPPrompt,
+    MCPResource,
+    MCPResourceTemplate,
+    MCPServerStatus,
+    MCPTool,
 } from "../..";
 import { getEnvPathFromUserShell } from "../../util/shellPath";
 import { getOauthToken } from "./MCPOauth";
@@ -73,7 +73,7 @@ class MCPConnection {
 
     this.client = new Client(
       {
-        name: "continue-client",
+        name: "synapse-client",
         version: "1.0.0",
       },
       {

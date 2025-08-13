@@ -215,7 +215,7 @@ MIIDOriginalCert1234567890abcdefghijklmnopqrstuvwxyz
     test("should handle non-existent certificate files gracefully", async () => {
       const nonExistentPath = path.join(tempDir, "does-not-exist.pem");
 
-      // Should not throw but should continue with system certificates only
+      // Should not throw but should synapse with system certificates only
       const options = await getAgentOptions({ caBundlePath: nonExistentPath });
 
       expect(options.ca).toBeDefined();

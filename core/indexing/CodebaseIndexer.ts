@@ -2,10 +2,10 @@ import * as fs from "fs/promises";
 
 import { ConfigHandler } from "../config/ConfigHandler.js";
 import {
-    ContinueConfig,
-    IDE,
-    IndexingProgressUpdate,
-    IndexTag,
+  ContinueConfig,
+  IDE,
+  IndexingProgressUpdate,
+  IndexTag,
 } from "../index.js";
 import type { FromCoreProtocol, ToCoreProtocol } from "../protocol";
 import type { IMessenger } from "../protocol/messenger";
@@ -26,10 +26,10 @@ import { FullTextSearchCodebaseIndex } from "./FullTextSearchCodebaseIndex.js";
 import { LanceDbIndex } from "./LanceDbIndex.js";
 import { getComputeDeleteAddRemove, IndexLock } from "./refreshIndex.js";
 import {
-    CodebaseIndex,
-    IndexResultType,
-    PathAndCacheKey,
-    RefreshIndexResults,
+  CodebaseIndex,
+  IndexResultType,
+  PathAndCacheKey,
+  RefreshIndexResults,
 } from "./types.js";
 import { walkDirAsync } from "./walkDir.js";
 
@@ -586,7 +586,7 @@ export class CodebaseIndexer {
                 (completedIndexCount + completedOps / totalOps) *
                 (1 / indexesToBuild.length);
             } catch (err) {
-              // Collect non-fatal errors as warnings and continue
+              // Collect non-fatal errors as warnings and synapse
               const warningMsg =
                 err instanceof Error ? err.message : String(err);
               const friendlyName = this.getUserFriendlyIndexName(
@@ -595,7 +595,7 @@ export class CodebaseIndexer {
               warnings.push(`${friendlyName}: ${warningMsg}`);
               console.warn(`${friendlyName}: ${warningMsg}`, err);
 
-              // Complete this batch and continue with next
+              // Complete this batch and synapse with next
               completedOps +=
                 subResult.compute.length +
                 subResult.del.length +
@@ -618,7 +618,7 @@ export class CodebaseIndexer {
           throw cause;
         }
 
-        // Collect planning errors as warnings and continue to next index
+        // Collect planning errors as warnings and synapse to next index
         const errorMsg = err instanceof Error ? err.message : String(err);
         const friendlyName = this.getUserFriendlyIndexName(
           codebaseIndex.artifactId,

@@ -2,8 +2,8 @@ import { NextEditProvider } from "core/nextEdit/NextEditProvider";
 import { NextEditOutcome } from "core/nextEdit/types";
 import * as vscode from "vscode";
 import {
-  HandlerPriority,
-  SelectionChangeManager,
+    HandlerPriority,
+    SelectionChangeManager,
 } from "./SelectionChangeManager";
 
 export interface CompletionDataForAfterJump {
@@ -203,7 +203,7 @@ export class JumpManager {
     // Set the context key to enable tab/esc shortcuts.
     await vscode.commands.executeCommand(
       "setContext",
-      "continue.jumpDecorationVisible",
+      "synapse.jumpDecorationVisible",
       true,
     );
     this._jumpDecorationVisible = true;
@@ -224,7 +224,7 @@ export class JumpManager {
     // Reset the context.
     await vscode.commands.executeCommand(
       "setContext",
-      "continue.jumpDecorationVisible",
+      "synapse.jumpDecorationVisible",
       false,
     );
     this._jumpDecorationVisible = false;
@@ -235,7 +235,7 @@ export class JumpManager {
     jumpPosition: vscode.Position,
   ) {
     const acceptJumpCommand = vscode.commands.registerCommand(
-      "continue.acceptJump",
+      "synapse.acceptJump",
       async () => {
         if (this._jumpDecorationVisible) {
           this._jumpAccepted = true;
@@ -251,7 +251,7 @@ export class JumpManager {
     );
 
     const rejectJumpCommand = vscode.commands.registerCommand(
-      "continue.rejectJump",
+      "synapse.rejectJump",
       async () => {
         if (this._jumpDecorationVisible) {
           console.log(
@@ -283,7 +283,7 @@ export class JumpManager {
           this._oldCursorPosition &&
           !currentPosition.isEqual(this._oldCursorPosition)
         ) {
-          vscode.commands.executeCommand("continue.rejectJump");
+          vscode.commands.executeCommand("synapse.rejectJump");
         }
       });
 

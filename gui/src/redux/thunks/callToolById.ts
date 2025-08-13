@@ -5,16 +5,16 @@ import posthog from "posthog-js";
 import { callClientTool } from "../../util/clientTools/callClientTool";
 import { selectSelectedChatModel } from "../slices/configSlice";
 import {
-  acceptToolCall,
-  errorToolCall,
-  setInactive,
-  setToolCallCalling,
-  updateToolCallOutput,
+    acceptToolCall,
+    errorToolCall,
+    setInactive,
+    setToolCallCalling,
+    updateToolCallOutput,
 } from "../slices/sessionSlice";
+import { DEFAULT_TOOL_SETTING } from "../slices/uiSlice";
 import { ThunkApiType } from "../store";
 import { findToolCallById, logToolUsage } from "../util";
 import { streamResponseAfterToolCall } from "./streamResponseAfterToolCall";
-import { DEFAULT_TOOL_SETTING } from "../slices/uiSlice";
 
 export const callToolById = createAsyncThunk<
   void,
@@ -152,7 +152,7 @@ export const callToolById = createAsyncThunk<
       );
     }
 
-    // Send to the LLM to continue the conversation
+    // Send to the LLM to synapse the conversation
     const wrapped = await dispatch(
       streamResponseAfterToolCall({
         toolCallId,

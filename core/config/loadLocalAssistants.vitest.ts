@@ -3,8 +3,8 @@ import { walkDirCache } from "../indexing/walkDir";
 import { testIde } from "../test/fixtures";
 import { addToTestDir, setUpTestDir, tearDownTestDir } from "../test/testDir";
 import {
-  getAllDotContinueDefinitionFiles,
-  LoadAssistantFilesOptions,
+    getAllDotContinueDefinitionFiles,
+    LoadAssistantFilesOptions,
 } from "./loadLocalAssistants";
 describe("getAllDotContinueDefinitionFiles with fileExtType option", () => {
   beforeEach(() => {
@@ -13,11 +13,11 @@ describe("getAllDotContinueDefinitionFiles with fileExtType option", () => {
 
     // Add test files to the test directory
     addToTestDir([
-      ".continue/assistants/",
-      [".continue/assistants/assistant1.yaml", "yaml content 1"],
-      [".continue/assistants/assistant2.yml", "yaml content 2"],
-      [".continue/assistants/assistant3.md", "markdown content 1"],
-      [".continue/assistants/assistant4.txt", "txt content"],
+      ".synapse/assistants/",
+      [".synapse/assistants/assistant1.yaml", "yaml content 1"],
+      [".synapse/assistants/assistant2.yml", "yaml content 2"],
+      [".synapse/assistants/assistant3.md", "markdown content 1"],
+      [".synapse/assistants/assistant4.txt", "txt content"],
     ]);
   });
 
@@ -136,9 +136,9 @@ describe("getAllDotContinueDefinitionFiles with fileExtType option", () => {
     walkDirCache.invalidate();
     setUpTestDir();
     addToTestDir([
-      ".continue/assistants/",
-      [".continue/assistants/nonmatch1.txt", "txt content"],
-      [".continue/assistants/nonmatch2.json", "json content"],
+      ".synapse/assistants/",
+      [".synapse/assistants/nonmatch1.txt", "txt content"],
+      [".synapse/assistants/nonmatch2.json", "json content"],
     ]);
 
     const options: LoadAssistantFilesOptions = {
@@ -195,9 +195,9 @@ describe("getAllDotContinueDefinitionFiles with fileExtType option", () => {
   it("should filter by file extension case sensitively", async () => {
     // Add files with uppercase extensions
     addToTestDir([
-      [".continue/assistants/assistant5.YAML", "uppercase yaml"],
-      [".continue/assistants/assistant6.YML", "uppercase yml"],
-      [".continue/assistants/assistant7.MD", "uppercase md"],
+      [".synapse/assistants/assistant5.YAML", "uppercase yaml"],
+      [".synapse/assistants/assistant6.YML", "uppercase yml"],
+      [".synapse/assistants/assistant7.MD", "uppercase md"],
     ]);
 
     const yamlOptions: LoadAssistantFilesOptions = {

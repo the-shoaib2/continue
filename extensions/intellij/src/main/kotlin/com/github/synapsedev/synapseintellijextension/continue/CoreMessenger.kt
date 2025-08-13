@@ -1,9 +1,9 @@
-package com.github.continuedev.continueintellijextension.`continue`
+package com.github.continuedev.continueintellijextension.`synapse`
 
 import com.github.continuedev.continueintellijextension.constants.MessageTypes
-import com.github.continuedev.continueintellijextension.`continue`.process.ContinueBinaryProcess
-import com.github.continuedev.continueintellijextension.`continue`.process.ContinueProcessHandler
-import com.github.continuedev.continueintellijextension.`continue`.process.ContinueSocketProcess
+import com.github.continuedev.continueintellijextension.`synapse`.process.ContinueBinaryProcess
+import com.github.continuedev.continueintellijextension.`synapse`.process.ContinueProcessHandler
+import com.github.continuedev.continueintellijextension.`synapse`.process.ContinueSocketProcess
 import com.github.continuedev.continueintellijextension.services.ContinuePluginService
 import com.github.continuedev.continueintellijextension.utils.uuid
 import com.google.gson.Gson

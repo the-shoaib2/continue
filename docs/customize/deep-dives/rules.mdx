@@ -23,11 +23,11 @@ To form the system message, rules are joined with new lines, in the order they a
 
 Below is a quick example of setting up a new rule file:
 
-1. Create a folder called `.continue/rules` at the top level of your workspace
+1. Create a folder called `.synapse/rules` at the top level of your workspace
 2. Add a file called `pirates-rule.md` to this folder.
 3. Write the following contents to `pirates-rule.md` and save.
 
-```md title=".continue/rules/pirates-rule.md"
+```md title=".synapse/rules/pirates-rule.md"
 ---
 name: Pirate rule
 ---
@@ -48,7 +48,7 @@ Rules can be added locally using the "Add Rules" button while viewing the Local 
 <Info>
 **Automatically create local rule blocks**: When in Agent mode, you can prompt the agent to create a rule for you using the `create_rule_block` tool if enabled.
 
-For example, you can say "Create a rule for this", and a rule will be created for you in `.continue/rules` based on your conversation.
+For example, you can say "Create a rule for this", and a rule will be created for you in `.synapse/rules` based on your conversation.
 
 </Info>
 
@@ -125,15 +125,15 @@ rules:
 </Tab>
 </Tabs>
 
-### `.continue/rules` folder
+### `.synapse/rules` folder
 
-You can create project-specific rules by adding a `.continue/rules` folder to the root of your project and adding new rule files.
+You can create project-specific rules by adding a `.synapse/rules` folder to the root of your project and adding new rule files.
 
 Rules files are loaded in lexicographical order, so you can prefix them with numbers to control the order in which they are applied. For example: `01-general.md`, `02-frontend.md`, `03-backend.md`.
 
 ### Example: TypeScript Rules
 
-```md title=".continue/rules/typescript.md"
+```md title=".synapse/rules/typescript.md"
 ---
 name: TypeScript Best Practices
 globs: ["**/*.ts", "**/*.tsx"]
@@ -153,7 +153,7 @@ globs: ["**/*.ts", "**/*.tsx"]
 
 Continue includes a simple default system message for [Agent](../../features/agent/quick-start) and [Chat](../../features/chat/quick-start) requests, to help the model provide reliable codeblock formats in its output.
 
-This can be viewed in the rules section of the toolbar (see above), or in the source code [here](https://github.com/continuedev/continue/blob/main/core/llm/constructMessages.ts#L4).
+This can be viewed in the rules section of the toolbar (see above), or in the source code [here](https://github.com/continuedev/synapse/blob/main/core/llm/constructMessages.ts#L4).
 
 Advanced users can override this system message for a specific model if needed by using `chatOptions.baseSystemMessage`. See the [`config.yaml` reference](/reference#models).
 
