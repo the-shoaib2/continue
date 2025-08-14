@@ -14,7 +14,7 @@ const { copySqlite, copyEsbuild } = require("./download-copy-sqlite-esbuild");
 const { generateAndCopyConfigYamlSchema } = require("./generate-copy-config");
 const { installAndCopyNodeModules } = require("./install-copy-nodemodule");
 const { npmInstall } = require("./npm-install");
-const { writeBuildTimestamp, continueDir } = require("./utils");
+const { writeBuildTimestamp, synapseDir } = require("./utils");
 
 // Clear folders that will be packaged to ensure clean slate
 rimrafSync(path.join(__dirname, "..", "bin"));
@@ -82,7 +82,7 @@ void (async () => {
     );
   }
 
-  process.chdir(path.join(continueDir, "gui"));
+  process.chdir(path.join(synapseDir, "gui"));
 
   // Copy over the dist folder to the JetBrains extension //
   const intellijExtensionWebviewPath = path.join(

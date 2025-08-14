@@ -21,7 +21,7 @@
 
 # 1. Highlight the code below
 # 2. Press [Cmd/Ctrl + I] to Edit
-# 3. Try asking Continue to "make this more readable"
+# 3. Try asking Synapse to "make this more readable"
 def sorting_algorithm(x):
     for i in range(len(x)):
         for j in range(len(x) - 1):

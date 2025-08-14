@@ -14,7 +14,7 @@ interface FromConsoleView {
 // oldest and also send a message to the view to do the same.
 const MAX_INTERACTIONS = 50;
 
-export class ContinueConsoleWebviewViewProvider
+export class SynapseConsoleWebviewViewProvider
   implements vscode.WebviewViewProvider
 {
   public static readonly viewType = "synapse.synapseConsoleView";
@@ -198,7 +198,7 @@ export class ContinueConsoleWebviewViewProvider
         <script>const vscode = acquireVsCodeApi();</script>
         <link href="${styleMainUri}" rel="stylesheet">
 
-        <title>Continue</title>
+        <title>Synapse</title>
       </head>
       <body>
         <div id="root"></div>

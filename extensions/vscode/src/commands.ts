@@ -19,24 +19,24 @@ import { convertJsonToYamlConfig } from "../../../packages/config-yaml/dist";
 
 import { NextEditLoggingService } from "core/nextEdit/NextEditLoggingService";
 import {
-    getAutocompleteStatusBarDescription,
-    getAutocompleteStatusBarTitle,
-    getStatusBarStatus,
-    getStatusBarStatusFromQuickPickItemLabel,
-    quickPickStatusText,
-    setupStatusBar,
-    StatusBarStatus,
+  getAutocompleteStatusBarDescription,
+  getAutocompleteStatusBarTitle,
+  getStatusBarStatus,
+  getStatusBarStatusFromQuickPickItemLabel,
+  quickPickStatusText,
+  setupStatusBar,
+  StatusBarStatus,
 } from "./autocomplete/statusBar";
-import { ContinueConsoleWebviewViewProvider } from "./ContinueConsoleWebviewViewProvider";
-import { ContinueGUIWebviewViewProvider } from "./ContinueGUIWebviewViewProvider";
 import { processDiff } from "./diff/processDiff";
 import { VerticalDiffManager } from "./diff/vertical/manager";
 import EditDecorationManager from "./quickEdit/EditDecorationManager";
 import { QuickEdit, QuickEditShowParams } from "./quickEdit/QuickEditQuickPick";
+import { SynapseConsoleWebviewViewProvider } from "./SynapseConsoleWebviewViewProvider";
+import { SynapseGUIWebviewViewProvider } from "./SynapseGUIWebviewViewProvider";
 import {
-    addCodeToContextFromRange,
-    addEntireFileToContext,
-    addHighlightedCodeToContext,
+  addCodeToContextFromRange,
+  addEntireFileToContext,
+  addHighlightedCodeToContext,
 } from "./util/addCode";
 import { Battery } from "./util/battery";
 import { getMetaKeyLabel } from "./util/util";
@@ -89,7 +89,7 @@ function hideGUI() {
 }
 
 function waitForSidebarReady(
-  sidebar: ContinueGUIWebviewViewProvider,
+  sidebar: SynapseGUIWebviewViewProvider,
   timeout: number,
   interval: number,
 ): Promise<boolean> {
@@ -114,8 +114,8 @@ function waitForSidebarReady(
 const getCommandsMap: (
   ide: VsCodeIde,
   extensionContext: vscode.ExtensionContext,
-  sidebar: ContinueGUIWebviewViewProvider,
-  consoleView: ContinueConsoleWebviewViewProvider,
+  sidebar: SynapseGUIWebviewViewProvider,
+  consoleView: SynapseConsoleWebviewViewProvider,
   configHandler: ConfigHandler,
   verticalDiffManager: VerticalDiffManager,
   battery: Battery,
@@ -419,9 +419,7 @@ const getCommandsMap: (
     "synapse.viewHistory": () => {
       vscode.commands.executeCommand("synapse.navigateTo", "/history", true);
     },
-    "synapse.focusContinueSessionId": async (
-      sessionId: string | undefined,
-    ) => {
+    "synapse.focusContinueSessionId": async (sessionId: string | undefined) => {
       if (!sessionId) {
         sessionId = await vscode.window.showInputBox({
           prompt: "Enter the Session ID",
@@ -459,7 +457,7 @@ const getCommandsMap: (
       // Create the full screen panel
       let panel = vscode.window.createWebviewPanel(
         "synapse.synapseGUIView",
-        "Continue",
+        "Synapse",
         vscode.ViewColumn.One,
         {
           retainContextWhenHidden: true,
@@ -611,11 +609,10 @@ const getCommandsMap: (
       const config = vscode.workspace.getConfiguration(EXTENSION_NAME);
       const quickPick = vscode.window.createQuickPick();
 
-      const { config: continueConfig } = await configHandler.loadConfig();
-      const autocompleteModels =
-        continueConfig?.modelsByRole.autocomplete ?? [];
+      const { config: synapseConfig } = await configHandler.loadConfig();
+      const autocompleteModels = synapseConfig?.modelsByRole.autocomplete ?? [];
       const selected =
-        continueConfig?.selectedModelByRole?.autocomplete?.title ?? undefined;
+        synapseConfig?.selectedModelByRole?.autocomplete?.title ?? undefined;
 
       // Toggle between Disabled, Paused, and Enabled
       const pauseOnBattery =
@@ -889,8 +886,8 @@ export function registerAllCommands(
   context: vscode.ExtensionContext,
   ide: VsCodeIde,
   extensionContext: vscode.ExtensionContext,
-  sidebar: ContinueGUIWebviewViewProvider,
-  consoleView: ContinueConsoleWebviewViewProvider,
+  sidebar: SynapseGUIWebviewViewProvider,
+  consoleView: SynapseConsoleWebviewViewProvider,
   configHandler: ConfigHandler,
   verticalDiffManager: VerticalDiffManager,
   battery: Battery,

@@ -58,7 +58,7 @@ export function OnboardingCard({
                 Free trial completed
               </h4>
               <span className="text-xs">
-                To keep using Continue, select an option below to setup your
+                To keep using Synapse, select an option below to setup your
                 models
               </span>
             </Alert>

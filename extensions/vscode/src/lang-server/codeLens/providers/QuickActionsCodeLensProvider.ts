@@ -1,17 +1,17 @@
-import { QuickActionConfig, SynapseConfig } from "core";
+import { ContinueConfig, QuickActionConfig } from "core";
 import { Telemetry } from "core/util/posthog";
 import * as vscode from "vscode";
 
 import { QuickEditShowParams } from "../../../quickEdit/QuickEditQuickPick";
 import { isTutorialFile } from "../../../util/tutorial";
 import {
-    CONTINUE_WORKSPACE_KEY,
-    getContinueWorkspaceConfig,
+  CONTINUE_WORKSPACE_KEY,
+  getContinueWorkspaceConfig,
 } from "../../../util/workspaceConfig";
 
 export const ENABLE_QUICK_ACTIONS_KEY = "enableQuickActions";
 
-export function getQuickActionsConfig(config: SynapseConfig) {
+export function getQuickActionsConfig(config: ContinueConfig) {
   return config.experimental?.quickActions;
 }
 
@@ -83,7 +83,7 @@ export class QuickActionsCodeLensProvider implements vscode.CodeLensProvider {
   getDefaultCommand(range: vscode.Range): vscode.Command[] {
     const quickEdit: vscode.Command = {
       command: "synapse.defaultQuickAction",
-      title: "Continue",
+      title: "Synapse",
       arguments: [{ range } as QuickEditShowParams],
     };
 

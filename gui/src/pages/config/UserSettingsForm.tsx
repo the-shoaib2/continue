@@ -22,7 +22,7 @@ import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { updateConfig } from "../../redux/slices/configSlice";
 import { selectCurrentOrg } from "../../redux/slices/profilesSlice";
 import { setLocalStorage } from "../../util/localStorage";
-import { ContinueFeaturesMenu } from "./ContinueFeaturesMenu";
+import { SynapseFeaturesMenu } from "./ContinueFeaturesMenu";
 
 export function UserSettingsForm() {
   /////// User settings section //////
@@ -449,7 +449,7 @@ export function UserSettingsForm() {
                 />
 
                 {hasContinueEmail && (
-                  <ContinueFeaturesMenu
+                  <SynapseFeaturesMenu
                     enableStaticContextualization={
                       enableStaticContextualization
                     }

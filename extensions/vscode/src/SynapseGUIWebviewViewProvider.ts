@@ -7,7 +7,7 @@ import { VsCodeWebviewProtocol } from "./webviewProtocol";
 
 import type { FileEdit } from "core";
 
-export class ContinueGUIWebviewViewProvider
+export class SynapseGUIWebviewViewProvider
   implements vscode.WebviewViewProvider
 {
   public static readonly viewType = "synapse.synapseGUIView";
@@ -135,7 +135,7 @@ export class ContinueGUIWebviewViewProvider
         <script>const vscode = acquireVsCodeApi();</script>
         <link href="${styleMainUri}" rel="stylesheet">
 
-        <title>Continue</title>
+        <title>Synapse</title>
       </head>
       <body>
         <div id="root"></div>

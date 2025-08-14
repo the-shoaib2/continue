@@ -37,14 +37,14 @@ interface VsCodeCompletionInput {
   context: vscode.InlineCompletionContext;
 }
 
-export class ContinueCompletionProvider
+export class SynapseCompletionProvider
   implements vscode.InlineCompletionItemProvider
 {
   private async onError(e: unknown) {
     if (await handleLLMError(e)) {
       return;
     }
-    let message = "Continue Autocomplete Error";
+    let message = "Synapse Autocomplete Error";
     if (e instanceof Error) {
       message += `: ${e.message}`;
     }

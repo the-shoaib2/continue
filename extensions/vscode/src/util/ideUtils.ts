@@ -229,7 +229,7 @@ export class VsCodeIdeUtils {
       .openTextDocument(
         vscode.Uri.parse(
           `${
-            VsCodeExtension.continueVirtualDocumentScheme
+            VsCodeExtension.synapseVirtualDocumentScheme
           }:${encodeURIComponent(name)}?${encodeURIComponent(contents)}`,
         ),
       )
@@ -247,7 +247,7 @@ export class VsCodeIdeUtils {
 
     // If not, ask user for secret
     secret = await vscode.window.showInputBox({
-      prompt: `Either enter secret for ${key} or press enter to try Continue for free.`,
+      prompt: `Either enter secret for ${key} or press enter to try Synapse for free.`,
       password: true,
     });
 

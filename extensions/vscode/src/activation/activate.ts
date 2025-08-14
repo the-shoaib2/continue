@@ -6,7 +6,7 @@ import { VsCodeExtension } from "../extension/VsCodeExtension";
 import registerQuickFixProvider from "../lang-server/codeActions";
 import { getExtensionVersion, isUnsupportedPlatform } from "../util/util";
 
-import { VsCodeContinueApi } from "./api";
+import { VsCodeSynapseApi } from "./api";
 import setupInlineTips from "./InlineTipManager";
 
 export async function activateExtension(context: vscode.ExtensionContext) {
@@ -16,7 +16,7 @@ export async function activateExtension(context: vscode.ExtensionContext) {
     const platformTarget = "windows-arm64";
 
     void vscode.window.showInformationMessage(
-      `Continue detected that you are using ${platformTarget}. Due to native dependencies, Continue may not be able to start`,
+      `Synapse detected that you are using ${platformTarget}. Due to native dependencies, Synapse may not be able to start`,
     );
 
     void Telemetry.capture(
@@ -69,13 +69,13 @@ export async function activateExtension(context: vscode.ExtensionContext) {
     );
   } catch (error) {
     console.error(
-      "Failed to register Continue config.yaml schema, most likely, YAML extension is not installed",
+      "Failed to register Synapse config.yaml schema, most likely, YAML extension is not installed",
       error,
     );
   }
 
-  const api = new VsCodeContinueApi(vscodeExtension);
-  const continuePublicApi = {
+  const api = new VsCodeSynapseApi(vscodeExtension);
+  const synapsePublicApi = {
     registerCustomContextProvider: api.registerCustomContextProvider.bind(api),
   };
 
@@ -83,8 +83,8 @@ export async function activateExtension(context: vscode.ExtensionContext) {
   // or entire extension for testing
   return process.env.NODE_ENV === "test"
     ? {
-        ...continuePublicApi,
+        ...synapsePublicApi,
         extension: vscodeExtension,
       }
-    : continuePublicApi;
+    : synapsePublicApi;
 }

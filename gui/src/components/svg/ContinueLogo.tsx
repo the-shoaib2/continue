@@ -1,14 +1,14 @@
 import { vscForeground } from "..";
 
-interface ContinueLogoProps {
+interface SynapseLogoProps {
   height?: number;
   width?: number;
 }
 
-export default function ContinueLogo({
+export default function SynapseLogo({
   height = 987,
   width = 299,
-}: ContinueLogoProps) {
+}: SynapseLogoProps) {
   return (
     <svg
       width={width}

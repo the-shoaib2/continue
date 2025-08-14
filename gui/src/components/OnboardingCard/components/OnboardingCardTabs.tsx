@@ -1,6 +1,6 @@
 import { KeyIcon } from "@heroicons/react/24/outline";
 import { OnboardingModes } from "core/protocol/core";
-import ContinueSignet from "../../svg/ContinueSignet";
+import SynapseSignet from "../../svg/ContinueSignet";
 import OllamaLogo from "../../svg/OllamaLogo";
 
 interface OnboardingCardTabsProps {
@@ -53,7 +53,7 @@ const renderTabButton = (
         onClick={() => onTabClick(tabTitle as OnboardingModes)}
         data-testid={`onboarding-tab-${tabTitle}`}
       >
-        <ContinueSignet width={32} height={32} className="-mb-2.5" />
+        <SynapseSignet width={32} height={32} className="-mb-2.5" />
         Upgrade
       </button>
     );
@@ -104,6 +104,7 @@ export function OnboardingCardTabs({
           className="text-foreground border-border mt-4 w-full cursor-pointer rounded-none border-x-0 border-b border-t-0 bg-transparent p-2 text-base focus:outline-none"
           value={activeTab}
           onChange={(e) => onTabClick(e.target.value as OnboardingModes)}
+          aria-label="Select onboarding mode"
         >
           {tabs.map((tabTitle) => {
             return (

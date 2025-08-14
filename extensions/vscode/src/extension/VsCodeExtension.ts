@@ -7,22 +7,20 @@ import { Core } from "core/core";
 import { FromCoreProtocol, ToCoreProtocol } from "core/protocol";
 import { InProcessMessenger } from "core/protocol/messenger";
 import {
-    getConfigJsonPath,
-    getConfigTsPath,
-    getConfigYamlPath,
+  getConfigJsonPath,
+  getConfigTsPath,
+  getConfigYamlPath,
 } from "core/util/paths";
 import { v4 as uuidv4 } from "uuid";
 import * as vscode from "vscode";
 
-import { ContinueCompletionProvider } from "../autocomplete/completionProvider";
+import { SynapseCompletionProvider } from "../autocomplete/completionProvider";
 import {
-    monitorBatteryChanges,
-    setupStatusBar,
-    StatusBarStatus,
+  monitorBatteryChanges,
+  setupStatusBar,
+  StatusBarStatus,
 } from "../autocomplete/statusBar";
 import { registerAllCommands } from "../commands";
-import { ContinueConsoleWebviewViewProvider } from "../ContinueConsoleWebviewViewProvider";
-import { ContinueGUIWebviewViewProvider } from "../ContinueGUIWebviewViewProvider";
 import { VerticalDiffManager } from "../diff/vertical/manager";
 import { registerAllCodeLensProviders } from "../lang-server/codeLens";
 import { registerAllPromptFilesCompletionProviders } from "../lang-server/promptFileCompletions";
@@ -31,9 +29,11 @@ import { QuickEdit } from "../quickEdit/QuickEditQuickPick";
 import { setupRemoteConfigSync } from "../stubs/activation";
 import { UriEventHandler } from "../stubs/uriHandler";
 import {
-    getControlPlaneSessionInfo,
-    WorkOsAuthProvider,
+  getControlPlaneSessionInfo,
+  WorkOsAuthProvider,
 } from "../stubs/WorkOsAuthProvider";
+import { SynapseConsoleWebviewViewProvider } from "../SynapseConsoleWebviewViewProvider";
+import { SynapseGUIWebviewViewProvider } from "../SynapseGUIWebviewViewProvider";
 import { Battery } from "../util/battery";
 import { FileSearch } from "../util/FileSearch";
 import { VsCodeIdeUtils } from "../util/ideUtils";
@@ -50,11 +50,11 @@ import { isNextEditTest } from "core/nextEdit/utils";
 import { localPathOrUriToPath } from "core/util/pathToUri";
 import { JumpManager } from "../activation/JumpManager";
 import setupNextEditWindowManager, {
-    NextEditWindowManager,
+  NextEditWindowManager,
 } from "../activation/NextEditWindowManager";
 import {
-    HandlerPriority,
-    SelectionChangeManager,
+  HandlerPriority,
+  SelectionChangeManager,
 } from "../activation/SelectionChangeManager";
 import { GhostTextAcceptanceTracker } from "../autocomplete/GhostTextAcceptanceTracker";
 import { getDefinitionsFromLsp } from "../autocomplete/lsp";
@@ -68,8 +68,8 @@ export class VsCodeExtension {
   private extensionContext: vscode.ExtensionContext;
   private ide: VsCodeIde;
   private ideUtils: VsCodeIdeUtils;
-  private consoleView: ContinueConsoleWebviewViewProvider;
-  private sidebar: ContinueGUIWebviewViewProvider;
+  private consoleView: SynapseConsoleWebviewViewProvider;
+  private sidebar: SynapseGUIWebviewViewProvider;
   private windowId: string;
   private editDecorationManager: EditDecorationManager;
   private verticalDiffManager: VerticalDiffManager;
@@ -79,7 +79,7 @@ export class VsCodeExtension {
   private workOsAuthProvider: WorkOsAuthProvider;
   private fileSearch: FileSearch;
   private uriHandler = new UriEventHandler();
-  private completionProvider: ContinueCompletionProvider;
+  private completionProvider: SynapseCompletionProvider;
 
   private ARBITRARY_TYPING_DELAY = 2000;
 
@@ -137,7 +137,7 @@ export class VsCodeExtension {
     const configHandlerPromise = new Promise<ConfigHandler>((resolve) => {
       resolveConfigHandler = resolve;
     });
-    this.sidebar = new ContinueGUIWebviewViewProvider(
+    this.sidebar = new SynapseGUIWebviewViewProvider(
       this.windowId,
       this.extensionContext,
     );
@@ -213,7 +213,7 @@ export class VsCodeExtension {
             )) ||
           isNextEditTest()
         ) {
-          // Set up next edit window manager only for Continue team members
+          // Set up next edit window manager only for Synapse team members
           await setupNextEditWindowManager(context);
           this.activateNextEdit();
           await NextEditWindowManager.freeTabAndEsc();
@@ -259,7 +259,7 @@ export class VsCodeExtension {
     setupStatusBar(
       enabled ? StatusBarStatus.Enabled : StatusBarStatus.Disabled,
     );
-    this.completionProvider = new ContinueCompletionProvider(
+    this.completionProvider = new SynapseCompletionProvider(
       this.configHandler,
       this.ide,
       this.sidebar.webviewProtocol,
@@ -309,7 +309,7 @@ export class VsCodeExtension {
     );
 
     // LLM Log view
-    this.consoleView = new ContinueConsoleWebviewViewProvider(
+    this.consoleView = new SynapseConsoleWebviewViewProvider(
       this.windowId,
       this.extensionContext,
       this.core.llmLogger,
@@ -501,7 +501,7 @@ export class VsCodeExtension {
     })();
     context.subscriptions.push(
       vscode.workspace.registerTextDocumentContentProvider(
-        VsCodeExtension.continueVirtualDocumentScheme,
+        VsCodeExtension.synapseVirtualDocumentScheme,
         documentContentProvider,
       ),
     );
@@ -530,7 +530,7 @@ export class VsCodeExtension {
     });
   }
 
-  static continueVirtualDocumentScheme = EXTENSION_NAME;
+  static synapseVirtualDocumentScheme = EXTENSION_NAME;
 
   // eslint-disable-next-line @typescript-eslint/naming-convention
   private PREVIOUS_BRANCH_FOR_WORKSPACE_DIR: { [dir: string]: string } = {};

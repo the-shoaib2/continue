@@ -1,17 +1,17 @@
 import {
-    ArrowLeftIcon,
-    ChatBubbleOvalLeftIcon,
+  ArrowLeftIcon,
+  ChatBubbleOvalLeftIcon,
 } from "@heroicons/react/24/outline";
 import { Editor, JSONContent } from "@tiptap/react";
 import { ChatHistoryItem, InputModifiers } from "core";
 import { renderChatMessage } from "core/util/messageContent";
 import {
-    useCallback,
-    useContext,
-    useEffect,
-    useMemo,
-    useRef,
-    useState,
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
 } from "react";
 import { ErrorBoundary } from "react-error-boundary";
 import styled from "styled-components";
@@ -20,7 +20,7 @@ import { useFindWidget } from "../../components/find/FindWidget";
 import TimelineItem from "../../components/gui/TimelineItem";
 import { NewSessionButton } from "../../components/mainInput/belowMainInput/NewSessionButton";
 import ThinkingBlockPeek from "../../components/mainInput/belowMainInput/ThinkingBlockPeek";
-import ContinueInputBox from "../../components/mainInput/ContinueInputBox";
+import SynapseInputBox from "../../components/mainInput/ContinueInputBox";
 import { useOnboardingCard } from "../../components/OnboardingCard";
 import StepContainer from "../../components/StepContainer";
 import { TabBar } from "../../components/TabBar/TabBar";
@@ -28,14 +28,14 @@ import { IdeMessengerContext } from "../../context/IdeMessenger";
 import { useWebviewListener } from "../../hooks/useWebviewListener";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import {
-    selectDoneApplyStates,
-    selectPendingToolCalls,
+  selectDoneApplyStates,
+  selectPendingToolCalls,
 } from "../../redux/selectors/selectToolCalls";
 import {
-    cancelToolCall,
-    ChatHistoryItemWithMessageId,
-    newSession,
-    updateToolCallOutput,
+  cancelToolCall,
+  ChatHistoryItemWithMessageId,
+  newSession,
+  updateToolCallOutput,
 } from "../../redux/slices/sessionSlice";
 import { streamEditThunk } from "../../redux/thunks/edit";
 import { loadLastSession } from "../../redux/thunks/session";
@@ -289,7 +289,7 @@ export function Chat() {
       if (message.role === "user") {
         return (
           <div className={isBeforeLatestSummary ? "opacity-50" : ""}>
-            <ContinueInputBox
+            <SynapseInputBox
               onEnter={(editorState, modifiers) =>
                 sendInput(editorState, modifiers, index)
               }
@@ -415,7 +415,7 @@ export function Chat() {
         ))}
       </StepsDiv>
       <div className={"relative"}>
-        <ContinueInputBox
+        <SynapseInputBox
           isMainInput
           isLastUserInput={false}
           onEnter={(editorState, modifiers, editor) =>

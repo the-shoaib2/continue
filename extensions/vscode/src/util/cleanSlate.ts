@@ -1,15 +1,14 @@
-
 import { ExtensionContext } from "vscode";
 
 /**
- * Clear all Continue-related artifacts to simulate a brand new user
+ * Clear all Synapse-related artifacts to simulate a brand new user
  */
 export function cleanSlate(context: ExtensionContext) {
   // Commented just to be safe
   // // Remove ~/.synapse
-  // const continuePath = getContinueGlobalPath();
-  // if (fs.existsSync(continuePath)) {
-  //   fs.rmSync(continuePath, { recursive: true, force: true });
+  // const synapsePath = getSynapseGlobalPath();
+  // if (fs.existsSync(synapsePath)) {
+  //   fs.rmSync(synapsePath, { recursive: true, force: true });
   // }
   // // Clear extension's globalState
   // context.globalState.keys().forEach((key) => {

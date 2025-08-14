@@ -1,13 +1,13 @@
 import ToggleSwitch from "../../components/gui/Switch";
-interface ContinueFeaturesMenuProps {
+interface SynapseFeaturesMenuProps {
   enableStaticContextualization: boolean;
   handleEnableStaticContextualizationToggle: (value: boolean) => void;
 }
 
-export function ContinueFeaturesMenu({
+export function SynapseFeaturesMenu({
   enableStaticContextualization,
   handleEnableStaticContextualizationToggle,
-}: ContinueFeaturesMenuProps) {
+}: SynapseFeaturesMenuProps) {
   return (
     <div className="flex w-full flex-col gap-y-4">
       <div className="my-2 text-center text-xs font-medium text-slate-400">

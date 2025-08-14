@@ -30,7 +30,7 @@ export function activate(context: vscode.ExtensionContext) {
     );
     vscode.window
       .showWarningMessage(
-        "Error activating the Continue extension.",
+        "Error activating the Synapse extension.",
         "View Logs",
         "Retry",
       )

@@ -1,10 +1,10 @@
+import { InformationCircleIcon } from "@heroicons/react/24/outline";
 import {
   createRuleMarkdown,
   getRuleType,
   RuleType,
   RuleTypeDescriptions,
 } from "@synapse/config-yaml";
-import { InformationCircleIcon } from "@heroicons/react/24/outline";
 import { createRuleFilePath } from "core/config/markdown/utils";
 import { CreateRuleBlockArgs } from "core/tools/implementations/createRuleBlock";
 import { useContext, useEffect, useState } from "react";
@@ -121,8 +121,8 @@ export function GenerationScreen({
         return;
       }
 
-      const localContinueDir = workspaceDirs.content[0];
-      const ruleFilePath = createRuleFilePath(localContinueDir, formData.name);
+      const localSynapseDir = workspaceDirs.content[0];
+      const ruleFilePath = createRuleFilePath(localSynapseDir, formData.name);
 
       await ideMessenger.request("writeFile", {
         path: ruleFilePath,

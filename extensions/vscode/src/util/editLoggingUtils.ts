@@ -3,11 +3,11 @@ import { AutocompleteCodeSnippet } from "core/autocomplete/snippets/types";
 import { GetLspDefinitionsFunction } from "core/autocomplete/types";
 import { ConfigHandler } from "core/config/ConfigHandler";
 import { RecentlyEditedRange } from "core/nextEdit/types";
-import { getContinueGlobalPath, isFileWithinFolder } from "core/util/paths";
+import { getSynapseGlobalPath, isFileWithinFolder } from "core/util/paths";
 import fs from "fs";
 import { resolve } from "path";
 import * as vscode from "vscode";
-import { ContinueCompletionProvider } from "../autocomplete/completionProvider";
+import { SynapseCompletionProvider } from "../autocomplete/completionProvider";
 
 export const getBeforeCursorPos = (range: Range, activePos: Position) => {
   // whichever side of the range isn't active is the before position
@@ -22,8 +22,8 @@ export const getBeforeCursorPos = (range: Range, activePos: Position) => {
 };
 
 const isEditLoggingAllowed = async (editedFileURI: string) => {
-  const globalContinuePath = getContinueGlobalPath();
-  const editLogDirsPath = resolve(globalContinuePath, ".editlogdirs");
+  const globalSynapsePath = getSynapseGlobalPath();
+  const editLogDirsPath = resolve(globalSynapsePath, ".editlogdirs");
 
   try {
     const fileContent = await fs.promises.readFile(editLogDirsPath, "utf-8");
@@ -54,7 +54,7 @@ export const handleTextDocumentChange = async (
   event: vscode.TextDocumentChangeEvent,
   configHandler: ConfigHandler,
   ide: IDE,
-  completionProvider: ContinueCompletionProvider,
+  completionProvider: SynapseCompletionProvider,
   getDefinitionsFromLsp: GetLspDefinitionsFunction,
 ) => {
   const changes = event.contentChanges;

@@ -1,9 +1,9 @@
 import {
-    ArrowTopRightOnSquareIcon,
-    DocumentArrowUpIcon,
-    NumberedListIcon,
-    PaintBrushIcon,
-    TableCellsIcon,
+  ArrowTopRightOnSquareIcon,
+  DocumentArrowUpIcon,
+  NumberedListIcon,
+  PaintBrushIcon,
+  TableCellsIcon,
 } from "@heroicons/react/24/outline";
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
@@ -39,7 +39,7 @@ export function HelpCenterSection() {
       <h3 className="mb-4 mt-0 text-xl">Help center</h3>
       <div className="-mx-4 flex flex-col">
         <MoreHelpRow
-          title="Continue Hub"
+          title="Synapse Hub"
           description="Visit hub.synapse.dev to explore custom assistants and blocks"
           Icon={ArrowTopRightOnSquareIcon}
           onClick={() =>
@@ -49,7 +49,7 @@ export function HelpCenterSection() {
 
         <MoreHelpRow
           title="Documentation"
-          description="Learn how to configure and use Continue"
+          description="Learn how to configure and use Synapse"
           Icon={ArrowTopRightOnSquareIcon}
           onClick={() =>
             ideMessenger.post("openUrl", "https://docs.synapse.dev/")
@@ -63,7 +63,7 @@ export function HelpCenterSection() {
           onClick={() =>
             ideMessenger.post(
               "openUrl",
-              "https://github.com/continuedev/synapse/issues/new/choose",
+              "https://github.com/synapsedev/synapse/issues/new/choose",
             )
           }
         />

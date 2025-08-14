@@ -1,7 +1,7 @@
 import { EXTENSION_NAME } from "core/control-plane/env";
 import * as vscode from "vscode";
 
-class ContinueQuickFixProvider implements vscode.CodeActionProvider {
+class SynapseQuickFixProvider implements vscode.CodeActionProvider {
   public static readonly providedCodeActionKinds = [
     vscode.CodeActionKind.QuickFix,
   ];
@@ -19,7 +19,7 @@ class ContinueQuickFixProvider implements vscode.CodeActionProvider {
     const diagnostic = context.diagnostics[0];
 
     const quickFix = new vscode.CodeAction(
-      "Ask Continue",
+      "Ask Synapse",
       vscode.CodeActionKind.QuickFix,
     );
 
@@ -34,7 +34,7 @@ class ContinueQuickFixProvider implements vscode.CodeActionProvider {
 
     quickFix.command = {
       command: "synapse.quickFix",
-      title: "Continue Quick Fix",
+      title: "Synapse Quick Fix",
       arguments: [surroundingRange, diagnostic.message],
     };
 
@@ -55,9 +55,9 @@ export default function registerQuickFixProvider() {
   // In your extension's activate function:
   vscode.languages.registerCodeActionsProvider(
     { language: "*" },
-    new ContinueQuickFixProvider(),
+    new SynapseQuickFixProvider(),
     {
-      providedCodeActionKinds: ContinueQuickFixProvider.providedCodeActionKinds,
+      providedCodeActionKinds: SynapseQuickFixProvider.providedCodeActionKinds,
     },
   );
 }

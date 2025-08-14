@@ -1,13 +1,13 @@
-import { SynapseConfig } from "core";
+import { ContinueConfig } from "core";
 import * as vscode from "vscode";
 
 import { VerticalDiffCodeLens } from "../../diff/vertical/manager";
 
 import * as providers from "./providers";
 import {
-    getQuickActionsConfig,
-    quickActionsEnabledStatus,
-    subscribeToVSCodeQuickActionsSettings,
+  getQuickActionsConfig,
+  quickActionsEnabledStatus,
+  subscribeToVSCodeQuickActionsSettings,
 } from "./providers/QuickActionsCodeLensProvider";
 
 const { registerCodeLensProvider } = vscode.languages;
@@ -37,7 +37,7 @@ let downloadYamlExtensionCodeLensDisposable: vscode.Disposable | undefined =
  * @param context - The VS Code extension context
  */
 function registerQuickActionsProvider(
-  config: SynapseConfig,
+  config: ContinueConfig,
   context: vscode.ExtensionContext,
 ) {
   if (quickActionsCodeLensDisposable) {
@@ -78,7 +78,7 @@ function registerQuickActionsProvider(
 export function registerAllCodeLensProviders(
   context: vscode.ExtensionContext,
   editorToVerticalDiffCodeLens: Map<string, VerticalDiffCodeLens[]>,
-  config: SynapseConfig | undefined,
+  config: ContinueConfig | undefined,
 ) {
   if (verticalPerLineCodeLensProvider) {
     verticalPerLineCodeLensProvider.dispose();

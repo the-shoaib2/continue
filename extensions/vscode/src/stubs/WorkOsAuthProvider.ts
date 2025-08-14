@@ -28,7 +28,7 @@ import { PromiseAdapter, promiseFromEvent } from "./promiseUtils";
 import { SecretStorage } from "./SecretStorage";
 import { UriEventHandler } from "./uriHandler";
 
-const AUTH_NAME = "Continue";
+const AUTH_NAME = "Synapse";
 
 const controlPlaneEnv = getControlPlaneEnvSync(true ? "production" : "none");
 
@@ -62,7 +62,7 @@ async function generateCodeChallenge(verifier: string) {
   return base64String;
 }
 
-interface ContinueAuthenticationSession extends AuthenticationSession {
+interface SynapseAuthenticationSession extends AuthenticationSession {
   refreshToken: string;
   expiresInMs: number;
   loginNeeded: boolean;
@@ -144,14 +144,14 @@ export class WorkOsAuthProvider implements AuthenticationProvider, Disposable {
       : WorkOsAuthProvider.EXPIRATION_TIME_MS;
   }
 
-  private async storeSessions(value: ContinueAuthenticationSession[]) {
+  private async storeSessions(value: SynapseAuthenticationSession[]) {
     const data = JSON.stringify(value, null, 2);
     await this.secretStorage.store(SESSIONS_SECRET_KEY, data);
   }
 
   public async getSessions(
     scopes?: string[],
-  ): Promise<ContinueAuthenticationSession[]> {
+  ): Promise<SynapseAuthenticationSession[]> {
     // await this.hasAttemptedRefresh;
     const data = await this.secretStorage.get(SESSIONS_SECRET_KEY);
     if (!data) {
@@ -159,7 +159,7 @@ export class WorkOsAuthProvider implements AuthenticationProvider, Disposable {
     }
 
     try {
-      const value = JSON.parse(data) as ContinueAuthenticationSession[];
+      const value = JSON.parse(data) as SynapseAuthenticationSession[];
       return value;
     } catch (e: any) {
       console.warn(`Error parsing sessions.json: ${e}`);
@@ -330,7 +330,7 @@ export class WorkOsAuthProvider implements AuthenticationProvider, Disposable {
    */
   public async createSession(
     scopes: string[],
-  ): Promise<ContinueAuthenticationSession> {
+  ): Promise<SynapseAuthenticationSession> {
     try {
       const codeVerifier = generateRandomString(64);
       const codeChallenge = await generateCodeChallenge(codeVerifier);
@@ -341,7 +341,7 @@ export class WorkOsAuthProvider implements AuthenticationProvider, Disposable {
 
       const token = await this.login(codeChallenge, controlPlaneEnv, scopes);
       if (!token) {
-        throw new Error(`Continue login failure`);
+        throw new Error(`Synapse login failure`);
       }
 
       const userInfo = (await this.getUserInfo(
@@ -351,7 +351,7 @@ export class WorkOsAuthProvider implements AuthenticationProvider, Disposable {
       )) as any;
       const { user, access_token, refresh_token } = userInfo;
 
-      const session: ContinueAuthenticationSession = {
+      const session: SynapseAuthenticationSession = {
         id: uuidv4(),
         accessToken: access_token,
         refreshToken: refresh_token,
@@ -412,7 +412,7 @@ export class WorkOsAuthProvider implements AuthenticationProvider, Disposable {
   }
 
   /**
-   * Log in to Continue
+   * Log in to Synapse
    */
   private async login(
     codeChallenge: string,
@@ -422,7 +422,7 @@ export class WorkOsAuthProvider implements AuthenticationProvider, Disposable {
     return await window.withProgress<string>(
       {
         location: ProgressLocation.Notification,
-        title: "Signing in to Continue...",
+        title: "Signing in to Synapse...",
         cancellable: true,
       },
       async (_, token) => {
@@ -492,7 +492,7 @@ export class WorkOsAuthProvider implements AuthenticationProvider, Disposable {
   }
 
   /**
-   * Handle the redirect to VS Code (after sign in from Continue)
+   * Handle the redirect to VS Code (after sign in from Synapse)
    * @param scopes
    * @returns
    */
