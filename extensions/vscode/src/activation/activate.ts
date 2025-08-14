@@ -1,4 +1,4 @@
-import { getContinueRcPath, getTsConfigPath } from "core/util/paths";
+import { getSynapseRcPath, getTsConfigPath } from "core/util/paths";
 import { Telemetry } from "core/util/posthog";
 import * as vscode from "vscode";
 
@@ -32,7 +32,7 @@ export async function activateExtension(context: vscode.ExtensionContext) {
 
   // Add necessary files
   getTsConfigPath();
-  getContinueRcPath();
+  getSynapseRcPath();
 
   // Register commands and providers
   registerQuickFixProvider();
@@ -40,7 +40,7 @@ export async function activateExtension(context: vscode.ExtensionContext) {
 
   const vscodeExtension = new VsCodeExtension(context);
 
-  // Load Continue configuration
+  // Load Synapse configuration
   if (!context.globalState.get("hasBeenInstalled")) {
     void context.globalState.update("hasBeenInstalled", true);
     void Telemetry.capture(

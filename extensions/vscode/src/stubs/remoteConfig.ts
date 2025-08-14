@@ -6,7 +6,7 @@ import { getConfigJsonPathForRemote } from "core/util/paths";
 import { canParseUrl } from "core/util/url";
 import * as vscode from "vscode";
 
-import { CONTINUE_WORKSPACE_KEY } from "../util/workspaceConfig";
+import { SYNAPSE_WORKSPACE_KEY } from "../util/workspaceConfig";
 
 export class RemoteConfigSync {
   private userToken: string | null;
@@ -29,8 +29,8 @@ export class RemoteConfigSync {
     this.remoteConfigSyncPeriod = remoteConfigSyncPeriod;
 
     // Listen for changes to VS Code settings, then trigger a refresh
-    vscode.workspace.onDidChangeConfiguration(async (event) => {
-      if (event.affectsConfiguration(CONTINUE_WORKSPACE_KEY)) {
+    vscode.workspace.onDidChangeConfiguration(async (event: vscode.ConfigurationChangeEvent) => {
+      if (event.affectsConfiguration(SYNAPSE_WORKSPACE_KEY)) {
         const { userToken, remoteConfigServerUrl, remoteConfigSyncPeriod } =
           await this.loadVsCodeSettings();
         if (
@@ -49,7 +49,7 @@ export class RemoteConfigSync {
   }
 
   private loadVsCodeSettings() {
-    const settings = vscode.workspace.getConfiguration(EXTENSION_NAME);
+    const settings = vscode.workspace.getConfiguration(EXTENSION_NAME) as vscode.WorkspaceConfiguration;
     const userToken = settings.get<string | null>("userToken", null);
     const remoteConfigServerUrl = settings.get<string | null>(
       "remoteConfigServerUrl",
@@ -77,6 +77,7 @@ export class RemoteConfigSync {
     }
     if (!canParseUrl(this.remoteConfigServerUrl)) {
       vscode.window.showErrorMessage(
+        `The value set for 'remoteConfigServerUrl' is not valid: ${this.remoteConfigServerUrl}`,
         "The value set for 'remoteConfigServerUrl' is not valid: ",
         this.remoteConfigServerUrl,
       );

@@ -1,7 +1,7 @@
 import { workspace } from "vscode";
 
-export const CONTINUE_WORKSPACE_KEY = "synapse";
+export const SYNAPSE_WORKSPACE_KEY = "synapse";
 
-export function getContinueWorkspaceConfig() {
-  return workspace.getConfiguration(CONTINUE_WORKSPACE_KEY);
+export function getSynapseWorkspaceConfig() {
+  return workspace.getConfiguration(SYNAPSE_WORKSPACE_KEY);
 }

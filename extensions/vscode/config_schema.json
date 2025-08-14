@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "config.json",
-  "$ref": "#/$defs/SerializedContinueConfig",
+  "$ref": "#/$defs/SerializedSynapseConfig",
   "$defs": {
     "BaseCompletionOptions": {
       "title": "BaseCompletionOptions",
@@ -2699,7 +2699,7 @@
       ],
       "required": ["name"]
     },
-    "SerializedContinueConfig": {
+    "SerializedSynapseConfig": {
       "title": "config.json",
       "type": "object",
       "properties": {
