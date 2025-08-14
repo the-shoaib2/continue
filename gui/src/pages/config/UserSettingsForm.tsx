@@ -1,12 +1,12 @@
 import {
-    CheckIcon,
-    ChevronRightIcon,
-    ExclamationTriangleIcon,
-    XMarkIcon,
+  CheckIcon,
+  ChevronRightIcon,
+  ExclamationTriangleIcon,
+  XMarkIcon,
 } from "@heroicons/react/24/outline";
 import {
-    SharedConfigSchema,
-    modifyAnyConfigWithSharedConfig,
+  SharedConfigSchema,
+  modifyAnyConfigWithSharedConfig,
 } from "core/config/sharedConfig";
 import { HubSessionInfo } from "core/control-plane/AuthTypes";
 import { useContext, useEffect, useState } from "react";
@@ -127,13 +127,13 @@ export function UserSettingsForm() {
   useEffect(() => {
     void ideMessenger.ide
       .getIdeSettings()
-      .then(({ continueTestEnvironment }) => {
-        setHubEnabled(continueTestEnvironment === "production");
+      .then(({ synapseTestEnvironment }) => {
+        setHubEnabled(synapseTestEnvironment === "production");
       });
   }, [ideMessenger]);
 
   const hasContinueEmail = (session as HubSessionInfo)?.account?.id.includes(
-            "@synapse.dev",
+    "@synapse.dev",
   );
 
   const disableTelemetryToggle =

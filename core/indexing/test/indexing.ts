@@ -1,7 +1,7 @@
 import { jest } from "@jest/globals";
 
 import { IndexTag } from "../..";
-import { IContinueServerClient } from "../../continueServer/interface";
+import { IContinueServerClient } from "../../synapse-server/interface";
 import { ChunkCodebaseIndex } from "../chunk/ChunkCodebaseIndex";
 import { CodebaseIndex, RefreshIndexResults } from "../types";
 

@@ -148,7 +148,7 @@ data class IdeSettings(
     val remoteConfigSyncPeriod: Int,
     val userToken: String,
     val pauseCodebaseIndexOnStart: Boolean,
-    val continueTestEnvironment: String
+    val synapseTestEnvironment: String
 )
 
 data class TerminalOptions(

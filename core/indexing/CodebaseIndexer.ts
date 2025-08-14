@@ -16,8 +16,8 @@ import { findUriInDirs, getUriPathBasename } from "../util/uri.js";
 
 import { ConfigResult } from "@synapse/config-yaml";
 import CodebaseContextProvider from "../context/providers/CodebaseContextProvider.js";
-import { ContinueServerClient } from "../continueServer/stubs/client";
 import { LLMError } from "../llm/index.js";
+import { ContinueServerClient } from "../synapse-server/stubs/client";
 import { getRootCause } from "../util/errors.js";
 import { ChunkCodebaseIndex } from "./chunk/ChunkCodebaseIndex.js";
 import { CodeSnippetsCodebaseIndex } from "./CodeSnippetsIndex.js";

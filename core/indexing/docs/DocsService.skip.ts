@@ -39,7 +39,7 @@
 //     const ideSettingsPromise = Promise.resolve({
 //       remoteConfigSyncPeriod: 60,
 //       userToken: "",
-//       continueTestEnvironment: "none" as const,
+//       synapse-test-environment: "none" as const,
 //       pauseCodebaseIndexOnStart: false,
 //       ideSettings: {} as any,
 //       enableDebugLogs: false,

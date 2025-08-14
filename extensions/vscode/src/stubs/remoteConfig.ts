@@ -1,7 +1,7 @@
 import * as fs from "fs";
 
-import { ContinueServerClient } from "core/continueServer/stubs/client";
 import { EXTENSION_NAME } from "core/control-plane/env";
+import { ContinueServerClient } from "core/synapse-server/stubs/client";
 import { getConfigJsonPathForRemote } from "core/util/paths";
 import { canParseUrl } from "core/util/url";
 import * as vscode from "vscode";

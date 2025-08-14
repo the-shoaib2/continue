@@ -1,8 +1,8 @@
 import * as fs from "node:fs";
 import { IdeSettings } from "..";
 import {
-    getLocalEnvironmentDotFilePath,
-    getStagingEnvironmentDotFilePath,
+  getLocalEnvironmentDotFilePath,
+  getStagingEnvironmentDotFilePath,
 } from "../util/paths";
 import { AuthType, ControlPlaneEnv } from "./AuthTypes";
 import { getLicenseKeyData } from "./mdm/mdm";
