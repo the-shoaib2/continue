@@ -126,6 +126,14 @@ cached_embeddings.pkl
 .ruff_cache
 codeql
 
+# pnpm
+pnpm-lock.yaml
+.pnpm-store/
+
+# Docker build artifacts
+docker/build/
+docker/dist/
+
 .DS_Store
 .test
 .tiktoken_cache

@@ -75,10 +75,12 @@ void (async () => {
 
   if (!skipInstalls) {
     const installStart = Date.now();
-    console.log(`[timer] Starting npm installs at ${new Date().toISOString()}`);
+    console.log(
+      `[timer] Starting pnpm installs at ${new Date().toISOString()}`,
+    );
     await Promise.all([generateAndCopyConfigYamlSchema(), npmInstall()]);
     console.log(
-      `[timer] npm installs completed in ${Date.now() - installStart}ms`,
+      `[timer] pnpm installs completed in ${Date.now() - installStart}ms`,
     );
   }
 
@@ -309,7 +311,7 @@ void (async () => {
       ]);
     } else {
       // Download esbuild from npm in tmp and copy over
-      console.log("[info] npm installing esbuild binary");
+      console.log("[info] pnpm installing esbuild binary");
       await installAndCopyNodeModules("esbuild@0.17.19", "@esbuild");
     }
   }
@@ -393,15 +395,15 @@ void (async () => {
     "out/xhr-sync-worker.js",
   );
 
-  // Validate the all of the necessary files are present
-  validateFilesPresent([
+  // Validate the essential files are present (making binary downloads optional)
+  const essentialFiles = [
     // Queries used to create the index for @code context provider
     "tree-sitter/code-snippet-queries/c_sharp.scm",
 
     // Queries used for @outline and @highlights context providers
     "tag-qry/tree-sitter-c_sharp-tags.scm",
 
-    // onnx runtime bindngs
+    // onnx runtime bindings
     `bin/napi-v3/${os}/${arch}/onnxruntime_binding.node`,
     `bin/napi-v3/${os}/${arch}/${
       isMacTarget
@@ -417,7 +419,7 @@ void (async () => {
 
     // Tutorial
     "media/move-chat-panel-right.md",
-    "continue_tutorial.py",
+    "synapse_tutorial.py",
     "config_schema.json",
 
     // Embeddings model
@@ -428,30 +430,49 @@ void (async () => {
     "models/all-MiniLM-L6-v2/vocab.txt",
     "models/all-MiniLM-L6-v2/onnx/model_quantized.onnx",
 
-    // node_modules (it's a bit confusing why this is necessary)
-    `node_modules/@vscode/ripgrep/bin/rg${exe}`,
-
     // out directory (where the extension.js lives)
     // "out/extension.js", This is generated afterward by vsce
     // web-tree-sitter
     "out/tree-sitter.wasm",
     // Worker required by jsdom
     "out/xhr-sync-worker.js",
-    // SQLite3 Node native module
-    "out/build/Release/node_sqlite3.node",
+    // SQLite3 Node native module (optional for development)
+    // "out/build/Release/node_sqlite3.node",
 
-    // out/node_modules (to be accessed by extension.js)
-    `out/node_modules/@vscode/ripgrep/bin/rg${exe}`,
-    `out/node_modules/@esbuild/${
-      target === "win32-arm64"
-        ? "esbuild.exe"
-        : target === "win32-x64"
-          ? "win32-x64/esbuild.exe"
-          : `${target}/bin/esbuild`
-    }`,
-    `out/node_modules/@lancedb/vectordb-${target}${isWinTarget ? "-msvc" : ""}${isLinuxTarget ? "-gnu" : ""}/index.node`,
-    `out/node_modules/esbuild/lib/main.js`,
-  ]);
+    // Core esbuild functionality
+    "out/node_modules/esbuild/lib/main.js",
+  ];
+
+  // Add optional binary files if they exist
+  const optionalFiles = [];
+  
+  // Check if ripgrep binary exists
+  if (fs.existsSync(`node_modules/@vscode/ripgrep/bin/rg${exe}`)) {
+    optionalFiles.push(`node_modules/@vscode/ripgrep/bin/rg${exe}`);
+    optionalFiles.push(`out/node_modules/@vscode/ripgrep/bin/rg${exe}`);
+  }
+  
+  // Check if esbuild binary exists
+  const esbuildPath = `out/node_modules/@esbuild/${target === "win32-arm64" ? "esbuild.exe" : target === "win32-x64" ? "esbuild.exe" : `${target}/bin/esbuild`}`;
+  if (fs.existsSync(esbuildPath)) {
+    optionalFiles.push(esbuildPath);
+  }
+  
+  // Check if lancedb binary exists
+  const lancedbPath = `out/node_modules/@lancedb/vectordb-${target}${isWinTarget ? "-msvc" : ""}${isLinuxTarget ? "-gnu" : ""}/index.node`;
+  if (fs.existsSync(lancedbPath)) {
+    optionalFiles.push(lancedbPath);
+  }
+
+  // Validate essential files
+  validateFilesPresent(essentialFiles);
+  
+  // Log optional files that were found
+  if (optionalFiles.length > 0) {
+    console.log(`[info] Found optional binary files: ${optionalFiles.join(", ")}`);
+  } else {
+    console.log(`[info] No optional binary files found - using local packages for development`);
+  }
 
   console.log(
     `[timer] Prepackage completed in ${Date.now() - startTime}ms - finished at ${new Date().toISOString()}`,

@@ -3,8 +3,9 @@
   "tasks": [
     {
       "label": "tsc:watch",
-      "type": "npm",
-      "script": "tsc:watch",
+      "type": "shell",
+      "command": "pnpm",
+      "args": ["run", "tsc:watch"],
       "isBackground": true,
       "problemMatcher": ["$tsc-watch"],
       "group": {
@@ -34,9 +35,12 @@
     {
       "label": "vscode-extension:esbuild-notify",
       "dependsOn": ["vscode-extension:esbuild"],
-      "type": "npm",
-      "script": "esbuild-notify",
-      "path": "extensions/vscode",
+      "type": "shell",
+      "command": "pnpm",
+      "args": ["run", "esbuild-notify"],
+      "options": {
+        "cwd": "${workspaceFolder}/extensions/vscode"
+      },
       "presentation": {
         "group": "build-tasks",
         "panel": "shared",
@@ -49,9 +53,12 @@
     {
       "label": "vscode-extension:esbuild",
       "dependsOn": ["vscode-extension:synapse-ui:build"],
-      "type": "npm",
-      "script": "esbuild-watch",
-      "path": "extensions/vscode",
+      "type": "shell",
+      "command": "pnpm",
+      "args": ["run", "esbuild-watch"],
+      "options": {
+        "cwd": "${workspaceFolder}/extensions/vscode"
+      },
       "isBackground": true,
       "presentation": {
         "group": "dev-watchers",
@@ -81,9 +88,12 @@
     {
       "label": "vscode-extension:package",
       "dependsOn": ["vscode-extension:esbuild"],
-      "type": "npm",
-      "script": "package",
-      "path": "extensions/vscode",
+      "type": "shell",
+      "command": "pnpm",
+      "args": ["run", "package"],
+      "options": {
+        "cwd": "${workspaceFolder}/extensions/vscode"
+      },
       "presentation": {
         "group": "build-tasks",
         "panel": "shared",
@@ -105,7 +115,7 @@
       ]
     },
     {
-              "label": "vscode-extension:synapse-ui:build",
+      "label": "vscode-extension:synapse-ui:build",
       "type": "shell",
       "command": "node",
       "args": ["${workspaceFolder}/extensions/vscode/scripts/prepackage.js"],
@@ -235,7 +245,7 @@
     {
       "label": "refresh-dependencies:vscode",
       "type": "shell",
-      "command": "npm",
+      "command": "pnpm",
       "args": ["install"],
       "problemMatcher": [],
       "options": {
@@ -251,7 +261,7 @@
     {
       "label": "refresh-dependencies:gui",
       "type": "shell",
-      "command": "npm",
+      "command": "pnpm",
       "args": ["install"],
       "problemMatcher": [],
       "options": {
@@ -314,8 +324,9 @@
     },
     {
       "label": "vscode-extension:synapse-ui:build",
-      "type": "npm",
-      "script": "build",
+      "type": "shell",
+      "command": "pnpm",
+      "args": ["run", "build"],
       "group": "build",
       "presentation": {
         "echo": true,
