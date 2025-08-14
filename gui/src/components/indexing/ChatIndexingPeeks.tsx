@@ -39,9 +39,9 @@ function ChatIndexingPeek({ state }: ChatIndexingPeekProps) {
             {state.displayName}
           </p>
         </div>
-        <div className="my-2 h-1.5 flex-1 rounded-md border border-solid border-gray-400">
+        <div className="my-2 h-1.5 flex-1 rounded border border-solid border-gray-400">
           <div
-            className={`h-full rounded-lg bg-stone-500 transition-all duration-200 ease-in-out`}
+            className={`h-full rounded bg-stone-500 transition-all duration-200 ease-in-out`}
             style={{
               width: `${state.progressPercentage}%`,
             }}

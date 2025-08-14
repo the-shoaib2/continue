@@ -24,9 +24,9 @@ function ProgressBar({ label, current, total }: ProgressBarProps) {
           {current}/{total}
         </span>
       </div>
-      <div className="h-2 w-full rounded-full bg-gray-700">
+      <div className="h-2 w-full rounded bg-gray-700">
         <div
-          className="h-2 rounded-full transition-all duration-300"
+          className="h-2 rounded transition-all duration-300"
           style={{
             width: `${percentage}%`,
             backgroundColor: vscButtonBackground,

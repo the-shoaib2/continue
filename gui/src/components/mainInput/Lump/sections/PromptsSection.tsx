@@ -65,7 +65,7 @@ function PromptRow({
 
   return (
     <div
-      className="hover:bg-list-active hover:text-list-active-foreground flex items-center justify-between gap-3 rounded-md px-2 py-1 hover:cursor-pointer"
+      className="hover:bg-list-active hover:text-list-active-foreground flex items-center justify-between gap-3 rounded px-2 py-1 hover:cursor-pointer"
       onClick={handlePromptClick}
       style={{
         fontSize: fontSize(-3),

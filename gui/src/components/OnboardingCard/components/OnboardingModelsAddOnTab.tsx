@@ -84,7 +84,7 @@ export function OnboardingModelsAddOnTab() {
           </h2>
         </div>
 
-        <div className="bg-badge text-badge-foreground mb-4 rounded-full px-3 py-1 text-xs font-medium">
+        <div className="bg-badge text-badge-foreground mb-4 rounded px-3 py-1 text-xs font-medium">
           $20/month
         </div>
 

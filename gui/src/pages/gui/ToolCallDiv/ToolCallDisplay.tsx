@@ -34,7 +34,7 @@ export function ToolCallDisplay({
               {icon}
             </div>
             {tool?.faviconUrl && (
-              <img src={tool.faviconUrl} className="h-4 w-4 rounded-sm" />
+              <img src={tool.faviconUrl} className="h-4 w-4 rounded" />
             )}
             <ToolCallStatusMessage tool={tool} toolCallState={toolCallState} />
           </div>

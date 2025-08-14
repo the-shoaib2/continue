@@ -271,7 +271,7 @@ export const useFindWidget = (
           e.stopPropagation();
           setCaseSensitive((curr) => !curr);
         }}
-        className="h-5 w-6 rounded-full border text-xs focus:outline-none focus:ring"
+        className="h-5 w-6 rounded border text-xs focus:outline-none focus:ring"
       >
         Aa
       </HeaderButtonWithToolTip>

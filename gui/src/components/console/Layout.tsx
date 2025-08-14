@@ -47,7 +47,7 @@ export default function Layout() {
             {/* Close button */}
             <button
               onClick={() => setShowTotalUsage(false)}
-              className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-[color:var(--vscode-button-background)] text-[color:var(--vscode-button-foreground)] transition-colors hover:bg-[color:var(--vscode-button-hoverBackground)]"
+              className="absolute right-4 top-4 z-10 flex h-8 w-8 items-center justify-center rounded bg-[color:var(--vscode-button-background)] text-[color:var(--vscode-button-foreground)] transition-colors hover:bg-[color:var(--vscode-button-hoverBackground)]"
             >
               ×
             </button>

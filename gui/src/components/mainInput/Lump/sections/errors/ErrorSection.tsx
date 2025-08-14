@@ -45,7 +45,7 @@ export function ErrorSection() {
         {sortedErrors.map((error, index) => (
           <li
             key={index}
-            className={`flex items-start rounded-md p-2 text-sm shadow-md ${
+            className={`flex items-start rounded p-2 text-sm shadow-md ${
               error.fatal
                 ? "bg-red-100 text-red-800"
                 : "bg-yellow-100 text-yellow-800"

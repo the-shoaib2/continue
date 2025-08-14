@@ -25,7 +25,7 @@ interface ScopeSelectProps {
 function getOrgIcon(org: { name: string; iconUrl?: string | null }) {
   if (org.iconUrl) {
     return (
-      <img src={org.iconUrl} alt="" className="h-3.5 w-3.5 rounded-full" />
+      <img src={org.iconUrl} alt="" className="h-3.5 w-3.5 rounded" />
     );
   }
 

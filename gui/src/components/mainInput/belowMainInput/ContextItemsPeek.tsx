@@ -66,7 +66,7 @@ export function ContextItemsPeekItem({
         : undefined;
       return (
         <SafeImg
-          className="mr-2 flex-shrink-0 rounded-md p-1"
+          className="mr-2 flex-shrink-0 rounded p-1"
           src={contextItem.icon}
           height={dimensions}
           width={dimensions}

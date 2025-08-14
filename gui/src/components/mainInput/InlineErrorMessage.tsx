@@ -14,7 +14,7 @@ export default function InlineErrorMessage() {
   if (inlineErrorMessage === "out-of-context") {
     return (
       <div
-        className={`border-border relative m-2 flex flex-col rounded-md border border-solid bg-transparent p-4`}
+        className={`border-border relative m-2 flex flex-col rounded border border-solid bg-transparent p-4`}
       >
         <p className={`thread-message text-error text-center`}>
           {`Message exceeds context limit.`}

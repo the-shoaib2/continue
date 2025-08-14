@@ -260,7 +260,7 @@ const StreamErrorDialog = ({ error }: StreamErrorProps) => {
       {message && (
         <div className="mb-2">
           <ToggleDiv title="View error output" testId="error-output-toggle">
-            <div className="flex flex-col gap-0 rounded-sm">
+            <div className="flex flex-col gap-0 rounded">
               <code className="text-editor-foreground block max-h-48 overflow-y-auto p-3 font-mono text-xs">
                 {parsedError}
               </code>

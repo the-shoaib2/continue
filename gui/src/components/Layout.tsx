@@ -249,7 +249,7 @@ const Layout = () => {
           {showStagingIndicator && (
             <span
               title="Staging environment"
-              className="absolute right-0 mx-1.5 h-1.5 w-1.5 rounded-full"
+              className="absolute right-0 mx-1.5 h-1.5 w-1.5 rounded"
               style={{
                 backgroundColor: "var(--vscode-list-warningForeground)",
               }}

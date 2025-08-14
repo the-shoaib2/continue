@@ -39,7 +39,7 @@ function SymbolLink({ symbol, content }: SymbolLinkProps) {
   return (
     <>
       <span
-        className="mx-[0.1em] mb-[0.15em] inline-flex cursor-pointer flex-row items-center gap-[0.2rem] rounded-md align-middle hover:ring-1"
+        className="mx-[0.1em] mb-[0.15em] inline-flex cursor-pointer flex-row items-center gap-[0.2rem] rounded align-middle hover:ring-1"
         onClick={onClick}
         data-tooltip-id={id}
         data-tooltip-delay-show={500}

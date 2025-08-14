@@ -30,7 +30,7 @@ function ModelSelectionListbox({
   return (
     <Listbox value={selectedProvider} onChange={setSelectedProvider}>
       <div className="relative mb-2 mt-1">
-        <ListboxButton className="bg-background border-border text-foreground hover:bg-input relative m-0 grid h-full w-full cursor-pointer grid-cols-[1fr_auto] items-center rounded-lg border border-solid py-2 pl-3 pr-10 text-left focus:outline-none">
+        <ListboxButton className="bg-background border-border text-foreground hover:bg-input relative m-0 grid h-full w-full cursor-pointer grid-cols-[1fr_auto] items-center rounded border border-solid py-2 pl-3 pr-10 text-left focus:outline-none">
           <span className="flex items-center">
             {window.vscMediaUrl && selectedProvider.icon && (
               <img

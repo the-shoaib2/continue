@@ -70,7 +70,7 @@ const ContextStatus = () => {
       </ToolTip>
       <div
         data-tooltip-id="context-status"
-        className="border-description-muted relative h-[14px] w-[7px] rounded-[1px] border-[0.5px] border-solid md:h-[10px] md:w-[5px]"
+        className="border-description-muted relative h-[14px] w-[7px] rounded border-[0.5px] border-solid md:h-[10px] md:w-[5px]"
       >
         <div
           className={`transition-height absolute bottom-0 left-0 w-full duration-300 ease-in-out ${barColorClass}`}

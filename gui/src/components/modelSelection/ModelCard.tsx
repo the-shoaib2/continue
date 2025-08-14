@@ -137,7 +137,7 @@ function ModelCard(props: ModelCardProps) {
               width="24px"
               height="24px"
               style={{
-                borderRadius: "2px",
+                borderRadius: "0.25rem",
                 padding: "4px",
                 marginRight: "10px",
                 objectFit: "contain",

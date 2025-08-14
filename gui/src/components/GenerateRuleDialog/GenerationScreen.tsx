@@ -162,7 +162,7 @@ export function GenerationScreen({
                 <div className="relative">
                   <input
                     type="text"
-                    className="border-input-border bg-input text-input-foreground placeholder:text-input-placeholder focus:border-border-focus box-border w-full rounded-md border px-3 py-2 text-xs focus:outline-none"
+                    className="border-input-border bg-input text-input-foreground placeholder:text-input-placeholder focus:border-border-focus box-border w-full rounded border px-3 py-2 text-xs focus:outline-none"
                     placeholder={showNameSpinner ? "" : "Enter rule name..."}
                     disabled={isGenerating && !isManualMode}
                     {...register("name")}
@@ -192,7 +192,7 @@ export function GenerationScreen({
                 </div>
                 <div className="relative">
                   <select
-                    className="border-input-border bg-input text-input-foreground focus:border-border-focus w-full rounded-md border px-3 py-2 text-xs focus:outline-none"
+                    className="border-input-border bg-input text-input-foreground focus:border-border-focus w-full rounded border px-3 py-2 text-xs focus:outline-none"
                     value={isGenerating ? "" : selectedRuleType}
                     onChange={(e) =>
                       handleRuleTypeChange(e.target.value as RuleType)
@@ -225,7 +225,7 @@ export function GenerationScreen({
                   Description
                 </label>
                 <textarea
-                  className="border-input-border bg-input text-input-foreground placeholder:text-input-placeholder focus:border-border-focus box-border w-full resize-none rounded-md border px-3 py-2 text-xs focus:outline-none"
+                  className="border-input-border bg-input text-input-foreground placeholder:text-input-placeholder focus:border-border-focus box-border w-full resize-none rounded border px-3 py-2 text-xs focus:outline-none"
                   rows={3}
                   placeholder="Description of the task this rule is helpful for..."
                   {...register("description")}
@@ -241,7 +241,7 @@ export function GenerationScreen({
                 </label>
                 <input
                   type="text"
-                  className="border-input-border bg-input text-input-foreground placeholder:text-input-placeholder focus:border-border-focus box-border w-full rounded-md border px-3 py-2 font-mono text-xs focus:outline-none"
+                  className="border-input-border bg-input text-input-foreground placeholder:text-input-placeholder focus:border-border-focus box-border w-full rounded border px-3 py-2 font-mono text-xs focus:outline-none"
                   placeholder="*.tsx, **/*.{ts,tsx}, tests/**/*.ts ..."
                   {...register("globs")}
                 />

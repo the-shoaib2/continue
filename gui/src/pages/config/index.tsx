@@ -74,7 +74,7 @@ function ConfigPage() {
                 fontSize: fontSize(-2),
               }}
               key={tab.id}
-              className={`flex cursor-pointer items-center justify-center gap-1.5 rounded-md px-2 py-2 hover:brightness-125 ${
+              className={`flex cursor-pointer items-center justify-center gap-1.5 rounded px-2 py-2 hover:brightness-125 ${
                 activeTab === tab.id ? "" : "text-gray-400"
               }`}
               onClick={() => setActiveTab(tab.id)}

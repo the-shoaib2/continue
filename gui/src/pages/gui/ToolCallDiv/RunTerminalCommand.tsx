@@ -34,7 +34,7 @@ function StatusIcon({ status }: StatusIconProps) {
 
   return (
     <span
-      className={`mr-2 h-2 w-2 rounded-full ${getStatusColor()} ${
+      className={`mr-2 h-2 w-2 rounded ${getStatusColor()} ${
         status === "running" ? "animate-pulse" : ""
       }`}
     />

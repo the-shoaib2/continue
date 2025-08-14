@@ -29,7 +29,7 @@ export function StatusIndicator({
     <div
       data-tooltip-id={hoverMessage ? "status-tooltip" : undefined}
       data-tooltip-content={hoverMessage}
-      className={`h-${size} w-${size} rounded-full ${STATUS_TO_COLOR[status]} ${
+      className={`h-${size} w-${size} rounded ${STATUS_TO_COLOR[status]} ${
         status === "indexing" ? "animate-pulse" : ""
       } ${className}`}
     />

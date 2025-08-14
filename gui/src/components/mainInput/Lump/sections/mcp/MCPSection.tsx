@@ -217,7 +217,7 @@ function MCPServerPreview({ server, serverFromYaml }: MCPServerStatusProps) {
         </div>
 
         <div
-          className="hidden h-2 w-2 rounded-full sm:flex"
+          className="hidden h-2 w-2 rounded sm:flex"
           style={{
             backgroundColor:
               server.status === "connected"

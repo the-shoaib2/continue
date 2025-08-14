@@ -12,7 +12,7 @@ const StatCard: React.FC<{ label: string; value: number; color?: string }> = ({
   value,
   color = "var(--vscode-foreground)",
 }) => (
-  <div className="flex flex-col items-center rounded-lg border border-[color:var(--vscode-panel-border)] bg-[color:var(--vscode-editor-background)] p-3">
+  <div className="flex flex-col items-center rounded border border-[color:var(--vscode-panel-border)] bg-[color:var(--vscode-editor-background)] p-3">
     <div className="text-sm text-[color:var(--vscode-descriptionForeground)]">
       {label}
     </div>
@@ -77,7 +77,7 @@ const CostChart: React.FC<{ llmLog: LLMLog }> = ({ llmLog }) => {
     .join(" ");
 
   return (
-    <div className="mb-4 rounded-lg border border-[color:var(--vscode-panel-border)] bg-[color:var(--vscode-editor-background)] p-4">
+    <div className="mb-4 rounded border border-[color:var(--vscode-panel-border)] bg-[color:var(--vscode-editor-background)] p-4">
       <h3 className="mb-3 text-sm font-semibold text-[color:var(--vscode-foreground)]">
         Cumulative Cost Over Interactions
       </h3>
@@ -291,7 +291,7 @@ const TotalUsage: React.FC<TotalUsageProps> = ({ llmLog }) => {
         <>
           <CostChart llmLog={llmLog} />
           <div className="mb-4">
-            <div className="flex flex-col items-center rounded-lg border border-[color:var(--vscode-panel-border)] bg-[color:var(--vscode-editor-background)] p-3">
+            <div className="flex flex-col items-center rounded border border-[color:var(--vscode-panel-border)] bg-[color:var(--vscode-editor-background)] p-3">
               <div className="text-sm text-[color:var(--vscode-descriptionForeground)]">
                 Total Cost
               </div>
@@ -313,7 +313,7 @@ const TotalUsage: React.FC<TotalUsageProps> = ({ llmLog }) => {
             value={totalUsage.totalCacheWriteTokens}
             color="var(--vscode-charts-red)"
           />
-          <div className="flex items-center justify-center rounded-lg border border-[color:var(--vscode-panel-border)] bg-[color:var(--vscode-editor-background)] p-3">
+          <div className="flex items-center justify-center rounded border border-[color:var(--vscode-panel-border)] bg-[color:var(--vscode-editor-background)] p-3">
             <div className="text-sm text-[color:var(--vscode-descriptionForeground)]">
               Cache Hit Rate:{" "}
               {totalUsage.totalPromptTokens > 0

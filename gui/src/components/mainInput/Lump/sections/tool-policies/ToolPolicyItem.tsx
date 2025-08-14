@@ -75,7 +75,7 @@ function ToolPolicyItem(props: ToolDropdownItemProps) {
           />
 
           <div
-            className={`flex items-center gap-1 rounded-md`}
+            className={`flex items-center gap-1 rounded`}
             style={{
               fontSize,
             }}

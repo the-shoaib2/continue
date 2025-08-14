@@ -12,7 +12,7 @@ export function AssistantIcon({ assistant, size }: AssistantIconProps) {
   if (isLocalProfile(assistant)) {
     return (
       <div
-        className={`h-${sizeTw} w-${sizeTw} bg-lightgray flex items-center justify-center rounded-full`}
+        className={`h-${sizeTw} w-${sizeTw} bg-lightgray flex items-center justify-center rounded`}
       >
         <ComputerDesktopIcon
           className={`h-${sizeTw - 1} w-${sizeTw - 1} font-bold text-black`}
@@ -23,7 +23,7 @@ export function AssistantIcon({ assistant, size }: AssistantIconProps) {
     return (
       <img
         src={assistant.iconUrl}
-        className={`h-${sizeTw} w-${sizeTw} rounded-full`}
+        className={`h-${sizeTw} w-${sizeTw} rounded`}
         alt=""
       />
     );

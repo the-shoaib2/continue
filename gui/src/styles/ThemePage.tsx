@@ -109,7 +109,7 @@ function ThemePage() {
       <h2 className="mb-2 mt-0 p-0 text-center text-xl font-semibold">
         Theme Tester
       </h2>
-      <div className="bg-background border-border grid grid-cols-1 gap-4 rounded-md border border-solid p-4 md:grid-cols-2">
+      <div className="bg-background border-border grid grid-cols-1 gap-4 rounded border border-solid p-4 md:grid-cols-2">
         <div className="col-span-2 flex gap-4">
           <p className="">Normal text</p>
           <p className="text-description">Description text</p>
@@ -123,20 +123,20 @@ function ThemePage() {
           Secondary Button
         </button>
 
-        <div className="border-border rounded-md border border-solid p-3">
+        <div className="border-border rounded border border-solid p-3">
           Normal border
         </div>
 
-        <div className="border-border-focus rounded-md border border-solid p-3">
+        <div className="border-border-focus rounded border border-solid p-3">
           Focus border
         </div>
 
         <input
-          className="bg-input text-input-foreground border-input-border placeholder:text-input-placeholder focus:border-border-focus rounded-md border border-solid p-2 focus:outline-none"
+          className="bg-input text-input-foreground border-input-border placeholder:text-input-placeholder focus:border-border-focus rounded border border-solid p-2 focus:outline-none"
           placeholder="Input example"
         />
 
-        <div className="bg-badge text-badge-foreground border-border inline-block rounded-full border border-solid p-2">
+        <div className="bg-badge text-badge-foreground border-border inline-block rounded border border-solid p-2">
           <span className="px-2">Badge</span>
         </div>
 
@@ -159,7 +159,7 @@ function ThemePage() {
         >
           List item (clickable)
         </div>
-        <div className="bg-editor text-editor-foreground border-border rounded-sm border border-solid p-2">
+        <div className="bg-editor text-editor-foreground border-border rounded border border-solid p-2">
           <span>Editor</span>
         </div>
         <table>

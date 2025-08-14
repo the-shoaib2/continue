@@ -47,7 +47,7 @@ export function TerminalCollapsibleContainer({
 
       {/* Content container with proper constraint for gradient */}
       <div
-        className={`relative overflow-hidden rounded-lg ${collapsible ? "cursor-pointer" : ""}`}
+        className={`relative overflow-hidden rounded ${collapsible ? "cursor-pointer" : ""}`}
       >
         {/* Gradient overlay on top of content - only when collapsed */}
         {!isExpanded && hiddenLinesCount > 0 && (

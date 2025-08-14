@@ -56,8 +56,8 @@ const ALERT_CONFIGS: AlertConfig = {
 };
 
 const alertSizes = {
-  sm: "px-3 py-1.5 rounded-md border",
-  lg: "px-4 py-3 rounded-md border",
+  sm: "px-3 py-1.5 rounded border",
+  lg: "px-4 py-3 rounded border",
 };
 
 const iconSizes = {

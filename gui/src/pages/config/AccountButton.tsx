@@ -37,7 +37,7 @@ export function AccountButton() {
     <Popover className="relative">
       {({ close }) => (
         <>
-          <PopoverButton className="bg-vsc-background hover:bg-vsc-input-background text-vsc-foreground my-0.5 flex cursor-pointer rounded-md border-none px-2">
+          <PopoverButton className="bg-vsc-background hover:bg-vsc-input-background text-vsc-foreground my-0.5 flex cursor-pointer rounded border-none px-2">
             <div className="flex items-center gap-1.5">
               <span className="font-medium">
                 {selectedOrg === null ? "Personal" : selectedOrg.name}
@@ -47,7 +47,7 @@ export function AccountButton() {
           </PopoverButton>
 
           <Transition>
-            <PopoverPanel className="bg-vsc-input-background xs:p-4 absolute right-0 mt-1 rounded-md border border-zinc-700 p-2 shadow-lg">
+            <PopoverPanel className="bg-vsc-input-background xs:p-4 absolute right-0 mt-1 rounded border border-zinc-700 p-2 shadow-lg">
               <div className="flex flex-col gap-3">
                 <div className="flex flex-col">
                   <span className="font-medium">{session.account.label}</span>
