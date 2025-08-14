@@ -445,19 +445,19 @@ void (async () => {
 
   // Add optional binary files if they exist
   const optionalFiles = [];
-  
+
   // Check if ripgrep binary exists
   if (fs.existsSync(`node_modules/@vscode/ripgrep/bin/rg${exe}`)) {
     optionalFiles.push(`node_modules/@vscode/ripgrep/bin/rg${exe}`);
     optionalFiles.push(`out/node_modules/@vscode/ripgrep/bin/rg${exe}`);
   }
-  
+
   // Check if esbuild binary exists
   const esbuildPath = `out/node_modules/@esbuild/${target === "win32-arm64" ? "esbuild.exe" : target === "win32-x64" ? "esbuild.exe" : `${target}/bin/esbuild`}`;
   if (fs.existsSync(esbuildPath)) {
     optionalFiles.push(esbuildPath);
   }
-  
+
   // Check if lancedb binary exists
   const lancedbPath = `out/node_modules/@lancedb/vectordb-${target}${isWinTarget ? "-msvc" : ""}${isLinuxTarget ? "-gnu" : ""}/index.node`;
   if (fs.existsSync(lancedbPath)) {
@@ -466,12 +466,16 @@ void (async () => {
 
   // Validate essential files
   validateFilesPresent(essentialFiles);
-  
+
   // Log optional files that were found
   if (optionalFiles.length > 0) {
-    console.log(`[info] Found optional binary files: ${optionalFiles.join(", ")}`);
+    console.log(
+      `[info] Found optional binary files: ${optionalFiles.join(", ")}`,
+    );
   } else {
-    console.log(`[info] No optional binary files found - using local packages for development`);
+    console.log(
+      `[info] No optional binary files found - using local packages for development`,
+    );
   }
 
   console.log(
